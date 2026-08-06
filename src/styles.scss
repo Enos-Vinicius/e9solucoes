@@ -1,0 +1,428 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   E9 Soluções — Design System tokens (Indigo edition)
+   ========================================================= */
+:root {
+  --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', 'SF Mono', monospace;
+
+  /* E9 Palette — Carbon / Platinum / Indigo · Cobalt (camadas ascendentes) */
+  --e9-carbon: #06080F;
+  --e9-midnight: #0A0E1A;
+  --e9-graphite: #11162A;
+  --e9-stone: #1A2238;
+  --e9-platinum: #E5E9F2;
+  --e9-indigo: #4F46E5;          /* Indigo-600 · primary */
+  --e9-indigo-deep: #3730A3;     /* Indigo-800 · midnight */
+  --e9-indigo-light: #818CF8;    /* Indigo-400 · highlight */
+  --e9-cobalt: #2563EB;          /* Blue-600 · electric */
+  --e9-cobalt-light: #60A5FA;    /* Blue-400 */
+  --e9-sky-edge: #38BDF8;        /* edge highlight */
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--e9-carbon);
+  color: #ffffff;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(79, 70, 229, 0.30);
+  color: rgb(199, 210, 254);
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--e9-carbon); }
+::-webkit-scrollbar-thumb { background: #1d2440; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--e9-indigo-deep); }
+
+/* =========================================================
+   Reused architecture · animations & reveal
+   ========================================================= */
+.fade-in-up {
+  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================================
+   Glass surfaces
+   ========================================================= */
+.glass-panel {
+  background: rgba(79, 70, 229, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 233, 242, 0.06);
+}
+.glass-nav {
+  background: rgba(6, 8, 15, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(129, 140, 248, 0.08);
+}
+
+/* =========================================================
+   Typing cursor — indigo
+   ========================================================= */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: var(--e9-cobalt-light);
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* =========================================================
+   Gradient text
+   ========================================================= */
+.text-gradient {
+  background: linear-gradient(to bottom, #ffffff, #a1a8b8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+.text-gradient-indigo {
+  background: linear-gradient(to right, #818CF8, #ffffff, #60A5FA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =========================================================
+   Glow point — indigo
+   ========================================================= */
+.glow-point {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.22) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* =========================================================
+   E9 — Motion keyframes (also exposed via Tailwind animations)
+   ========================================================= */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes core-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 0 1px rgba(129, 140, 248, 0.5),
+      0 0 30px -8px rgba(79, 70, 229, 0.6),
+      inset 0 0 18px -6px rgba(96, 165, 250, 0.35);
+  }
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(129, 140, 248, 0.95),
+      0 0 56px -6px rgba(37, 99, 235, 0.95),
+      inset 0 0 26px -4px rgba(96, 165, 250, 0.6);
+  }
+}
+@keyframes data-render {
+  0%   { opacity: 0; transform: translateY(6px); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0);   filter: blur(0); }
+}
+.data-render { animation: data-render 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* =========================================================
+   Triadic column emphasis
+   ========================================================= */
+.triad-center {
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(79, 70, 229, 0.14), transparent 60%),
+    rgba(17, 22, 42, 0.7);
+  border-color: rgba(129, 140, 248, 0.28);
+  box-shadow:
+    0 0 60px -20px rgba(37, 99, 235, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+/* =========================================================
+   Spec row — typography table
+   ========================================================= */
+.spec-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 160px;
+  align-items: baseline;
+  gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(229, 233, 242, 0.05);
+}
+.spec-row .spec-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(129, 140, 248, 0.6);
+}
+.spec-row .spec-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(229, 233, 242, 0.4);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   Eyebrow
+   ========================================================= */
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--e9-indigo-light);
+}
+
+/* =========================================================
+   Buttons — E9 Indigo
+   ========================================================= */
+.btn-indigo {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 13px; font-weight: 500;
+  background: linear-gradient(180deg, #4F46E5 0%, #3730A3 100%);
+  color: #ffffff;
+  border: 1px solid rgba(129, 140, 248, 0.45);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.15) inset,
+    0 0 0 1px rgba(0,0,0,0.2),
+    0 8px 24px -8px rgba(79, 70, 229, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.btn-indigo:hover {
+  background: linear-gradient(180deg, #6366F1 0%, #2563EB 100%);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.22) inset,
+    0 0 0 1px rgba(0,0,0,0.2),
+    0 14px 42px -10px rgba(37, 99, 235, 0.95),
+    0 0 32px -6px rgba(129, 140, 248, 0.6);
+  transform: translateY(-1px);
+}
+.btn-indigo:active { transform: translateY(0); filter: brightness(0.95); }
+.btn-indigo:focus-visible { outline: 2px solid var(--e9-cobalt-light); outline-offset: 2px; }
+.btn-indigo:disabled { opacity: 0.35; cursor: not-allowed; filter: grayscale(50%); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 13px; font-weight: 500;
+  background: rgba(229, 233, 242, 0.02);
+  color: var(--e9-platinum);
+  border: 1px solid rgba(229, 233, 242, 0.12);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+.btn-outline:hover {
+  background: rgba(79, 70, 229, 0.10);
+  border-color: rgba(129, 140, 248, 0.45);
+  color: #ffffff;
+  box-shadow: 0 0 26px -6px rgba(37, 99, 235, 0.45);
+}
+.btn-outline:active { transform: translateY(1px); }
+.btn-outline:focus-visible { outline: 2px solid var(--e9-cobalt-light); outline-offset: 2px; }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px; font-weight: 500;
+  background: transparent;
+  color: rgba(229, 233, 242, 0.7);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-ghost:hover { color: var(--e9-cobalt-light); background: rgba(79, 70, 229, 0.08); }
+
+/* =========================================================
+   Inputs
+   ========================================================= */
+.e9-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(229, 233, 242, 0.02);
+  border: 1px solid rgba(229, 233, 242, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  font-family: var(--font-sans);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+}
+.e9-input::placeholder { color: rgba(229, 233, 242, 0.3); }
+.e9-input:hover { border-color: rgba(229, 233, 242, 0.22); }
+.e9-input:focus {
+  border-color: var(--e9-indigo);
+  background: rgba(79, 70, 229, 0.05);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+.e9-input.error {
+  border-color: rgba(239, 68, 68, 0.6);
+  background: rgba(239, 68, 68, 0.04);
+}
+
+/* =========================================================
+   Transparency blueprint card
+   ========================================================= */
+.blueprint-card {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(79, 70, 229, 0.05), transparent 60%),
+    rgba(10, 14, 26, 0.85);
+  border: 1px solid rgba(229, 233, 242, 0.08);
+  border-radius: 4px;
+  padding: 28px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.blueprint-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(129, 140, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  opacity: 0.55;
+}
+.blueprint-card:hover {
+  border-color: rgba(129, 140, 248, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(129, 140, 248, 0.18),
+    0 24px 64px -20px rgba(37, 99, 235, 0.5);
+}
+.blueprint-card .corner {
+  position: absolute;
+  width: 10px; height: 10px;
+  border-color: rgba(129, 140, 248, 0.5);
+  transition: border-color 0.3s ease;
+}
+.blueprint-card:hover .corner { border-color: var(--e9-cobalt-light); }
+.blueprint-card .corner.tl { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; }
+.blueprint-card .corner.tr { top: 0; right: 0; border-top: 1px solid; border-right: 1px solid; }
+.blueprint-card .corner.bl { bottom: 0; left: 0; border-bottom: 1px solid; border-left: 1px solid; }
+.blueprint-card .corner.br { bottom: 0; right: 0; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* =========================================================
+   Matrix — 10 element row · Core (9) highlighted
+   ========================================================= */
+.matrix-cell {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border: 1px solid rgba(229, 233, 242, 0.08);
+  background: rgba(229, 233, 242, 0.015);
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(229, 233, 242, 0.45);
+}
+.matrix-cell:hover {
+  border-color: rgba(229, 233, 242, 0.28);
+  color: rgba(229, 233, 242, 0.9);
+}
+.matrix-cell.core {
+  border-color: rgba(129, 140, 248, 0.6);
+  color: var(--e9-cobalt-light);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.22), transparent 70%),
+    rgba(10, 14, 26, 0.7);
+  animation: core-pulse 3.2s ease-in-out infinite;
+}
+.matrix-cell.core::after {
+  content: "9";
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 22px; font-weight: 500;
+  color: var(--e9-cobalt-light);
+  text-shadow: 0 0 22px rgba(96, 165, 250, 0.7);
+}
+.matrix-cell.core .label { display: none; }
+
+/* Passo ativo do percurso 01 → 10: mesmo destaque do core, porém exibindo
+   o número da própria etapa (via data-etapa) em vez do "9" fixo. */
+.matrix-cell.ativa {
+  border-color: rgba(129, 140, 248, 0.6);
+  color: var(--e9-cobalt-light);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.22), transparent 70%),
+    rgba(10, 14, 26, 0.7);
+  box-shadow:
+    0 0 0 1px rgba(129, 140, 248, 0.5),
+    0 0 34px -8px rgba(79, 70, 229, 0.7);
+}
+.matrix-cell.ativa::after {
+  content: attr(data-etapa);
+  position: absolute;
+  inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 22px; font-weight: 500;
+  color: var(--e9-cobalt-light);
+  text-shadow: 0 0 22px rgba(96, 165, 250, 0.7);
+}
+.matrix-cell.ativa .label { display: none; }
+
+/* =========================================================
+   Tree of life faint backdrop
+   ========================================================= */
+.tree-backdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.07;
+  background-image:
+    radial-gradient(circle at 50% 6%,  #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 24% 22%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 22%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 24% 42%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 42%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 42%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 24% 64%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 64%, #818CF8 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 80%, #60A5FA 2.5px, transparent 3px),
+    radial-gradient(circle at 50% 96%, #818CF8 1.5px, transparent 2px);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

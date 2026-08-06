@@ -1,0 +1,1082 @@
+<!-- Tree of Life + cobalt backdrop -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_85%)]"></div>
+  <div class="absolute top-[8%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-indigo-700/14 blur-[140px] rounded-full"></div>
+  <div class="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blue-700/14 blur-[140px] rounded-full"></div>
+</div>
+
+<!-- ============ NAV — Topologia ============ -->
+<nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a class="flex items-center gap-3 group cursor-pointer" routerLink="/" aria-label="Voltar para a home">
+      <app-logo-e9 class="h-12 w-auto text-indigo-300 transition-colors group-hover:text-indigo-200"></app-logo-e9>
+      <span class="hidden sm:block text-[10px] font-mono uppercase tracking-widest text-white/40">· Design System</span>
+    </a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a class="btn-ghost" href="#hero"><span class="font-mono text-[10px] text-indigo-400/60">01</span> Source</a>
+      <a class="btn-ghost" href="#typography"><span class="font-mono text-[10px] text-indigo-400/60">02</span> Hierarchy</a>
+      <a class="btn-ghost" href="#colors"><span class="font-mono text-[10px] text-indigo-400/60">03</span> Frequencies</a>
+      <a class="btn-ghost" href="#components"><span class="font-mono text-[10px] text-indigo-400/60">04</span> Blocks</a>
+      <a class="btn-ghost" href="#triad"><span class="font-mono text-[10px] text-indigo-400/60">05</span> Triad</a>
+      <a class="btn-ghost" href="#motion"><span class="font-mono text-[10px] text-indigo-400/60">06</span> Motion</a>
+      <a class="btn-ghost" href="#icons"><span class="font-mono text-[10px] text-indigo-400/60">07</span> Assets</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <button class="btn-ghost hidden md:inline-flex">Documentação</button>
+      <button class="btn-indigo" style="padding: 8px 16px; font-size: 12px;">
+        Iniciar Projeto
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================
+     0) HERO — Origem (Source)
+     ============================================ -->
+<main id="hero" class="relative z-10 pt-32 pb-24 px-6 lg:pt-40 lg:pb-32">
+  <div class="tree-backdrop"></div>
+  <div class="glow-point top-[30%] left-1/2 -translate-x-1/2 !w-[600px] !h-[600px] opacity-100"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+    <!-- Eyebrow -->
+    <div class="fade-in-up flex items-center gap-3 mb-10">
+      <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+        </span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-indigo-200">v3.0 — Indigo edition · Component Library</span>
+      </div>
+      <div class="hidden md:block h-px flex-1 bg-gradient-to-r from-indigo-500/35 to-transparent"></div>
+      <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.22em] text-white/30">Core · Consolidação</span>
+    </div>
+
+    <!-- Headline split -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+      <div class="lg:col-span-8">
+        <h1 class="fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter leading-[1.02] text-white mb-8">
+          <span class="text-gradient">Transformando</span>
+          <span class="text-gradient">complexidade lógica</span>
+          <br />
+          em
+          <span class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white to-blue-300 drop-shadow-[0_0_32px_rgba(96,165,250,0.55)]">
+            arquiteturas
+          </span>
+          <span class="text-gradient">de alta performance.</span>
+        </h1>
+        <p class="fade-in-up delay-200 text-base sm:text-lg text-white/55 font-light leading-relaxed max-w-2xl mb-10">
+          O sistema visual da E9 Soluções — uma biblioteca viva de componentes,
+          tokens e padrões que codifica a arquitetura oculta da casa: rigor à
+          esquerda, expansão à direita, solução harmônica ao centro.
+        </p>
+        <div class="fade-in-up delay-300 flex flex-wrap gap-3 items-center">
+          <button class="btn-indigo">
+            Explorar Componentes
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+          </button>
+          <button class="btn-outline">
+            <iconify-icon icon="solar:book-bookmark-linear" width="14"></iconify-icon>
+            Ler Manifesto
+          </button>
+          <div class="hidden sm:flex items-center gap-2 ml-2 text-[11px] font-mono text-white/30">
+            <span class="w-1 h-1 rounded-full bg-indigo-400"></span>
+            last build · 2026.05.26
+          </div>
+        </div>
+      </div>
+
+      <!-- Camadas · side panel -->
+      <div class="fade-in-up delay-300 lg:col-span-4">
+        <div class="blueprint-card">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+          <div class="flex items-center justify-between mb-5">
+            <span class="section-eyebrow">Arquitetura sistêmica</span>
+            <span class="text-[10px] font-mono text-indigo-300/70">9 / 10</span>
+          </div>
+          <ul class="space-y-2.5 text-sm">
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">01</span><span>Origem · Source</span><span class="text-[10px] font-mono">∞</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">02</span><span>Concepção · Visão</span><span class="text-[10px] font-mono">▲</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">03</span><span>Análise · Arquitetura</span><span class="text-[10px] font-mono">▲</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">04</span><span>Provisão · Expansão</span><span class="text-[10px] font-mono">→</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">05</span><span>Auditoria · Rigor</span><span class="text-[10px] font-mono">←</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">06</span><span>Orquestração · Núcleo</span><span class="text-[10px] font-mono">◆</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">07</span><span>Escala · Performance</span><span class="text-[10px] font-mono">→</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">08</span><span>Observabilidade · Telemetria</span><span class="text-[10px] font-mono">←</span></li>
+            <li class="flex items-center justify-between text-indigo-200 -mx-3 px-3 py-1.5 rounded bg-indigo-500/10 border-y border-indigo-400/25">
+              <span class="font-mono text-[10px] text-indigo-300">09</span>
+              <span class="font-medium">Core · Consolidação</span>
+              <span class="text-[10px] font-mono text-indigo-300">★</span>
+            </li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">10</span><span>Produção · Deploy</span><span class="text-[10px] font-mono">▼</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero stats row — triadic -->
+    <div class="fade-in-up delay-500 grid grid-cols-3 gap-px bg-white/5 mt-20 rounded-lg overflow-hidden">
+      <div class="bg-[#0A0E1A] px-6 py-5 flex flex-col gap-1">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40">Rigor</span>
+        <span class="text-2xl font-medium text-white">99.99<span class="text-indigo-400 text-base">%</span></span>
+        <span class="text-[11px] text-white/40">SLA contratual</span>
+      </div>
+      <div class="bg-[#0A0E1A] px-6 py-5 flex flex-col gap-1 triad-center">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-indigo-300">Harmonia</span>
+        <span class="text-2xl font-medium text-white">3+1<span class="text-blue-400 text-base"> núcleos</span></span>
+        <span class="text-[11px] text-white/55">arquitetura triádica</span>
+      </div>
+      <div class="bg-[#0A0E1A] px-6 py-5 flex flex-col gap-1">
+        <span class="text-[10px] font-mono uppercase tracking-widest text-white/40">Expansão</span>
+        <span class="text-2xl font-medium text-white">∞<span class="text-indigo-400 text-base"> escala</span></span>
+        <span class="text-[11px] text-white/40">edge distribuído</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============================================
+     1) TYPOGRAPHY & HIERARCHY
+     ============================================ -->
+<section id="typography" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-16 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+      <div class="lg:col-span-8">
+        <span class="section-eyebrow block mb-3">02 — Hierarchy</span>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">Ritmo &amp; precisão matemática.</h2>
+        <p class="text-lg text-white/50 font-light leading-relaxed">
+          Cada nível tipográfico é um degrau na descida do abstrato ao concreto.
+          Mesmo elemento HTML, mesmas classes utilitárias usadas em produção.
+        </p>
+      </div>
+      <div class="lg:col-span-4 text-right">
+        <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/70">Família · Geist Sans + Geist Mono</span>
+      </div>
+    </div>
+
+    <div class="glass-panel rounded-lg px-8 py-2">
+
+      <div class="spec-row">
+        <div class="spec-label">H1 · Vision</div>
+        <div><h1 class="text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.05] text-white">Arquitetura.</h1></div>
+        <div class="spec-meta">60px / 105%<br />medium · -0.04em</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">H1 · Vision · Gradient</div>
+        <div><h1 class="text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.05] text-gradient-indigo">Frequência Índigo</h1></div>
+        <div class="spec-meta">60px / 105%<br />gradient · indigo→cobalt</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">H2 · Section</div>
+        <div><h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white">Transformando lógica.</h2></div>
+        <div class="spec-meta">48px / 110%<br />medium · -0.03em</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">H2 · Section · S</div>
+        <div><h2 class="text-3xl font-medium tracking-tight text-white">Componentes &amp; padrões.</h2></div>
+        <div class="spec-meta">30px / 120%<br />medium · -0.02em</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">H3 · Card</div>
+        <div><h3 class="text-2xl font-medium tracking-tight text-white">Núcleo Harmônico</h3></div>
+        <div class="spec-meta">24px / 130%<br />medium · -0.01em</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">H3 · Component</div>
+        <div><h3 class="text-xl font-medium text-white">Infraestrutura segura</h3></div>
+        <div class="spec-meta">20px / 140%<br />medium</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Bold · L</div>
+        <div><p class="text-lg font-semibold text-white">Premissa estrutural da plataforma.</p></div>
+        <div class="spec-meta">18px / 150%<br />semibold · white</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Bold · M</div>
+        <div><p class="text-base font-medium text-white">Processos inteligentes auditáveis.</p></div>
+        <div class="spec-meta">16px / 150%<br />medium · white</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Bold · S</div>
+        <div><p class="text-sm font-medium text-indigo-200">Frequência ativa — Core</p></div>
+        <div class="spec-meta">14px / 140%<br />medium · indigo-200</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Paragraph · Body</div>
+        <div><p class="text-base text-white/70 leading-relaxed">A E9 codifica complexidade em interfaces serenas, com tipografia de alto contraste e ritmo previsível para leitura sustentada.</p></div>
+        <div class="spec-meta">16px / 160%<br />regular · white/70</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Regular · L</div>
+        <div><p class="text-lg text-white/55 font-light leading-relaxed">Texto introdutório usado abaixo de títulos H1/H2 para contextualizar a seção.</p></div>
+        <div class="spec-meta">18px / 165%<br />light · white/55</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Regular · M</div>
+        <div><p class="text-sm text-white/60 leading-relaxed">Conteúdo padrão de cards e listas estruturais. Mantém legibilidade em superfícies escuras.</p></div>
+        <div class="spec-meta">14px / 160%<br />regular · white/60</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Regular · S</div>
+        <div><p class="text-xs text-white/50 leading-relaxed">Notas auxiliares, legendas e disclaimers.</p></div>
+        <div class="spec-meta">12px / 150%<br />regular · white/50</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Eyebrow · MONO</div>
+        <div><span class="section-eyebrow">Topologia · Estrutura sistêmica</span></div>
+        <div class="spec-meta">11px / 100%<br />mono · 0.22em · indigo</div>
+      </div>
+
+      <div class="spec-row">
+        <div class="spec-label">Micro · CAPS</div>
+        <div><span class="text-[10px] uppercase tracking-[0.18em] font-medium text-white/40">Build / Region / Status</span></div>
+        <div class="spec-meta">10px / 100%<br />caps · tracking 0.18em</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     2) COLORS & SURFACES — Frequencies
+     ============================================ -->
+<section id="colors" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="section-eyebrow block mb-3">03 — Frequencies &amp; Textures</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">Carbono, platina &amp; a frequência índigo.</h2>
+      <p class="text-lg text-white/50 font-light leading-relaxed max-w-2xl">
+        A paleta opera em três camadas: superfície (carbono), texto (platina) e
+        sinalização (índigo / cobalto elétrico). Nenhuma cor decorativa.
+      </p>
+    </div>
+
+    <!-- Surfaces — Carbon stack -->
+    <h3 class="text-xl font-medium text-white mb-6">Superfícies · Carbon stack</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+      <div>
+        <div class="h-32 rounded border border-white/5" style="background: var(--e9-carbon);"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Carbon · Page</div>
+          <div class="text-[10px] font-mono text-white/40">#06080F · Origem</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded border border-white/5" style="background: var(--e9-midnight);"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Midnight · Section</div>
+          <div class="text-[10px] font-mono text-white/40">#0A0E1A</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded border border-white/5" style="background: var(--e9-graphite);"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Graphite · Card</div>
+          <div class="text-[10px] font-mono text-white/40">#11162A</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded border border-white/5" style="background: var(--e9-stone);"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Stone · Inset</div>
+          <div class="text-[10px] font-mono text-white/40">#1A2238</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded glass-panel"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Glass · indigo tint</div>
+          <div class="text-[10px] font-mono text-white/40">rgba(79,70,229,0.03) · blur(12)</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded blueprint-card"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Blueprint · grid</div>
+          <div class="text-[10px] font-mono text-white/40">24px grid · indigo 5%</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded border border-indigo-400/35" style="background: linear-gradient(180deg, rgba(79,70,229,0.14), transparent 70%), rgba(10,14,26,0.85);"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Indigo · halo</div>
+          <div class="text-[10px] font-mono text-white/40">CTA backdrops</div>
+        </div>
+      </div>
+      <div>
+        <div class="h-32 rounded border border-white/5 bg-[linear-gradient(rgba(129,140,248,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.06)_1px,transparent_1px)] bg-[size:16px_16px]" style="background-color: var(--e9-carbon);"></div>
+        <div class="pt-3">
+          <div class="text-sm font-medium text-white">Lattice · 16px</div>
+          <div class="text-[10px] font-mono text-white/40">background grid · Auditoria</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dividers — rigor -->
+    <h3 class="text-xl font-medium text-white mb-6">Divisores · rigor</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+      <div class="glass-panel rounded p-6">
+        <div class="text-sm font-medium text-white mb-3">Hairline</div>
+        <div class="h-px bg-white/5 mb-2"></div>
+        <div class="text-[10px] font-mono text-white/40">bg-white/5 · structural</div>
+      </div>
+      <div class="glass-panel rounded p-6">
+        <div class="text-sm font-medium text-white mb-3">Default</div>
+        <div class="h-px bg-white/10 mb-2"></div>
+        <div class="text-[10px] font-mono text-white/40">bg-white/10 · borders</div>
+      </div>
+      <div class="glass-panel rounded p-6">
+        <div class="text-sm font-medium text-white mb-3">Core accent</div>
+        <div class="h-px bg-indigo-400/45 mb-2"></div>
+        <div class="text-[10px] font-mono text-white/40">bg-indigo-400/45 · highlight</div>
+      </div>
+    </div>
+
+    <!-- Platinum text ladder -->
+    <h3 class="text-xl font-medium text-white mb-6">Texto · Platinum sobre Carbon</h3>
+    <div class="glass-panel rounded p-8 mb-16">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div><div class="text-white text-base">Platinum 100</div><div class="text-[10px] font-mono text-white/40 mt-1">text-white</div></div>
+        <div><div class="text-white/85 text-base">Platinum 85</div><div class="text-[10px] font-mono text-white/40 mt-1">text-white/85</div></div>
+        <div><div class="text-white/70 text-base">Platinum 70</div><div class="text-[10px] font-mono text-white/40 mt-1">text-white/70 · body</div></div>
+        <div><div class="text-white/55 text-base">Platinum 55</div><div class="text-[10px] font-mono text-white/40 mt-1">text-white/55 · lead</div></div>
+        <div><div class="text-white/40 text-base">Platinum 40</div><div class="text-[10px] font-mono text-white/40 mt-1">text-white/40 · meta</div></div>
+        <div><div class="text-white/30 text-base">Platinum 30</div><div class="text-[10px] font-mono text-white/40 mt-1">text-white/30 · disabled</div></div>
+        <div><div class="text-indigo-300 text-base">Indigo 300</div><div class="text-[10px] font-mono text-white/40 mt-1">links · accent</div></div>
+        <div><div class="text-blue-300 text-base">Cobalt 300</div><div class="text-[10px] font-mono text-white/40 mt-1">active states</div></div>
+      </div>
+    </div>
+
+    <!-- Accents — 9th sphere · Indigo Spectrum -->
+    <h3 class="text-xl font-medium text-white mb-6">Acentos · 9ª esfera (Indigo Spectrum)</h3>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
+      <div><div class="h-24 rounded" style="background: var(--e9-indigo-light);"></div><div class="text-[10px] font-mono text-white/40 mt-2">indigo-400 · #818CF8</div></div>
+      <div><div class="h-24 rounded" style="background: var(--e9-indigo);"></div><div class="text-[10px] font-mono text-white/40 mt-2">indigo-600 · #4F46E5 ★</div></div>
+      <div><div class="h-24 rounded" style="background: var(--e9-indigo-deep);"></div><div class="text-[10px] font-mono text-white/40 mt-2">indigo-800 · #3730A3</div></div>
+      <div><div class="h-24 rounded" style="background: var(--e9-cobalt);"></div><div class="text-[10px] font-mono text-white/40 mt-2">cobalt · #2563EB</div></div>
+      <div><div class="h-24 rounded" style="background: var(--e9-cobalt-light);"></div><div class="text-[10px] font-mono text-white/40 mt-2">blue-400 · #60A5FA</div></div>
+      <div><div class="h-24 rounded" style="background: var(--e9-sky-edge);"></div><div class="text-[10px] font-mono text-white/40 mt-2">edge · #38BDF8</div></div>
+      <div><div class="h-24 rounded" style="background: linear-gradient(180deg, #818CF8, #3730A3);"></div><div class="text-[10px] font-mono text-white/40 mt-2">indigo · vertical</div></div>
+      <div><div class="h-24 rounded" style="background: linear-gradient(135deg, #4F46E5, #2563EB);"></div><div class="text-[10px] font-mono text-white/40 mt-2">indigo → cobalt</div></div>
+      <div><div class="h-24 rounded" style="background: linear-gradient(135deg, #1E3A8A, #4F46E5, #818CF8);"></div><div class="text-[10px] font-mono text-white/40 mt-2">midnight ascent</div></div>
+      <div><div class="h-24 rounded" style="background: radial-gradient(circle, rgba(79,70,229,0.85), rgba(6,8,15,0));"></div><div class="text-[10px] font-mono text-white/40 mt-2">Core glow · radial</div></div>
+      <div><div class="h-24 rounded" style="background: linear-gradient(180deg, #E5E9F2, #94A3B8);"></div><div class="text-[10px] font-mono text-white/40 mt-2">platinum · metallic</div></div>
+      <div><div class="h-24 rounded" style="background: linear-gradient(135deg, #38BDF8, #818CF8, #4F46E5);"></div><div class="text-[10px] font-mono text-white/40 mt-2">spectrum · CTA</div></div>
+    </div>
+
+    <!-- Semantic -->
+    <h3 class="text-xl font-medium text-white mb-6">Semânticos</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div><div class="h-20 rounded bg-emerald-500"></div><div class="text-[10px] font-mono text-white/40 mt-2">success · emerald-500</div></div>
+      <div><div class="h-20 rounded bg-amber-500"></div><div class="text-[10px] font-mono text-white/40 mt-2">warning · amber-500</div></div>
+      <div><div class="h-20 rounded bg-red-500"></div><div class="text-[10px] font-mono text-white/40 mt-2">danger · red-500</div></div>
+      <div><div class="h-20 rounded bg-sky-500"></div><div class="text-[10px] font-mono text-white/40 mt-2">info · sky-500</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     3) UI COMPONENTS — Building blocks
+     ============================================ -->
+<section id="components" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="section-eyebrow block mb-3">04 — Building Blocks</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">Componentes &amp; estados.</h2>
+      <p class="text-lg text-white/50 font-light leading-relaxed max-w-2xl">
+        Cada bloco é renderizado em todos os estados: padrão, hover, ativo,
+        foco e desabilitado.
+      </p>
+    </div>
+
+    <!-- Buttons — primary -->
+    <h3 class="text-xl font-medium text-white mb-6">Botão · Indigo (primário)</h3>
+    <div class="glass-panel rounded p-8 mb-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-indigo">Iniciar projeto</button>
+          <span class="text-[10px] font-mono text-white/40">default</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-indigo" style="background: linear-gradient(180deg, #6366F1 0%, #2563EB 100%); box-shadow: 0 1px 0 rgba(255,255,255,0.22) inset, 0 14px 42px -10px rgba(37, 99, 235, 0.95), 0 0 32px -6px rgba(129, 140, 248, 0.6); transform: translateY(-1px);">Iniciar projeto</button>
+          <span class="text-[10px] font-mono text-indigo-300">hover</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-indigo" style="filter: brightness(0.9);">Iniciar projeto</button>
+          <span class="text-[10px] font-mono text-white/40">active</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-indigo" style="outline: 2px solid var(--e9-cobalt-light); outline-offset: 2px;">Iniciar projeto</button>
+          <span class="text-[10px] font-mono text-white/40">focus-visible</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-indigo" disabled>Iniciar projeto</button>
+          <span class="text-[10px] font-mono text-white/40">disabled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons — outline -->
+    <h3 class="text-xl font-medium text-white mb-6">Botão · Outline (secundário)</h3>
+    <div class="glass-panel rounded p-8 mb-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-outline">Ler manifesto</button>
+          <span class="text-[10px] font-mono text-white/40">default</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-outline" style="background: rgba(79, 70, 229, 0.10); border-color: rgba(129, 140, 248, 0.45); color: #fff; box-shadow: 0 0 26px -6px rgba(37, 99, 235, 0.45);">Ler manifesto</button>
+          <span class="text-[10px] font-mono text-indigo-300">hover</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-outline" style="transform: translateY(1px);">Ler manifesto</button>
+          <span class="text-[10px] font-mono text-white/40">active</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-outline" style="outline: 2px solid var(--e9-cobalt-light); outline-offset: 2px;">Ler manifesto</button>
+          <span class="text-[10px] font-mono text-white/40">focus-visible</span>
+        </div>
+        <div class="flex flex-col gap-3 items-start">
+          <button class="btn-outline" disabled style="opacity: 0.35; cursor: not-allowed;">Ler manifesto</button>
+          <span class="text-[10px] font-mono text-white/40">disabled</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons — ghost -->
+    <h3 class="text-xl font-medium text-white mb-6">Botão · Ghost (terciário)</h3>
+    <div class="glass-panel rounded p-8 mb-16">
+      <div class="flex flex-wrap gap-4">
+        <button class="btn-ghost">Documentação</button>
+        <button class="btn-ghost" style="color: var(--e9-cobalt-light); background: rgba(79, 70, 229, 0.08);">Documentação <span class="text-[10px] font-mono text-indigo-300">(hover)</span></button>
+        <button class="btn-ghost">
+          <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+          Próximo
+        </button>
+        <button class="btn-ghost"><iconify-icon icon="solar:settings-linear" width="14"></iconify-icon></button>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <h3 class="text-xl font-medium text-white mb-6">Inputs · estados</h3>
+    <div class="glass-panel rounded p-8 mb-16">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <div class="flex flex-col gap-2">
+          <label class="text-[10px] font-mono uppercase tracking-widest text-white/40">default</label>
+          <input class="e9-input" placeholder="seu@email.com" type="email" />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="text-[10px] font-mono uppercase tracking-widest text-white/40">hover</label>
+          <input class="e9-input" placeholder="seu@email.com" style="border-color: rgba(229, 233, 242, 0.22);" type="email" />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="text-[10px] font-mono uppercase tracking-widest text-indigo-300">focus</label>
+          <input class="e9-input" placeholder="seu@email.com" style="border-color: var(--e9-indigo); background: rgba(79, 70, 229, 0.05); box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);" type="email" value="contato@e9" />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="text-[10px] font-mono uppercase tracking-widest text-red-400">error</label>
+          <input class="e9-input error" placeholder="seu@email.com" type="email" value="invalido@" />
+          <span class="text-[11px] text-red-400/80">Endereço inválido.</span>
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="text-[10px] font-mono uppercase tracking-widest text-white/30">disabled</label>
+          <input class="e9-input" disabled placeholder="seu@email.com" style="opacity: 0.4; cursor: not-allowed;" type="email" />
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Tags / Pills -->
+    <h3 class="text-xl font-medium text-white mb-6">Tags semânticas</h3>
+    <div class="glass-panel rounded p-8 mb-16">
+      <div class="flex flex-wrap gap-3 items-center">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-indigo-200 bg-indigo-500/12 border border-indigo-400/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+          Core · ativo
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-blue-200 bg-blue-500/12 border border-blue-400/30">
+          <iconify-icon icon="solar:bolt-linear" width="10"></iconify-icon>
+          Cobalto · live
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-emerald-300 bg-emerald-500/10 border border-emerald-400/25">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+          Operacional
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-amber-300 bg-amber-500/10 border border-amber-400/25">
+          <iconify-icon icon="solar:bolt-linear" width="10"></iconify-icon>
+          Degradado
+        </span>
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-white/60 bg-white/5 border border-white/10">
+          Rascunho
+        </span>
+        <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25">v3.0</span>
+        <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10">stable</span>
+        <span class="text-[10px] font-mono text-white/30 px-1.5 py-0.5 rounded border border-white/5">deprecated</span>
+      </div>
+    </div>
+
+    <!-- Blueprint card (Transparency) -->
+    <h3 class="text-xl font-medium text-white mb-2">Card · Transparency Blueprint</h3>
+    <p class="text-sm text-white/50 mb-6 max-w-2xl">Container assinatura da E9 — cantos sutilmente reforçados, grid técnico ao fundo, brilho índigo no hover. Sem trancamento visual, sem ornamento gratuito.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-10 h-10 rounded bg-indigo-500/12 border border-indigo-400/30 flex items-center justify-center">
+              <iconify-icon class="text-indigo-300" icon="solar:shield-keyhole-linear" width="20"></iconify-icon>
+            </div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/60">01 · Auditoria</span>
+          </div>
+          <h3 class="text-xl font-medium text-white mb-2">Segurança auditável</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">Cada permissão deixa rastro. Logs imutáveis e revogáveis em um clique.</p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">ISO 27001 · LGPD</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="blueprint-card" style="border-color: rgba(129, 140, 248, 0.4); box-shadow: 0 0 0 1px rgba(129, 140, 248, 0.18), 0 24px 64px -20px rgba(37, 99, 235, 0.5);">
+        <span class="corner tl" style="border-color: var(--e9-cobalt-light);"></span>
+        <span class="corner tr" style="border-color: var(--e9-cobalt-light);"></span>
+        <span class="corner bl" style="border-color: var(--e9-cobalt-light);"></span>
+        <span class="corner br" style="border-color: var(--e9-cobalt-light);"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-10 h-10 rounded bg-indigo-500/18 border border-indigo-400/45 flex items-center justify-center" style="box-shadow: 0 0 22px -4px rgba(37, 99, 235, 0.55);">
+              <iconify-icon class="text-blue-200" icon="solar:atom-linear" width="20"></iconify-icon>
+            </div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-200">02 · Núcleo (hover)</span>
+          </div>
+          <h3 class="text-xl font-medium text-white mb-2">Núcleo harmônico</h3>
+          <p class="text-sm text-white/65 leading-relaxed mb-5">A solução central. Une rigor e expansão num ponto de equilíbrio operacional.</p>
+          <div class="pt-4 border-t border-indigo-400/18 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-indigo-200">Core · active</span>
+            <iconify-icon class="text-blue-200" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-10 h-10 rounded bg-indigo-500/12 border border-indigo-400/30 flex items-center justify-center">
+              <iconify-icon class="text-indigo-300" icon="solar:rocket-2-linear" width="20"></iconify-icon>
+            </div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/60">03 · Escala</span>
+          </div>
+          <h3 class="text-xl font-medium text-white mb-2">Escala expansiva</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">Arquitetura que cresce sem reescrever camada de infraestrutura.</p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">12 regiões · auto-scale</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Toggle / Switch + Checkbox + Radio -->
+    <h3 class="text-xl font-medium text-white mb-6">Controles seletivos</h3>
+    <div class="glass-panel rounded p-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <div>
+          <div class="text-sm font-medium text-white mb-4">Switch</div>
+          <div class="flex flex-col gap-3">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <span class="relative w-10 h-5 rounded-full bg-white/10 border border-white/15 transition-colors">
+                <span class="absolute top-0.5 left-0.5 w-3.5 h-3.5 rounded-full bg-white/70 transition-transform"></span>
+              </span>
+              <span class="text-sm text-white/70">off</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <span class="relative w-10 h-5 rounded-full transition-colors" style="background: linear-gradient(180deg, #4F46E5, #2563EB); border: 1px solid rgba(129, 140, 248, 0.45); box-shadow: 0 0 18px -4px rgba(37, 99, 235, 0.7);">
+                <span class="absolute top-0.5 left-5 w-3.5 h-3.5 rounded-full bg-white"></span>
+              </span>
+              <span class="text-sm text-white">on · Core</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-sm font-medium text-white mb-4">Checkbox</div>
+          <div class="flex flex-col gap-3">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <span class="w-4 h-4 rounded border border-white/20 bg-white/[0.03]"></span>
+              <span class="text-sm text-white/70">Aceitar termos</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <span class="w-4 h-4 rounded border flex items-center justify-center" style="border-color: var(--e9-indigo); background: linear-gradient(180deg, #4F46E5, #2563EB); box-shadow: 0 0 14px -3px rgba(37, 99, 235, 0.8);">
+                <iconify-icon class="text-white" icon="solar:check-read-linear" width="11"></iconify-icon>
+              </span>
+              <span class="text-sm text-white">Subscrever changelog</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <div class="text-sm font-medium text-white mb-4">Radio</div>
+          <div class="flex flex-col gap-3">
+            <label class="flex items-center gap-3 cursor-pointer">
+              <span class="w-4 h-4 rounded-full border border-white/20 bg-white/[0.03]"></span>
+              <span class="text-sm text-white/70">Coluna · Esquerda</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <span class="w-4 h-4 rounded-full border flex items-center justify-center" style="border-color: var(--e9-indigo); background: rgba(79, 70, 229, 0.10); box-shadow: 0 0 14px -3px rgba(79, 70, 229, 0.6);">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-300"></span>
+              </span>
+              <span class="text-sm text-white">Coluna · Centro</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer">
+              <span class="w-4 h-4 rounded-full border border-white/20 bg-white/[0.03]"></span>
+              <span class="text-sm text-white/70">Coluna · Direita</span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     4) LAYOUT — Triadic + 10 Matrix
+     ============================================ -->
+<section id="triad" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="section-eyebrow block mb-3">05 — Triadic Balance &amp; Matrix</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">Três pilares, dez camadas.</h2>
+      <p class="text-lg text-white/50 font-light leading-relaxed max-w-2xl">
+        A estrutura segue a topologia: rigor à esquerda, expansão à direita,
+        núcleo ao centro. A 9ª posição (Core · Consolidação) é sempre o ponto
+        de manifestação mais próximo do usuário final.
+      </p>
+    </div>
+
+    <!-- Triadic container -->
+    <h3 class="text-xl font-medium text-white mb-6">Triadic Container · 3 colunas balanceadas</h3>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-lg overflow-hidden mb-16">
+
+      <div class="p-8 bg-[#0A0E1A] flex flex-col">
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">←  Auditoria</span>
+          <span class="font-mono text-[10px] text-white/30">05</span>
+        </div>
+        <div class="w-10 h-10 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+          <iconify-icon class="text-white/70" icon="solar:shield-keyhole-linear" width="20"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">Segurança &amp; Rigor</h3>
+        <p class="text-sm text-white/55 leading-relaxed mb-6">A coluna do limite, da auditoria e da disciplina. Tudo que protege a integridade do sistema.</p>
+        <ul class="text-sm text-white/50 space-y-2 mt-auto">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/30"></span> Zero-trust por padrão</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/30"></span> Logs imutáveis</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/30"></span> Auditoria contínua</li>
+        </ul>
+      </div>
+
+      <div class="p-8 triad-center flex flex-col relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-indigo-400/45"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-px bg-blue-400/45"></div>
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-200">◆ Núcleo · orquestração</span>
+          <span class="font-mono text-[10px] text-indigo-300">06</span>
+        </div>
+        <div class="w-10 h-10 rounded bg-indigo-500/18 border border-indigo-400/45 flex items-center justify-center mb-5 shadow-[0_0_22px_-4px_rgba(37,99,235,0.6)]">
+          <iconify-icon class="text-blue-200" icon="solar:atom-linear" width="20"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">Núcleo Harmônico</h3>
+        <p class="text-sm text-white/70 leading-relaxed mb-6">A coluna do meio é onde rigor e expansão se reconciliam. O produto vive aqui — auditável e escalável simultaneamente.</p>
+        <ul class="text-sm text-white/60 space-y-2 mt-auto">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-indigo-300"></span> Orquestração unificada</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-indigo-300"></span> Decisões reversíveis</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-indigo-300"></span> Ritmo previsível</li>
+        </ul>
+      </div>
+
+      <div class="p-8 bg-[#0A0E1A] flex flex-col">
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">Escala  →</span>
+          <span class="font-mono text-[10px] text-white/30">07</span>
+        </div>
+        <div class="w-10 h-10 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+          <iconify-icon class="text-white/70" icon="solar:rocket-2-linear" width="20"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-medium text-white mb-2">Escala &amp; Performance</h3>
+        <p class="text-sm text-white/55 leading-relaxed mb-6">A coluna da expansão e da vitória operacional. Velocidade, edge, autonomia.</p>
+        <ul class="text-sm text-white/50 space-y-2 mt-auto">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/30"></span> Deploy global em segundos</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/30"></span> Auto-scale por região</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/30"></span> Latência sub-50ms</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- 10-element matrix — Core highlight on #9 -->
+    <h3 class="text-xl font-medium text-white mb-2">Matrix · 10 camadas horizontais</h3>
+    <p class="text-sm text-white/50 mb-6 max-w-2xl">A 9ª posição é sempre o Core — a consolidação, o ponto de contato com o mundo manifesto. Realçada por anel índigo pulsante.</p>
+    <div class="grid grid-cols-5 md:grid-cols-10 gap-2 mb-8">
+      <div class="matrix-cell"><span class="label">01<br /><span class="text-white/20 text-[9px]">Origem</span></span></div>
+      <div class="matrix-cell"><span class="label">02<br /><span class="text-white/20 text-[9px]">Concepção</span></span></div>
+      <div class="matrix-cell"><span class="label">03<br /><span class="text-white/20 text-[9px]">Análise</span></span></div>
+      <div class="matrix-cell"><span class="label">04<br /><span class="text-white/20 text-[9px]">Provisão</span></span></div>
+      <div class="matrix-cell"><span class="label">05<br /><span class="text-white/20 text-[9px]">Auditoria</span></span></div>
+      <div class="matrix-cell"><span class="label">06<br /><span class="text-white/20 text-[9px]">Núcleo</span></span></div>
+      <div class="matrix-cell"><span class="label">07<br /><span class="text-white/20 text-[9px]">Escala</span></span></div>
+      <div class="matrix-cell"><span class="label">08<br /><span class="text-white/20 text-[9px]">Telemetria</span></span></div>
+      <div class="matrix-cell core"><span class="label">09<br />Core</span></div>
+      <div class="matrix-cell"><span class="label">10<br /><span class="text-white/20 text-[9px]">Produção</span></span></div>
+    </div>
+    <div class="flex items-center justify-between text-[10px] font-mono text-white/30 uppercase tracking-widest mb-16">
+      <span>Início · Source</span>
+      <span class="flex items-center gap-2"><span class="text-indigo-300">★ 9 · Core</span> · Consolidação</span>
+      <span>Manifestação · Produção</span>
+    </div>
+
+    <!-- Containers / Spacing -->
+    <h3 class="text-xl font-medium text-white mb-6">Containers &amp; spacing scale</h3>
+    <div class="space-y-3 mb-10">
+      <div class="max-w-7xl mx-auto h-10 bg-white/[0.03] border border-white/10 rounded flex items-center justify-between px-4">
+        <span class="text-[10px] font-mono text-white/50">max-w-7xl · 1280px</span><span class="text-[10px] font-mono text-indigo-300/70">main</span>
+      </div>
+      <div class="max-w-6xl mx-auto h-10 bg-white/[0.03] border border-white/10 rounded flex items-center justify-between px-4">
+        <span class="text-[10px] font-mono text-white/50">max-w-6xl · 1152px</span><span class="text-[10px] font-mono text-indigo-300/70">content</span>
+      </div>
+      <div class="max-w-4xl mx-auto h-10 bg-white/[0.03] border border-white/10 rounded flex items-center justify-between px-4">
+        <span class="text-[10px] font-mono text-white/50">max-w-4xl · 896px</span><span class="text-[10px] font-mono text-indigo-300/70">prose</span>
+      </div>
+      <div class="max-w-2xl mx-auto h-10 bg-white/[0.03] border border-white/10 rounded flex items-center justify-between px-4">
+        <span class="text-[10px] font-mono text-white/50">max-w-2xl · 672px</span><span class="text-[10px] font-mono text-indigo-300/70">lead copy</span>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+      <div class="text-center"><div class="h-1 bg-indigo-400/65 mb-2"></div><span class="text-[10px] font-mono text-white/40">space-1 · 4px</span></div>
+      <div class="text-center"><div class="h-2 bg-indigo-400/65 mb-2"></div><span class="text-[10px] font-mono text-white/40">space-2 · 8px</span></div>
+      <div class="text-center"><div class="h-4 bg-indigo-400/65 mb-2"></div><span class="text-[10px] font-mono text-white/40">space-4 · 16px</span></div>
+      <div class="text-center"><div class="h-6 bg-indigo-400/65 mb-2"></div><span class="text-[10px] font-mono text-white/40">space-6 · 24px</span></div>
+      <div class="text-center"><div class="h-8 bg-indigo-400/65 mb-2"></div><span class="text-[10px] font-mono text-white/40">space-8 · 32px</span></div>
+      <div class="text-center"><div class="h-12 bg-indigo-400/65 mb-2"></div><span class="text-[10px] font-mono text-white/40">space-12 · 48px</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     5) MOTION & TRANSITIONS
+     ============================================ -->
+<section id="motion" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="section-eyebrow block mb-3">06 — Motion &amp; Transitions</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">Como o sistema respira.</h2>
+      <p class="text-lg text-white/50 font-light leading-relaxed max-w-2xl">
+        Toda transição vive entre 200ms e 300ms com easing
+        <span class="font-mono text-indigo-300 text-sm">cubic-bezier(0.16, 1, 0.3, 1)</span>.
+        Acentos índigo nunca piscam — sempre interpolam.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">.fade-in-up</div>
+          <div class="text-[10px] font-mono text-white/40">1s · ease-out-quint</div>
+        </div>
+        <div class="fade-in-up text-2xl font-medium text-white">Reveal de entrada</div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">.data-render</div>
+          <div class="text-[10px] font-mono text-white/40">700ms · blur+slide</div>
+        </div>
+        <div class="data-render text-2xl font-medium text-indigo-200">Dado renderizado</div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">stagger · 100/200/300</div>
+          <div class="text-[10px] font-mono text-white/40">descida em cascata</div>
+        </div>
+        <div class="space-y-1">
+          <div class="fade-in-up text-sm text-white">Linha um</div>
+          <div class="fade-in-up delay-100 text-sm text-white/70">Linha dois</div>
+          <div class="fade-in-up delay-200 text-sm text-white/50">Linha três</div>
+          <div class="fade-in-up delay-300 text-sm text-white/30">Linha quatro</div>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">animate-ping · indigo</div>
+          <div class="text-[10px] font-mono text-white/40">sinal · live</div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="flex h-3 w-3 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+          </span>
+          <span class="text-xs font-mono text-indigo-200">Core · pulsando</span>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">animate-pulse</div>
+          <div class="text-[10px] font-mono text-white/40">respiração ambiente</div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+          <span class="text-xs font-mono text-white/60">conexão saudável</span>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">&#64;keyframes shimmer</div>
+          <div class="text-[10px] font-mono text-white/40">progresso índigo · 2s</div>
+        </div>
+        <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+          <div class="w-full h-full rounded-full relative overflow-hidden" style="background: rgba(79, 70, 229, 0.22);">
+            <div class="absolute top-0 left-0 bottom-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/75 to-transparent" style="animation: shimmer 2s infinite;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">&#64;keyframes float</div>
+          <div class="text-[10px] font-mono text-white/40">flutuação · 6–8s</div>
+        </div>
+        <div class="flex justify-center items-end gap-4">
+          <div class="w-10 h-10 bg-[#0A0E1A] rounded border border-indigo-400/25 flex items-center justify-center" style="animation: float 6s ease-in-out infinite;">
+            <iconify-icon class="text-indigo-300" icon="solar:database-linear"></iconify-icon>
+          </div>
+          <div class="w-10 h-10 bg-[#0A0E1A] rounded border border-indigo-400/25 flex items-center justify-center" style="animation: float 8s ease-in-out infinite 1s;">
+            <iconify-icon class="text-blue-300" icon="solar:shield-check-linear"></iconify-icon>
+          </div>
+          <div class="w-10 h-10 bg-[#0A0E1A] rounded border border-indigo-400/25 flex items-center justify-center" style="animation: float 7s ease-in-out infinite 2s;">
+            <iconify-icon class="text-indigo-300" icon="solar:code-circle-linear"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">&#64;keyframes core-pulse</div>
+          <div class="text-[10px] font-mono text-white/40">3.2s · respiração da 9ª</div>
+        </div>
+        <div class="flex justify-center">
+          <div class="w-16 h-16 rounded matrix-cell core" style="aspect-ratio: 1/1;"><span class="label"></span></div>
+        </div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">.typing-cursor · blink</div>
+          <div class="text-[10px] font-mono text-white/40">step-end 1s</div>
+        </div>
+        <div class="font-mono text-sm text-indigo-200 flex items-center">e9.deploy("core");<span class="typing-cursor"></span></div>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">Hover · indigo lift</div>
+          <div class="text-[10px] font-mono text-white/40">duration 250ms · translate -1px</div>
+        </div>
+        <button class="btn-indigo w-fit">Hover aqui<iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></button>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">Hover · outline glow</div>
+          <div class="text-[10px] font-mono text-white/40">border indigo · shadow halo</div>
+        </div>
+        <button class="btn-outline w-fit">Hover aqui<iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon></button>
+      </div>
+
+      <div class="glass-panel rounded p-6 h-52 flex flex-col justify-between">
+        <div>
+          <div class="text-sm font-medium text-white mb-1">Group hover · icon swap</div>
+          <div class="text-[10px] font-mono text-white/40">platinum → cobalt</div>
+        </div>
+        <div class="group cursor-pointer w-fit">
+          <div class="w-12 h-12 bg-white/[0.04] rounded border border-white/10 flex items-center justify-center transition-all duration-300 group-hover:border-indigo-400/55 group-hover:bg-indigo-500/12 group-hover:shadow-[0_0_22px_-4px_rgba(37,99,235,0.55)]">
+            <iconify-icon class="text-white/50 group-hover:text-blue-200 transition-colors" icon="solar:bolt-linear" width="22"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     6) ICONS & SYSTEM ASSETS
+     ============================================ -->
+<section id="icons" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16">
+      <span class="section-eyebrow block mb-3">07 — Assets &amp; Iconography</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">Inventário de ícones.</h2>
+      <p class="text-lg text-white/50 font-light leading-relaxed max-w-2xl">
+        Família única: <span class="text-white/80 font-mono text-xs border border-white/10 px-1.5 py-0.5 rounded bg-white/5">solar:*-linear</span>
+        — traço uniforme, sem preenchimento. A cor é herdada do contexto: platina por padrão, cobalto elétrico no estado ativo.
+      </p>
+    </div>
+
+    <!-- Solar grid -->
+    <h3 class="text-xl font-medium text-white mb-6">Inventário</h3>
+    <div class="glass-panel rounded p-8 mb-10">
+      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:atom-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">atom</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:shield-keyhole-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">shield</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:rocket-2-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">rocket</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:code-circle-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">code</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:database-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">database</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:bolt-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">bolt</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:settings-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">settings</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:layers-minimalistic-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">layers</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:graph-up-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">graph</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:cpu-bolt-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">cpu</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:book-bookmark-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">book</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:folder-with-files-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">folder</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:cloud-storage-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">cloud</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:eye-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">eye</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:arrow-right-up-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">arrow-up</span>
+        </div>
+        <div class="group flex flex-col items-center gap-2 p-4 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+          <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:infinity-linear" width="22"></iconify-icon>
+          <span class="text-[10px] font-mono text-white/40 group-hover:text-indigo-300/80 transition-colors">infinity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sizes -->
+    <h3 class="text-xl font-medium text-white mb-6">Tamanhos</h3>
+    <div class="glass-panel rounded p-8 mb-10">
+      <div class="flex flex-wrap items-end gap-10">
+        <div class="flex flex-col items-center gap-3"><iconify-icon class="text-blue-200" icon="solar:atom-linear" width="12"></iconify-icon><span class="text-[10px] font-mono text-white/40">12px · inline</span></div>
+        <div class="flex flex-col items-center gap-3"><iconify-icon class="text-blue-200" icon="solar:atom-linear" width="14"></iconify-icon><span class="text-[10px] font-mono text-white/40">14px · button</span></div>
+        <div class="flex flex-col items-center gap-3"><iconify-icon class="text-blue-200" icon="solar:atom-linear" width="16"></iconify-icon><span class="text-[10px] font-mono text-white/40">16px · UI</span></div>
+        <div class="flex flex-col items-center gap-3"><iconify-icon class="text-blue-200" icon="solar:atom-linear" width="20"></iconify-icon><span class="text-[10px] font-mono text-white/40">20px · card</span></div>
+        <div class="flex flex-col items-center gap-3"><iconify-icon class="text-blue-200" icon="solar:atom-linear" width="24"></iconify-icon><span class="text-[10px] font-mono text-white/40">24px · feature</span></div>
+        <div class="flex flex-col items-center gap-3"><iconify-icon class="text-blue-200" icon="solar:atom-linear" width="32"></iconify-icon><span class="text-[10px] font-mono text-white/40">32px · hero</span></div>
+      </div>
+    </div>
+
+    <!-- Color inheritance -->
+    <h3 class="text-xl font-medium text-white mb-6">Herança de cor por contexto</h3>
+    <div class="glass-panel rounded p-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+        <div class="text-center p-5 rounded bg-white/[0.02] border border-white/5">
+          <iconify-icon class="text-white/40 mb-2" icon="solar:atom-linear" width="22"></iconify-icon>
+          <div class="text-[10px] font-mono text-white/40">text-white/40<br />idle</div>
+        </div>
+        <div class="text-center p-5 rounded bg-white/[0.02] border border-white/5">
+          <iconify-icon class="text-white mb-2" icon="solar:atom-linear" width="22"></iconify-icon>
+          <div class="text-[10px] font-mono text-white/40">text-white<br />default</div>
+        </div>
+        <div class="text-center p-5 rounded bg-indigo-500/10 border border-indigo-400/35">
+          <iconify-icon class="text-blue-200 mb-2" icon="solar:atom-linear" width="22"></iconify-icon>
+          <div class="text-[10px] font-mono text-indigo-300">text-blue-200<br />active · Core</div>
+        </div>
+        <div class="text-center p-5 rounded bg-emerald-500/8 border border-emerald-400/30">
+          <iconify-icon class="text-emerald-300 mb-2" icon="solar:atom-linear" width="22"></iconify-icon>
+          <div class="text-[10px] font-mono text-emerald-300/80">text-emerald-300<br />success</div>
+        </div>
+        <div class="text-center p-5 rounded bg-red-500/8 border border-red-400/30">
+          <iconify-icon class="text-red-300 mb-2" icon="solar:atom-linear" width="22"></iconify-icon>
+          <div class="text-[10px] font-mono text-red-300/80">text-red-300<br />danger</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative z-10 py-12 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col gap-2">
+      <a routerLink="/" class="group inline-flex" aria-label="Voltar para a home">
+        <app-logo-e9 class="h-14 w-auto text-indigo-300 transition-colors group-hover:text-indigo-200"></app-logo-e9>
+      </a>
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/30">Design System · v3.0 · Indigo edition · 2026</span>
+    </div>
+    <div class="text-[11px] font-mono text-white/30 text-center md:text-right">
+      <div>Arquitetura sistêmica · três colunas · dez camadas</div>
+      <div class="text-indigo-300/60 mt-1">★ a 9ª posição é a fundação ★</div>
+    </div>
+  </div>
+</footer>

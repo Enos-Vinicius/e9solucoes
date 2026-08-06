@@ -1,0 +1,52 @@
+<main class="relative min-h-[100svh] overflow-hidden flex items-center justify-center px-6 py-12 sm:py-16">
+  <app-blueprint-grid></app-blueprint-grid>
+
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="glow-point top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-[900px] !h-[900px] opacity-100"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-2xl text-center">
+    <!-- snippet acima da marca -->
+    <div class="mb-2">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-indigo-200">Catálogo · em atualização</span>
+      </span>
+    </div>
+
+    <!-- logo em destaque · aura + piscada de luz -->
+    <div class="logo-stage mb-6">
+      <span class="aura" aria-hidden="true"></span>
+      <span class="sparkle s1" aria-hidden="true"></span>
+      <span class="sparkle s2" aria-hidden="true"></span>
+      <span class="sparkle s3" aria-hidden="true"></span>
+      <span class="sparkle s4" aria-hidden="true"></span>
+      <app-logo-e9 class="logo h-[clamp(140px,26vh,320px)] w-auto"></app-logo-e9>
+    </div>
+
+    <h1 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-5 leading-[1.05]">
+      Nosso catálogo está <span class="text-gradient-indigo">em atualização.</span>
+    </h1>
+
+    <p class="text-lg text-white/55 font-light leading-relaxed mb-10">
+      Por conta da alta demanda, não estamos conseguindo manter o catálogo em dia por aqui. Mas seguimos produzindo
+      normalmente — se você quer um orçamento de peça, brinde ou display, é só chamar no WhatsApp que a gente responde
+      rápido.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a class="btn-indigo" [href]="whatsappUrl" target="_blank" rel="noopener">
+        <iconify-icon icon="mdi:whatsapp" width="18"></iconify-icon>
+        Chamar no WhatsApp
+      </a>
+      <a routerLink="/" class="btn-outline">
+        <iconify-icon icon="solar:arrow-left-linear" width="14"></iconify-icon>
+        Voltar para o site
+      </a>
+    </div>
+
+    <div class="mt-6 font-mono text-[11px] uppercase tracking-widest text-white/30">
+      +55 34 99278-2875 · orçamento sob medida
+    </div>
+  </div>
+</main>

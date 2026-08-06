@@ -1,0 +1,1181 @@
+<!-- ===========================================================
+     Canvas + halos fixos (background global)
+     =========================================================== -->
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+  <app-blueprint-grid></app-blueprint-grid>
+  <!-- vinheta suave: deixa o blueprint chegar até as bordas -->
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_60%,rgba(6,8,15,0.55)_100%)]"></div>
+  <!-- halos + glow central · seguem o cursor (CSS vars --mx/--my) -->
+  <div class="absolute inset-0" style="transform: translate3d(var(--mx, 0px), var(--my, 0px), 0); will-change: transform;">
+    <div class="glow-point top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-[700px] !h-[700px]"></div>
+    <div class="absolute top-[18%] left-1/2 -translate-x-1/2 w-[1000px] h-[700px] bg-indigo-700/12 blur-[180px] rounded-full"></div>
+    <div class="absolute bottom-[-12%] left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-blue-700/10 blur-[160px] rounded-full"></div>
+  </div>
+  <!-- mascarinha grid fina nas laterais -->
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.025)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_15%,transparent_75%)]"></div>
+</div>
+
+<!-- ===========================================================
+     NAV
+     =========================================================== -->
+<nav
+  class="fixed top-0 w-full z-50 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300"
+  [class.glass-nav]="scrolled()"
+>
+  <div
+    class="max-w-7xl mx-auto px-6 flex items-center justify-between transition-[height] duration-300"
+    [style.height.px]="scrolled() ? 64 : 110"
+  >
+    <a routerLink="/" class="flex items-center gap-3 group cursor-pointer">
+      @if (scrolled()) {
+        <app-logo-e9-mark class="h-10 text-indigo-300 transition-colors group-hover:text-indigo-200"></app-logo-e9-mark>
+      } @else {
+        <app-logo-e9 class="h-[80px] w-auto text-indigo-300 transition-colors group-hover:text-indigo-200"></app-logo-e9>
+      }
+    </a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a class="btn-ghost" href="#triade">Manifesto</a>
+      <a class="btn-ghost" href="#pilares">Soluções</a>
+      <a class="btn-ghost" href="#software">Software</a>
+      <a class="btn-ghost" href="#manufatura">Manufatura</a>
+      <a class="btn-ghost" href="#processo">Processo</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="#contato" class="btn-indigo" style="padding: 8px 16px; font-size: 12px;">
+        Falar com o time
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===========================================================
+     01 — HERO (Core · A Fundação)
+     =========================================================== -->
+<main id="hero" class="relative z-10 px-6 pt-32 pb-24 lg:pt-40 lg:pb-32">
+  <div class="max-w-7xl mx-auto w-full relative">
+
+    <!-- Eyebrow -->
+    <div class="fade-in-up flex items-center gap-3 mb-10">
+      <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+        </span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-indigo-200">E9 Soluções · arquitetura invisível</span>
+      </div>
+      <div class="hidden md:block h-px flex-1 bg-gradient-to-r from-indigo-500/35 to-transparent"></div>
+      <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.22em] text-white/30">Design inteligente · ativo</span>
+    </div>
+
+    <!-- Headline + side panel -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+      <div class="lg:col-span-8">
+        <h1 class="fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tighter leading-[1.02] text-white mb-8">
+          <span class="text-gradient">Transformando</span>
+          <span class="text-gradient">ideias abstratas</span>
+          <br />
+          em
+          <span class="inline-block bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white to-blue-300 drop-shadow-[0_0_32px_rgba(96,165,250,0.55)]">
+            soluções
+          </span>
+          <span class="text-gradient">de alta performance.</span>
+        </h1>
+
+        <p class="fade-in-up delay-200 text-base sm:text-lg text-white/55 font-light leading-relaxed max-w-2xl mb-10">
+          Antes do código ou da matéria, o design inteligente silencioso que
+          sustenta a decisão. Projetamos ecossistemas digitais e físicos sob
+          rigor matemático, livre de ornamentos inúteis.
+        </p>
+
+        <div class="fade-in-up delay-300 flex flex-wrap gap-3 items-center">
+          <a href="#pilares" class="btn-indigo">
+            Explorar Ecossistema
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+          </a>
+          <a href="#contato" class="btn-outline">
+            <iconify-icon icon="solar:bolt-linear" width="14"></iconify-icon>
+            Iniciar Projeto
+          </a>
+          <div class="hidden sm:flex items-center gap-2 ml-2 text-[11px] font-mono text-white/30">
+            <span class="w-1 h-1 rounded-full bg-indigo-400"></span>
+            design inteligente · live
+          </div>
+        </div>
+      </div>
+
+      <!-- Side panel · Áreas de atuação (9 frentes) -->
+      <div class="fade-in-up delay-300 lg:col-span-4">
+        <div class="blueprint-card">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner br"></span>
+
+          <div class="flex items-center justify-between mb-5">
+            <span class="section-eyebrow">Áreas de atuação</span>
+            <span class="text-[10px] font-mono text-indigo-300/70">9 frentes</span>
+          </div>
+
+          <ul class="space-y-2.5 text-sm relative z-10">
+            <li class="flex items-center justify-between text-indigo-200 -mx-3 px-3 py-1.5 rounded bg-indigo-500/10 border-y border-indigo-400/25">
+              <span class="font-mono text-[10px] text-indigo-300">01</span>
+              <span class="font-medium">Software House</span>
+              <span class="text-[10px] font-mono text-indigo-300">★</span>
+            </li>
+            <li class="flex items-center justify-between text-white/70"><span class="font-mono text-[10px] text-indigo-400/50">02</span><span>Impressão 3D</span><span class="text-[10px] font-mono text-indigo-300">★</span></li>
+            <li class="flex items-center justify-between text-white/70"><span class="font-mono text-[10px] text-indigo-400/50">03</span><span>Inteligência Artificial</span><span class="text-[10px] font-mono text-indigo-300">★</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">04</span><span>Suporte &amp; Treinamento</span><span class="text-[10px] font-mono">→</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">05</span><span>Info Produto</span><span class="text-[10px] font-mono">→</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">06</span><span>Branding</span><span class="text-[10px] font-mono">→</span></li>
+            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-indigo-400/40">07</span><span>Consultoria</span><span class="text-[10px] font-mono">→</span></li>
+            <li class="flex items-center justify-between text-white/30"><span class="font-mono text-[10px] text-indigo-400/30">08</span><span>Automação Residencial</span><span class="text-[9px] font-mono uppercase tracking-wider text-amber-300/70">em breve</span></li>
+            <li class="flex items-center justify-between text-white/30"><span class="font-mono text-[10px] text-indigo-400/30">09</span><span>Marketing</span><span class="text-[9px] font-mono uppercase tracking-wider text-amber-300/70">em breve</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- ===========================================================
+     02 — MANIFESTO · TRÍADE (3 colunas balanceadas)
+     superfície: midnight via gap-px + bg-white/5
+     =========================================================== -->
+<section id="triade" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 max-w-3xl">
+      <span class="section-eyebrow block mb-3">02 — Manifesto · três forças</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4">
+        Rigor. <span class="text-gradient-indigo">Harmonia.</span> Expansão.
+      </h2>
+      <p class="text-lg text-white/50 font-light leading-relaxed">
+        Três colunas balanceadas que sustentam toda decisão da E9. À esquerda, o limite. À direita, o crescimento. No centro, a fundação que reconcilia ambos.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5 rounded-lg overflow-hidden">
+      <!-- COL 01 · Auditoria -->
+      <div class="p-10 bg-[#0A0E1A] flex flex-col">
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">← Rigor · Auditoria</span>
+          <span class="font-mono text-[10px] text-white/30">05</span>
+        </div>
+        <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6">
+          <iconify-icon class="text-white/70" icon="solar:shield-keyhole-linear" width="24"></iconify-icon>
+        </div>
+        <h3 class="text-2xl font-medium text-white mb-3">Rigor & Auditoria</h3>
+        <p class="text-sm text-white/55 leading-relaxed mb-6">
+          Processos Zero-Trust, segurança auditável, lógica pura e infraestrutura inquebrável.
+        </p>
+        <ul class="text-sm text-white/55 space-y-2 mt-auto">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/35"></span> Logs imutáveis · auditoria contínua</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/35"></span> ISO 27001 · LGPD compliance</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/35"></span> Zero-trust por padrão</li>
+        </ul>
+      </div>
+
+      <!-- COL 02 · Núcleo (orquestração) -->
+      <div class="p-10 triad-center flex flex-col relative">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-px bg-indigo-400/45"></div>
+        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-px bg-blue-400/45"></div>
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-indigo-200">◆ Núcleo · orquestração</span>
+          <span class="font-mono text-[10px] text-indigo-300">06</span>
+        </div>
+        <div class="w-12 h-12 rounded bg-indigo-500/18 border border-indigo-400/45 flex items-center justify-center mb-6 shadow-[0_0_22px_-4px_rgba(37,99,235,0.6)]">
+          <iconify-icon class="text-blue-200" icon="solar:atom-linear" width="24"></iconify-icon>
+        </div>
+        <h3 class="text-2xl font-medium text-white mb-3">Núcleo Harmônico</h3>
+        <p class="text-sm text-white/70 leading-relaxed mb-6">
+          Onde o software e o hardware se encontram. Soluções equilibradas, escaláveis e centradas na experiência.
+        </p>
+        <ul class="text-sm text-white/65 space-y-2 mt-auto">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-indigo-300"></span> Orquestração unificada</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-indigo-300"></span> Decisões reversíveis</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-indigo-300"></span> Ritmo previsível · 60fps</li>
+        </ul>
+      </div>
+
+      <!-- COL 03 · Escala -->
+      <div class="p-10 bg-[#0A0E1A] flex flex-col">
+        <div class="flex items-center justify-between mb-6">
+          <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-white/40">Expansão · Escala →</span>
+          <span class="font-mono text-[10px] text-white/30">07</span>
+        </div>
+        <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-6">
+          <iconify-icon class="text-white/70" icon="solar:rocket-2-linear" width="24"></iconify-icon>
+        </div>
+        <h3 class="text-2xl font-medium text-white mb-3">Escala Expansiva</h3>
+        <p class="text-sm text-white/55 leading-relaxed mb-6">
+          Velocidade de entrega, automação inteligente e replicação global em segundos.
+        </p>
+        <ul class="text-sm text-white/55 space-y-2 mt-auto">
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/35"></span> Deploy global em segundos</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/35"></span> Auto-scale por região</li>
+          <li class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-white/35"></span> Latência sub-50ms</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     03 — MATRIZ DE SOLUÇÕES (4 pilares · blueprint-cards 2x2)
+     =========================================================== -->
+<section id="pilares" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div class="max-w-2xl">
+        <span class="section-eyebrow block mb-3">03 — Matriz de soluções</span>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4 flex items-baseline flex-wrap gap-x-4">
+          <span
+            #frentesCounter
+            class="text-gradient-indigo text-7xl md:text-8xl font-semibold leading-none tabular-nums drop-shadow-[0_0_28px_rgba(79,70,229,0.45)]"
+            aria-hidden="true"
+            >{{ frentes() }}</span
+          >
+          <span class="sr-only">9</span>
+          frentes de entrega.
+        </h2>
+        <p class="text-lg text-white/50 font-light leading-relaxed">
+          Da abstração lógica à matéria. Cada pilar opera sob o mesmo design inteligente — rigor matemático, modularidade e entrega sem fricção.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-indigo-200 bg-indigo-500/12 border border-indigo-400/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+          3 pilares principais
+        </span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- 01 Software House · PRINCIPAL -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-indigo-500/12 border border-indigo-400/30 flex items-center justify-center">
+              <iconify-icon class="text-indigo-300" icon="solar:code-circle-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25 uppercase tracking-widest">Principal</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/60 block mb-2">01 · Vanguarda digital</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Software House</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Desenvolvimento de sites, sistemas web e aplicativos mobile, landing pages e soluções sob medida para empresas — rápidos, seguros e fáceis de usar.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">web · mobile · sob medida</span>
+            <a href="#software" class="inline-flex items-center gap-1 text-indigo-300 hover:text-blue-200 transition-colors">
+              <span>Saiba Mais</span>
+              <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 Impressão 3D · PRINCIPAL -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-indigo-500/12 border border-indigo-400/30 flex items-center justify-center">
+              <iconify-icon class="text-indigo-300" icon="solar:layers-minimalistic-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25 uppercase tracking-widest">Principal</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/60 block mb-2">02 · Do código ao objeto</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Impressão 3D</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Catálogo próprio de produtos sazonais para a loja e peças sob demanda para marcas — chaveiros, brindes, displays e materiais de divulgação com acabamento de alta qualidade.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">loja · marca · sob demanda</span>
+            <a href="#manufatura" class="inline-flex items-center gap-1 text-indigo-300 hover:text-blue-200 transition-colors">
+              <span>Saiba Mais</span>
+              <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 Inteligência Artificial · PRINCIPAL -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-indigo-500/12 border border-indigo-400/30 flex items-center justify-center">
+              <iconify-icon class="text-indigo-300" icon="solar:cpu-bolt-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25 uppercase tracking-widest">Principal</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/60 block mb-2">03 · Cognição aplicada</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Inteligência Artificial</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Soluções tecnológicas com IA de ponta a ponta. Somos especialistas em engenharia de prompt, integração de modelos e agentes que automatizam o que importa.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">prompt · agentes · modelos</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 Suporte & Treinamento -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:book-bookmark-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10 uppercase tracking-widest">Complemento</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">04 · Continuidade & time</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Suporte & Treinamento</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Contratos de manutenção e sustentação dos sistemas que entregamos, somados à capacitação do seu time em IA, ferramentas e design. Continuidade garantida e autonomia para a sua equipe.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">manutenção · capacitação</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 Info Produto -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:cart-large-minimalistic-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10 uppercase tracking-widest">Complemento</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">05 · Venda digital</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Info Produto</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Criação de sites de venda de produtos online e apoio na configuração de plataformas como Hotmart, Kiwify e outras — do checkout à entrega digital.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">landing · checkout · plataformas</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Branding -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:graph-up-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10 uppercase tracking-widest">Complemento</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">06 · Gestão de marca</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Branding & Identidade</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Gestão estratégica e contínua da identidade: identidade visual, posicionamento, tom de voz e cultura — para tornar sua marca reconhecida, relevante e desejada.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">visual · voz · posicionamento</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 Consultoria · Transformação Digital -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:settings-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10 uppercase tracking-widest">Complemento</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">07 · Estratégia digital</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Consultoria & Transformação Digital</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Diagnóstico e plano de digitalização do seu negócio. Unimos gestão e tecnologia para definir prioridades, processos e ferramentas — com a visão de quem integra tudo num só lugar.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">diagnóstico · processos · gestão</span>
+            <iconify-icon class="text-indigo-400" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- 08 Automação Residencial · EM BREVE -->
+      <div class="blueprint-card opacity-75">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:home-smile-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-amber-300 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-400/25 uppercase tracking-widest">Em breve</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">08 · Casa conectada</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Automação Residencial</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Configuração e instalação de processos residenciais — iluminação, segurança e rotinas inteligentes para mais comodidade e controle da sua casa.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">segurança · comodidade</span>
+            <span class="font-mono text-amber-300/70">em breve</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09 Marketing & Performance · EM BREVE -->
+      <div class="blueprint-card opacity-75">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:rocket-2-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-amber-300 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-400/25 uppercase tracking-widest">Em breve</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">09 · Aquisição</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Marketing & Performance</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Tráfego pago, funis de conversão e gestão de anúncios para atrair e converter clientes. Fecha o ciclo: criamos a marca, o produto e trazemos o público.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">tráfego · funis · conversão</span>
+            <span class="font-mono text-amber-300/70">em breve</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     04 — DEEP DIVE SOFTWARE (faixa midnight + mockup terminal)
+     superfície: midnight com lattice 24px
+     =========================================================== -->
+<section id="software" class="relative z-10 py-24 px-6 border-t border-white/5 bg-[#0A0E1A]/55 overflow-hidden">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.05)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- LEFT: text -->
+      <div class="lg:col-span-6">
+        <span class="section-eyebrow block mb-3">04 · Software House</span>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+          Seu app, seu sistema e seu site <span class="text-gradient-indigo">prontos para vender.</span>
+        </h2>
+        <p class="text-lg text-white/55 font-light leading-relaxed mb-8 max-w-xl">
+          Criamos o software que o seu negócio precisa — aplicativo, sistema de gestão, loja online ou landing page. Você acompanha cada etapa, valida antes de publicar e recebe tudo funcionando, sem surpresa no prazo nem no orçamento.
+        </p>
+
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-indigo); background: linear-gradient(180deg, #4F46E5, #2563EB); box-shadow: 0 0 14px -3px rgba(37, 99, 235, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">App e sistema sob medida</div>
+              <div class="text-xs text-white/50 mt-0.5">Do controle interno ao aplicativo do seu cliente — feito para o seu jeito de trabalhar, não para um molde pronto.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-indigo); background: linear-gradient(180deg, #4F46E5, #2563EB); box-shadow: 0 0 14px -3px rgba(37, 99, 235, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">Landing e loja que convertem</div>
+              <div class="text-xs text-white/50 mt-0.5">Página rápida, impecável no celular e desenhada para transformar visita em contato e venda.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-indigo); background: linear-gradient(180deg, #4F46E5, #2563EB); box-shadow: 0 0 14px -3px rgba(37, 99, 235, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">Publicado rápido, com suporte depois</div>
+              <div class="text-xs text-white/50 mt-0.5">Primeira versão no ar em semanas, com treinamento do seu time e acompanhamento após a entrega.</div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a href="#contato" class="btn-outline">
+            <iconify-icon icon="solar:chat-round-line-linear" width="14"></iconify-icon>
+            Pedir um orçamento
+          </a>
+          <a href="#pilares" class="btn-ghost">
+            <iconify-icon icon="solar:folder-with-files-linear" width="14"></iconify-icon>
+            Ver o que entregamos
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: mockup terminal -->
+      <div class="lg:col-span-6">
+        <div class="blueprint-card">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="relative z-10">
+            <!-- header -->
+            <div class="flex items-center justify-between mb-5 pb-4 border-b border-white/5">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-500/40"></span>
+                <span class="w-2 h-2 rounded-full bg-amber-500/40"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500/40"></span>
+                <span class="ml-3 font-mono text-[11px] text-white/50">seu projeto · acompanhamento</span>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] uppercase font-semibold tracking-wider text-indigo-200 bg-indigo-500/12 border border-indigo-400/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                No ar
+              </span>
+            </div>
+
+            <!-- linha do tempo do projeto -->
+            <pre class="font-mono text-[12px] leading-7 text-white/55 mb-5 whitespace-pre-wrap"><span class="text-indigo-300">›</span> projeto: app + landing page
+<span class="text-white/35">[01]</span> proposta e escopo ··· <span class="text-emerald-300">aprovado</span>
+<span class="text-white/35">[02]</span> telas para você validar ··· <span class="text-emerald-300">ok</span>
+<span class="text-white/35">[03]</span> publicado nas lojas e no site ··· <span class="text-emerald-300">ok</span>
+<span class="text-indigo-300">›</span> suporte ativo<span class="typing-cursor"></span></pre>
+
+            <!-- metric strip -->
+            <div class="grid grid-cols-3 gap-px bg-white/5 rounded overflow-hidden">
+              <div class="bg-[#06080F] px-4 py-3 flex flex-col gap-0.5">
+                <span class="text-[9px] font-mono uppercase tracking-widest text-white/40">no ar em</span>
+                <span class="text-base font-medium text-white">6<span class="text-indigo-400 text-xs"> semanas</span></span>
+              </div>
+              <div class="bg-[#06080F] px-4 py-3 flex flex-col gap-0.5 triad-center">
+                <span class="text-[9px] font-mono uppercase tracking-widest text-indigo-300">no ar</span>
+                <span class="text-base font-medium text-white">99.9<span class="text-blue-400 text-xs"> %</span></span>
+              </div>
+              <div class="bg-[#06080F] px-4 py-3 flex flex-col gap-0.5">
+                <span class="text-[9px] font-mono uppercase tracking-widest text-white/40">suporte</span>
+                <span class="text-base font-medium text-white">24<span class="text-indigo-400 text-xs"> /7</span></span>
+              </div>
+            </div>
+
+            <!-- progress bar shimmer -->
+            <div class="mt-5">
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-mono text-[10px] uppercase tracking-widest text-white/40">entrega · em andamento</span>
+                <span class="font-mono text-[10px] text-indigo-300">62%</span>
+              </div>
+              <div class="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                <div class="w-[62%] h-full rounded-full relative overflow-hidden" style="background: rgba(79, 70, 229, 0.22);">
+                  <div class="absolute top-0 left-0 bottom-0 w-full h-full bg-gradient-to-r from-transparent via-blue-300/75 to-transparent" style="animation: shimmer 2s infinite;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     05 — DEEP DIVE MANUFATURA (mockup à esquerda, texto à direita)
+     superfície: carbon (default) com glass-panel
+     =========================================================== -->
+<section id="manufatura" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+      <!-- LEFT: mockup com ícones float + matrix-cell core no centro -->
+      <div class="lg:col-span-6 order-2 lg:order-1">
+        <div class="glass-panel rounded-lg p-10 relative min-h-[460px] overflow-hidden">
+          <!-- grid sutil atrás -->
+          <div class="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.06)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_80%)] opacity-60 pointer-events-none"></div>
+
+          <div class="relative z-10 flex items-center justify-between mb-6">
+            <span class="section-eyebrow">Da loja à marca</span>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/70">manufatura digital</span>
+          </div>
+
+          <!-- network 5-node -->
+          <div class="relative z-10 h-[300px]">
+            <!-- linhas conectando (atrás dos ícones) -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+              <line x1="22%" y1="22%" x2="50%" y2="50%" stroke="rgba(129,140,248,0.30)" stroke-width="1" />
+              <line x1="78%" y1="22%" x2="50%" y2="50%" stroke="rgba(129,140,248,0.30)" stroke-width="1" />
+              <line x1="25%" y1="80%" x2="50%" y2="50%" stroke="rgba(129,140,248,0.30)" stroke-width="1" />
+              <line x1="75%" y1="80%" x2="50%" y2="50%" stroke="rgba(129,140,248,0.30)" stroke-width="1" />
+            </svg>
+
+            <!-- node TL · layers -->
+            <div class="absolute top-[8%] left-[10%] flex flex-col items-center gap-1.5">
+              <div class="w-14 h-14 bg-[#0A0E1A] rounded border border-indigo-400/30 flex items-center justify-center" style="animation: float 6s ease-in-out infinite;">
+                <iconify-icon class="text-indigo-300" icon="solar:layers-minimalistic-linear" width="24"></iconify-icon>
+              </div>
+              <span class="text-[10px] font-mono text-white/40">coleção</span>
+            </div>
+
+            <!-- node TR · atom -->
+            <div class="absolute top-[8%] right-[10%] flex flex-col items-center gap-1.5">
+              <div class="w-14 h-14 bg-[#0A0E1A] rounded border border-indigo-400/30 flex items-center justify-center" style="animation: float 8s ease-in-out infinite 1s;">
+                <iconify-icon class="text-blue-300" icon="solar:bolt-linear" width="24"></iconify-icon>
+              </div>
+              <span class="text-[10px] font-mono text-white/40">brinde</span>
+            </div>
+
+            <!-- center · matrix-cell core -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div class="matrix-cell core w-20 h-20 rounded">
+                <span class="label"></span>
+              </div>
+            </div>
+
+            <!-- node BL · database -->
+            <div class="absolute bottom-[6%] left-[12%] flex flex-col items-center gap-1.5">
+              <div class="w-14 h-14 bg-[#0A0E1A] rounded border border-indigo-400/30 flex items-center justify-center" style="animation: float 7s ease-in-out infinite 2s;">
+                <iconify-icon class="text-indigo-300" icon="solar:database-linear" width="24"></iconify-icon>
+              </div>
+              <span class="text-[10px] font-mono text-white/40">modelo 3D</span>
+            </div>
+
+            <!-- node BR · graph -->
+            <div class="absolute bottom-[6%] right-[12%] flex flex-col items-center gap-1.5">
+              <div class="w-14 h-14 bg-[#0A0E1A] rounded border border-indigo-400/30 flex items-center justify-center" style="animation: float 9s ease-in-out infinite 0.5s;">
+                <iconify-icon class="text-blue-300" icon="solar:atom-linear" width="24"></iconify-icon>
+              </div>
+              <span class="text-[10px] font-mono text-white/40">logo físico</span>
+            </div>
+          </div>
+
+          <div class="relative z-10 mt-6 pt-5 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">do código ao objeto · entrega real</span>
+            <iconify-icon class="text-blue-200" icon="solar:layers-minimalistic-linear" width="14"></iconify-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: text -->
+      <div class="lg:col-span-6 order-1 lg:order-2">
+        <span class="section-eyebrow block mb-3">05 · Impressão 3D</span>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+          Produtos para a loja. <span class="text-gradient-indigo">Peças para a sua marca.</span>
+        </h2>
+        <p class="text-lg text-white/55 font-light leading-relaxed mb-8 max-w-xl">
+          A impressão 3D da E9 opera em duas frentes complementares: um catálogo próprio de produtos sazonais — modelados, impressos e revendidos pela casa — e um serviço sob demanda para marcas que precisam materializar identidade: chaveiros, brindes corporativos, displays de PDV e peças de divulgação. Modelagem precisa, acabamento limpo, tempo de produção previsível.
+        </p>
+
+        <!-- duas frentes em cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <div class="glass-panel rounded-lg p-5">
+            <div class="flex items-center justify-between mb-3">
+              <iconify-icon class="text-indigo-300" icon="solar:bag-3-linear" width="20"></iconify-icon>
+              <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25 uppercase tracking-widest">Loja</span>
+            </div>
+            <div class="text-sm font-medium text-white mb-1">Catálogo próprio</div>
+            <p class="text-xs text-white/55 leading-relaxed">Coleções sazonais, edições limitadas e produtos pensados para revenda.</p>
+          </div>
+          <div class="glass-panel rounded-lg p-5">
+            <div class="flex items-center justify-between mb-3">
+              <iconify-icon class="text-blue-200" icon="solar:graph-up-linear" width="20"></iconify-icon>
+              <span class="text-[10px] font-mono text-blue-200 px-1.5 py-0.5 rounded bg-blue-500/12 border border-blue-400/25 uppercase tracking-widest">Marca</span>
+            </div>
+            <div class="text-sm font-medium text-white mb-1">Sob demanda</div>
+            <p class="text-xs text-white/55 leading-relaxed">Chaveiros, brindes, logos físicos, displays e materiais de divulgação.</p>
+          </div>
+        </div>
+
+        <!-- spec sheet -->
+        <div class="glass-panel rounded-lg overflow-hidden mb-8">
+          <div class="px-5 py-3 flex items-baseline justify-between border-b border-white/5">
+            <span class="font-mono text-[10px] uppercase tracking-widest text-indigo-300/70">O que entregamos</span>
+            <span class="font-mono text-[10px] text-white/30">spec · 01</span>
+          </div>
+          <ul class="px-5 py-4 space-y-3">
+            <li class="flex items-center gap-3 text-sm text-white/65">
+              <iconify-icon class="text-indigo-300" icon="solar:layers-minimalistic-linear" width="16"></iconify-icon>
+              Coleções sazonais para revenda na loja
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white/65">
+              <iconify-icon class="text-indigo-300" icon="solar:bolt-linear" width="16"></iconify-icon>
+              Brindes corporativos personalizados
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white/65">
+              <iconify-icon class="text-indigo-300" icon="solar:atom-linear" width="16"></iconify-icon>
+              Logos físicos, chaveiros e lembranças de marca
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white/65">
+              <iconify-icon class="text-indigo-300" icon="solar:eye-linear" width="16"></iconify-icon>
+              Displays de PDV e material de divulgação tridimensional
+            </li>
+          </ul>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3">
+          <a routerLink="/catalogo" class="btn-indigo">
+            Ver catálogo da loja
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+          </a>
+          <!-- oculto a pedido — sem destino definido; para reativar, descomentar
+          <button class="btn-outline">
+            <iconify-icon icon="solar:bolt-linear" width="14"></iconify-icon>
+            Solicitar peça da marca
+          </button>
+          -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     06 — DESIGN INTELIGENTE™ · método proprietário de Design System
+     superfície: carbon com cards mistos + vitrine viva dos componentes
+     =========================================================== -->
+<section id="ecossistema" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header com badge do método -->
+    <div class="mb-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+      <div class="lg:col-span-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30 mb-5">
+          <span class="flex h-2 w-2 relative">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+          </span>
+          <span class="text-[11px] font-mono tracking-widest uppercase text-indigo-200">06 · método proprietário</span>
+        </div>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4 leading-[1.05]">
+          <span class="text-gradient-indigo">Design Inteligente</span><sup class="text-indigo-300/60 text-base font-mono ml-1">™</sup>
+          <br />
+          o design system que torna sua marca moderna por dentro.
+        </h2>
+        <p class="text-lg text-white/55 font-light leading-relaxed max-w-2xl">
+          Não vendemos templates. Construímos a linguagem visual viva da sua
+          marca — tokens, componentes, animações, ícones e voz — com a mesma
+          metodologia que sustenta este site. Coerência absoluta entre site,
+          produto, comunicação e operação. O resultado: um negócio que parece
+          ter sido pensado em um único traço.
+        </p>
+      </div>
+      <div class="lg:col-span-4 lg:text-right">
+        <div class="inline-flex items-center gap-3 glass-panel rounded-lg px-5 py-4">
+          <iconify-icon class="text-blue-200" icon="solar:atom-linear" width="22"></iconify-icon>
+          <div class="text-left">
+            <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300/70">Este site é</div>
+            <div class="text-sm font-medium text-white">a vitrine viva do método.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Os 5 pilares do método (cards horizontais com gap-px) -->
+    <h3 class="section-eyebrow block mb-5">Cinco pilares · Design Inteligente™</h3>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-px bg-white/5 rounded-lg overflow-hidden mb-12">
+      <div class="bg-[#0A0E1A] px-5 py-6 flex flex-col gap-2">
+        <iconify-icon class="text-indigo-300" icon="solar:atom-linear" width="22"></iconify-icon>
+        <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300/60">01</div>
+        <div class="text-sm font-medium text-white">Frequência</div>
+        <div class="text-[11px] text-white/45 leading-relaxed">Paleta única, ressonante, com identidade — nenhuma cor decorativa.</div>
+      </div>
+      <div class="bg-[#0A0E1A] px-5 py-6 flex flex-col gap-2">
+        <iconify-icon class="text-indigo-300" icon="solar:layers-minimalistic-linear" width="22"></iconify-icon>
+        <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300/60">02</div>
+        <div class="text-sm font-medium text-white">Geometria</div>
+        <div class="text-[11px] text-white/45 leading-relaxed">Grid, proporção e ritmo — base matemática do layout.</div>
+      </div>
+      <div class="bg-[#0A0E1A] px-5 py-6 flex flex-col gap-2 triad-center">
+        <iconify-icon class="text-blue-200" icon="solar:bolt-linear" width="22"></iconify-icon>
+        <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300">03 · núcleo</div>
+        <div class="text-sm font-medium text-white">Movimento</div>
+        <div class="text-[11px] text-white/65 leading-relaxed">Easings e transições assinadas. Nada pisca; tudo interpola.</div>
+      </div>
+      <div class="bg-[#0A0E1A] px-5 py-6 flex flex-col gap-2">
+        <iconify-icon class="text-indigo-300" icon="solar:book-bookmark-linear" width="22"></iconify-icon>
+        <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300/60">04</div>
+        <div class="text-sm font-medium text-white">Voz</div>
+        <div class="text-[11px] text-white/45 leading-relaxed">Tipografia técnica, copy sem ornamento, hierarquia previsível.</div>
+      </div>
+      <div class="bg-[#0A0E1A] px-5 py-6 flex flex-col gap-2">
+        <iconify-icon class="text-indigo-300" icon="solar:infinity-linear" width="22"></iconify-icon>
+        <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300/60">05</div>
+        <div class="text-sm font-medium text-white">Modularidade</div>
+        <div class="text-[11px] text-white/45 leading-relaxed">Cada componente escala sem reescrita. Cresce com o produto.</div>
+      </div>
+    </div>
+
+    <!-- Entregáveis (esquerda) + Vitrine viva (direita) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+
+      <!-- Entregáveis — blueprint-card -->
+      <div class="lg:col-span-7 blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-6">
+            <span class="section-eyebrow">O que entregamos no método</span>
+            <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25">v3.0 · vivo</span>
+          </div>
+
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="font-mono text-[10px] text-indigo-300/70 pt-1 w-6 shrink-0">01</span>
+              <div>
+                <div class="text-white text-sm font-medium">Tokens fundacionais</div>
+                <div class="text-xs text-white/50 mt-0.5">Cores, tipografia, espaçamento, raios e motion — exportáveis para qualquer stack.</div>
+              </div>
+            </li>
+            <li class="h-px bg-white/5"></li>
+            <li class="flex items-start gap-3">
+              <span class="font-mono text-[10px] text-indigo-300/70 pt-1 w-6 shrink-0">02</span>
+              <div>
+                <div class="text-white text-sm font-medium">Biblioteca de componentes</div>
+                <div class="text-xs text-white/50 mt-0.5">Botões, inputs, cards, tags, controles seletivos — todos os estados (default, hover, focus, active, disabled).</div>
+              </div>
+            </li>
+            <li class="h-px bg-white/5"></li>
+            <li class="flex items-start gap-3">
+              <span class="font-mono text-[10px] text-indigo-300/70 pt-1 w-6 shrink-0">03</span>
+              <div>
+                <div class="text-white text-sm font-medium">Iconografia uniforme</div>
+                <div class="text-xs text-white/50 mt-0.5">Família única de ícones lineares — traço consistente, herança de cor por contexto.</div>
+              </div>
+            </li>
+            <li class="h-px bg-white/5"></li>
+            <li class="flex items-start gap-3">
+              <span class="font-mono text-[10px] text-indigo-300/70 pt-1 w-6 shrink-0">04</span>
+              <div>
+                <div class="text-white text-sm font-medium">Sistema de movimento</div>
+                <div class="text-xs text-white/50 mt-0.5">Easings, durações, micro-animações de entrada e respiração — uma assinatura cinética.</div>
+              </div>
+            </li>
+            <li class="h-px bg-white/5"></li>
+            <li class="flex items-start gap-3">
+              <span class="font-mono text-[10px] text-indigo-300/70 pt-1 w-6 shrink-0">05</span>
+              <div>
+                <div class="text-white text-sm font-medium">Documentação técnica viva</div>
+                <div class="text-xs text-white/50 mt-0.5">Site público navegável — como este — para sua equipe e parceiros consultarem.</div>
+              </div>
+            </li>
+            <li class="h-px bg-indigo-400/25"></li>
+            <li class="flex items-start gap-3">
+              <span class="font-mono text-[10px] text-indigo-200 pt-1 w-6 shrink-0">09</span>
+              <div>
+                <div class="text-indigo-200 text-sm font-medium">Implementação direta no produto</div>
+                <div class="text-xs text-white/60 mt-0.5">Aplicamos a sintaxe no seu site, app ou ERP. A base vira interface — o Core manifesto.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Vitrine viva — stack vertical com tags, controles, ícones -->
+      <div class="lg:col-span-5 flex flex-col gap-6">
+
+        <!-- Tags / Pílulas -->
+        <div class="glass-panel rounded-lg p-5">
+          <div class="flex items-center justify-between mb-4">
+            <span class="section-eyebrow">Sinalização viva</span>
+            <span class="text-[10px] font-mono text-white/40">tags</span>
+          </div>
+          <div class="flex flex-wrap gap-2 items-center">
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-indigo-200 bg-indigo-500/12 border border-indigo-400/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+              Core · ativo
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-blue-200 bg-blue-500/12 border border-blue-400/30">
+              <iconify-icon icon="solar:bolt-linear" width="10"></iconify-icon>
+              live
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-emerald-300 bg-emerald-500/10 border border-emerald-400/25">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+              Operacional
+            </span>
+            <span class="text-[10px] font-mono text-indigo-200 px-1.5 py-0.5 rounded bg-indigo-500/12 border border-indigo-400/25">v3.0</span>
+            <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10">stable</span>
+          </div>
+        </div>
+
+        <!-- Controles compactos -->
+        <div class="glass-panel rounded-lg p-5">
+          <div class="flex items-center justify-between mb-4">
+            <span class="section-eyebrow">Controles</span>
+            <span class="text-[10px] font-mono text-white/40">switch · check · radio</span>
+          </div>
+          <div class="flex flex-wrap items-center gap-5">
+            <span class="relative w-10 h-5 rounded-full block shrink-0" style="background: linear-gradient(180deg, #4F46E5, #2563EB); border: 1px solid rgba(129, 140, 248, 0.45); box-shadow: 0 0 18px -4px rgba(37, 99, 235, 0.7);">
+              <span class="absolute top-0.5 left-5 w-3.5 h-3.5 rounded-full bg-white"></span>
+            </span>
+            <span class="w-4 h-4 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-indigo); background: linear-gradient(180deg, #4F46E5, #2563EB); box-shadow: 0 0 14px -3px rgba(37, 99, 235, 0.8);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="11"></iconify-icon>
+            </span>
+            <span class="w-4 h-4 rounded-full border flex items-center justify-center shrink-0" style="border-color: var(--e9-indigo); background: rgba(79, 70, 229, 0.10); box-shadow: 0 0 14px -3px rgba(79, 70, 229, 0.6);">
+              <span class="w-1.5 h-1.5 rounded-full bg-blue-300"></span>
+            </span>
+            <input type="text" class="e9-input flex-1 min-w-[140px]" style="padding: 6px 10px; font-size: 12px;" placeholder="campo · padrão" />
+          </div>
+        </div>
+
+        <!-- Ícones -->
+        <div class="glass-panel rounded-lg p-5">
+          <div class="flex items-center justify-between mb-4">
+            <span class="section-eyebrow">Iconografia</span>
+            <span class="text-[10px] font-mono text-white/40">solar · linear</span>
+          </div>
+          <div class="grid grid-cols-6 gap-2">
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:atom-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:shield-keyhole-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:rocket-2-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:code-circle-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:layers-minimalistic-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:bolt-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:cpu-bolt-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:database-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:graph-up-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:eye-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:cloud-storage-linear" width="18"></iconify-icon>
+            </div>
+            <div class="group flex items-center justify-center p-2 rounded bg-white/[0.02] border border-white/5 hover:bg-indigo-500/8 hover:border-indigo-400/35 transition-all cursor-pointer">
+              <iconify-icon class="text-white/70 group-hover:text-blue-200 transition-colors" icon="solar:infinity-linear" width="18"></iconify-icon>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CTA pair -->
+    <div class="glass-panel rounded-lg px-8 py-7 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <div class="text-[10px] font-mono uppercase tracking-widest text-indigo-300/70 mb-2">próximo passo</div>
+        <div class="text-xl font-medium text-white">Quer o seu próprio Design Inteligente<sup class="text-indigo-300/60 text-sm font-mono">™</sup>?</div>
+        <div class="text-sm text-white/55 mt-1">Audite tudo neste site. Depois fale com nossos arquitetos para iniciar o seu.</div>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <!-- oculto a pedido — para reativar, basta descomentar
+        <a routerLink="/design-system" class="btn-outline">
+          <iconify-icon icon="solar:layers-minimalistic-linear" width="14"></iconify-icon>
+          Ver design system aplicado
+        </a>
+        -->
+        <a href="#contato" class="btn-indigo">
+          Iniciar projeto de DS
+          <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===========================================================
+     07 — MÉTRICA DO RIGOR (background invisível · blueprint atrás)
+     =========================================================== -->
+<section id="metricas" class="relative z-10 border-t border-white/5 py-24 px-6">
+  <div class="relative max-w-7xl mx-auto mb-14 text-center">
+    <span class="section-eyebrow block mb-3">07 — Métrica do rigor</span>
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tighter text-white mb-3">Três números que não negociamos.</h2>
+    <p class="text-white/50 font-light max-w-2xl mx-auto">A geometria por trás de cada projeto entregue.</p>
+  </div>
+
+  <!-- métricas sobre o blueprint, separadas por hairlines -->
+  <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 md:divide-x divide-white/5">
+    <div class="px-8 py-8 flex flex-col gap-2 text-center">
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/40">Código sob seu domínio</span>
+      <span class="text-5xl md:text-6xl font-medium text-white tracking-tighter">100<span class="text-indigo-400 text-2xl">%</span></span>
+      <span class="text-sm text-white/55 max-w-xs mx-auto">Versionado, auditável e seu — sem caixa-preta.</span>
+    </div>
+    <div class="px-8 py-8 flex flex-col gap-2 text-center">
+      <span class="text-[10px] font-mono uppercase tracking-widest text-indigo-300">Vendor lock-in</span>
+      <span class="text-5xl md:text-6xl font-medium text-white tracking-tighter">0<span class="text-blue-400 text-2xl"> amarras</span></span>
+      <span class="text-sm text-white/65 max-w-xs mx-auto">Você é dono do código, dos arquivos 3D e dos tokens.</span>
+    </div>
+    <div class="px-8 py-8 flex flex-col gap-2 text-center">
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/40">Bit & átomo</span>
+      <span class="text-5xl md:text-6xl font-medium text-white tracking-tighter">2<span class="text-indigo-400 text-2xl"> mundos</span></span>
+      <span class="text-sm text-white/55 max-w-xs mx-auto">Digital e físico na mesma casa, sob um só padrão.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     08 — PROCESSO · 10 CAMADAS (matrix horizontal, Core glow)
+     superfície: carbon com lattice 16px
+     =========================================================== -->
+<section id="processo" class="relative z-10 py-24 px-6 border-t border-white/5 overflow-hidden">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,140,248,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(129,140,248,0.04)_1px,transparent_1px)] bg-[size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_90%)] pointer-events-none opacity-60"></div>
+
+  <div class="relative max-w-7xl mx-auto">
+    <div class="mb-12 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+      <div class="max-w-2xl">
+        <span class="section-eyebrow block mb-3">08 — Processo · 10 etapas</span>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-4 leading-[1.05]">
+          Das <span class="text-gradient-indigo">10 camadas</span> ao ponto de manifestação.
+        </h2>
+        <p class="text-lg text-white/50 font-light leading-relaxed">
+          Nosso método segue 10 etapas estritas de validação — da abstração pura do problema (01) ao produto final entregue no mercado (10). O ponto 09 é a nossa Fundamentação: onde toda a lógica é consolidada e testada antes de virar realidade.
+        </p>
+      </div>
+      <div class="lg:text-right">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] uppercase font-semibold tracking-wider text-indigo-200 bg-indigo-500/12 border border-indigo-400/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+          Core · 9 · Fundamentação
+        </span>
+      </div>
+    </div>
+
+    <!-- Matrix · destaque percorre 01 → 10 enquanto a seção está visível -->
+    <div #etapasMatrix class="grid grid-cols-5 md:grid-cols-10 gap-2 mb-6">
+      @for (etapa of etapas; track etapa.n) {
+        <div class="matrix-cell" [class.ativa]="etapaAtiva() === etapa.n" [attr.data-etapa]="etapa.num">
+          <span class="label"
+            >{{ etapa.num }}<br /><span
+              [class]="etapa.nucleo ? 'text-[9px] text-indigo-300/70' : 'text-[9px] text-white/20'"
+              >{{ etapa.nome }}</span
+            ></span
+          >
+        </div>
+      }
+    </div>
+
+    <div class="flex items-center justify-between gap-4 text-[10px] font-mono text-white/30 uppercase tracking-widest">
+      <span class="shrink-0">01 · Início abstrato</span>
+      <span class="flex-1 flex items-center justify-center text-center text-indigo-300">
+        @for (etapa of [etapaAtual()]; track etapa.n) {
+          <span class="animate-data-render">★ {{ etapa.num }} · {{ etapa.nome }} · {{ etapa.resumo }}</span>
+        }
+      </span>
+      <span class="shrink-0">10 · Manifestação</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     09 — CTA FINAL · A MANIFESTAÇÃO
+     superfície: carbon profundo + glow central forte + blueprint-card
+     =========================================================== -->
+<section id="contato" class="relative z-10 py-32 px-6 border-t border-white/5 overflow-hidden">
+  <!-- glow central forte -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="glow-point top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-[900px] !h-[900px] opacity-100"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-400/30 mb-6">
+      <span class="flex h-2 w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+      </span>
+      <span class="text-[11px] font-mono tracking-widest uppercase text-indigo-200">09 · Manifestação</span>
+    </div>
+
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-white mb-5 leading-[1.05]">
+      Pronto para <span class="text-gradient-indigo">codificar o futuro</span> da sua operação?
+    </h2>
+    <p class="text-lg text-white/55 font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+      Fale diretamente com nossos arquitetos de soluções. Sem intermediários, sem termos vagos. Apenas engenharia pura.
+    </p>
+
+    <!-- formulário de contato -->
+    <div class="blueprint-card text-left max-w-2xl mx-auto">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <form class="relative z-10" [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="block mb-2 text-[10px] font-mono uppercase tracking-widest text-indigo-300">E-mail</span>
+            <input
+              class="e9-input"
+              [class.error]="invalid('email')"
+              type="email"
+              formControlName="email"
+              autocomplete="email"
+              placeholder="voce@suaempresa.com.br"
+            />
+            @if (invalid('email')) {
+              <span class="block mt-1.5 text-[10px] font-mono text-red-300/80">informe um e-mail válido</span>
+            }
+          </label>
+
+          <label class="block">
+            <span class="block mb-2 text-[10px] font-mono uppercase tracking-widest text-indigo-300">Telefone</span>
+            <input
+              class="e9-input"
+              [class.error]="invalid('telefone')"
+              type="tel"
+              formControlName="telefone"
+              autocomplete="tel"
+              placeholder="(00) 00000-0000"
+            />
+            @if (invalid('telefone')) {
+              <span class="block mt-1.5 text-[10px] font-mono text-red-300/80">informe um telefone com DDD</span>
+            }
+          </label>
+        </div>
+
+        <label class="block mt-4">
+          <span class="block mb-2 text-[10px] font-mono uppercase tracking-widest text-indigo-300">Descreva seu desafio</span>
+          <textarea
+            class="e9-input resize-y min-h-[120px]"
+            [class.error]="invalid('mensagem')"
+            formControlName="mensagem"
+            rows="4"
+            placeholder="Ex.: queremos reduzir latência da plataforma para sub-50ms em 6 meses"
+          ></textarea>
+          @if (invalid('mensagem')) {
+            <span class="block mt-1.5 text-[10px] font-mono text-red-300/80">conte um pouco mais — mínimo de 10 caracteres</span>
+          }
+        </label>
+
+        <div class="mt-5 pt-5 border-t border-white/5 flex flex-wrap items-center justify-between gap-3 text-[11px] font-mono">
+          <span class="text-white/40 flex items-center gap-2">
+            <span class="w-1 h-1 rounded-full bg-indigo-400 animate-pulse"></span>
+            resposta em até 24h úteis
+          </span>
+          <button class="btn-indigo whitespace-nowrap" type="submit">
+            Falar com o time
+            <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     FOOTER
+     =========================================================== -->
+<footer class="relative z-10 py-12 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col gap-2">
+      <a routerLink="/" class="group inline-flex" aria-label="Voltar para a home">
+        <app-logo-e9 class="h-28 w-auto text-indigo-300 transition-colors group-hover:text-indigo-200"></app-logo-e9>
+      </a>
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/30">arquitetura invisível · 2026</span>
+    </div>
+    <div class="text-[11px] font-mono text-white/30 text-center md:text-right">
+      <div>Software · Impressão 3D · IA · Suporte · Info Produto · Branding · Consultoria · Automação · Marketing</div>
+      <div class="text-indigo-300/60 mt-1">★ a 9ª posição é a fundação ★</div>
+    </div>
+  </div>
+</footer>
