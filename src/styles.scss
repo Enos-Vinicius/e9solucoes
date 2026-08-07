@@ -63,6 +63,36 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Reveal por scroll (diretiva e9RevealOnScroll) — mesmo easing do hero.
+   Usa a propriedade `translate` em vez de `transform` para não conflitar com
+   as utilidades de transform do Tailwind nos mesmos elementos. */
+.reveal {
+  opacity: 0;
+  translate: 0 24px;
+}
+.reveal.is-visible {
+  animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) both;
+}
+
+@keyframes revealUp {
+  from { opacity: 0; translate: 0 24px; }
+  to   { opacity: 1; translate: 0 0; }
+}
+
+@keyframes revealFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Movimento reduzido (inclui "efeitos de animação" desligados no Windows):
+   sem deslocamento e mais curto — mas o conteúdo ainda entra com fade. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { translate: none; }
+  .reveal.is-visible {
+    animation: revealFade 0.45s ease-out var(--reveal-delay, 0ms) both;
+  }
+}
+
 /* =========================================================
    Glass surfaces
    ========================================================= */

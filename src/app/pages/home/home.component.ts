@@ -18,6 +18,7 @@ import { RouterLink } from '@angular/router';
 import { BlueprintGridComponent } from '../../components/blueprint-grid/blueprint-grid.component';
 import { LogoE9Component } from '../../components/logo-e9/logo-e9.component';
 import { LogoE9MarkComponent } from '../../components/logo-e9/logo-e9-mark.component';
+import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 
 /** Destino das mensagens do formulário de contato — trocar pelo e-mail oficial. */
 const CONTACT_EMAIL = 'contato@e9solucoes.com.br';
@@ -48,6 +49,7 @@ interface EtapaProcesso {
     BlueprintGridComponent,
     LogoE9Component,
     LogoE9MarkComponent,
+    RevealOnScrollDirective,
   ],
   templateUrl: './home.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
