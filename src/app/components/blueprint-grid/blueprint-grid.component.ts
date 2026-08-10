@@ -169,9 +169,9 @@ export class BlueprintGridComponent implements AfterViewInit, OnDestroy {
         const d2 = dx * dx + dy * dy;
         if (d2 < maxDistSq) {
           const t = 1 - Math.sqrt(d2) / maxDist;
-          const indigoLink = a.highlight && b.highlight;
-          if (indigoLink) {
-            ctx.strokeStyle = `rgba(129, 140, 248, ${0.10 + t * 0.22})`;
+          const linkDestacado = a.highlight && b.highlight;
+          if (linkDestacado) {
+            ctx.strokeStyle = `rgba(129, 181, 248, ${0.10 + t * 0.22})`;
           } else {
             ctx.strokeStyle = `rgba(229, 233, 242, ${0.04 + t * 0.09})`;
           }
@@ -193,15 +193,15 @@ export class BlueprintGridComponent implements AfterViewInit, OnDestroy {
       if (p.highlight) {
         const glowR = 5 + pulseT * 5 + depth01 * 2;
         const grad = ctx.createRadialGradient(p.sx, p.sy, 0, p.sx, p.sy, glowR);
-        grad.addColorStop(0, `rgba(96, 165, 250, ${0.6 * depthAlpha})`);
-        grad.addColorStop(0.45, `rgba(79, 70, 229, ${0.35 * depthAlpha})`);
-        grad.addColorStop(1, 'rgba(79, 70, 229, 0)');
+        grad.addColorStop(0, `rgba(71, 149, 250, ${0.6 * depthAlpha})`);
+        grad.addColorStop(0.45, `rgba(0, 91, 209, ${0.35 * depthAlpha})`);
+        grad.addColorStop(1, 'rgba(0, 91, 209, 0)');
         ctx.fillStyle = grad;
         ctx.beginPath();
         ctx.arc(p.sx, p.sy, glowR, 0, Math.PI * 2);
         ctx.fill();
 
-        ctx.fillStyle = `rgba(129, 140, 248, ${0.95 * depthAlpha})`;
+        ctx.fillStyle = `rgba(129, 181, 248, ${0.95 * depthAlpha})`;
         ctx.beginPath();
         ctx.arc(p.sx, p.sy, radius + 0.7, 0, Math.PI * 2);
         ctx.fill();

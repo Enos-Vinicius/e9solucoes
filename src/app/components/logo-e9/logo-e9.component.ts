@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 /**
  * Logo E9 Soluções — lockup oficial (marca + wordmark "E9 Soluções").
- * Renderiza com `fill: currentColor`, herdando a cor índigo do contexto e
+ * Renderiza com `fill: currentColor`, herdando a cor da marca do contexto e
  * respeitando a paleta primária do design system. Dimensione no host via
  * altura (ex.: `h-10 w-auto`); a largura se ajusta pela proporção do vetor.
  */

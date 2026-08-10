@@ -32,8 +32,8 @@ const WHATSAPP_MENSAGEM =
         pointer-events: none;
         background: radial-gradient(
           circle,
-          rgba(79, 70, 229, 0.38),
-          rgba(37, 99, 235, 0.14) 45%,
+          rgba(0, 91, 209, 0.38),
+          rgba(0, 111, 255, 0.14) 45%,
           transparent 70%
         );
         filter: blur(8px);
@@ -43,7 +43,7 @@ const WHATSAPP_MENSAGEM =
       /* a marca herda a cor via currentColor: a piscada troca cor + brilho */
       .logo {
         position: relative;
-        color: var(--e9-indigo-light);
+        color: var(--e9-blue-300);
         animation: logoBlink 2.8s ease-in-out infinite;
       }
 
@@ -73,8 +73,8 @@ const WHATSAPP_MENSAGEM =
       @keyframes logoBlink {
         0%, 100% {
           opacity: 0.75;
-          color: var(--e9-indigo-light);
-          filter: drop-shadow(0 0 16px rgba(79, 70, 229, 0.5));
+          color: var(--e9-blue-300);
+          filter: drop-shadow(0 0 16px rgba(0, 91, 209, 0.5));
         }
         8% {
           opacity: 1;
@@ -83,8 +83,8 @@ const WHATSAPP_MENSAGEM =
         }
         15% {
           opacity: 0.6;
-          color: var(--e9-indigo-light);
-          filter: drop-shadow(0 0 14px rgba(79, 70, 229, 0.45));
+          color: var(--e9-blue-300);
+          filter: drop-shadow(0 0 14px rgba(0, 91, 209, 0.45));
         }
         24% {
           opacity: 1;
@@ -93,13 +93,13 @@ const WHATSAPP_MENSAGEM =
         }
         40% {
           opacity: 0.95;
-          color: var(--e9-indigo-light);
-          filter: drop-shadow(0 0 34px rgba(96, 165, 250, 0.8));
+          color: var(--e9-blue-300);
+          filter: drop-shadow(0 0 34px rgba(71, 149, 250, 0.8));
         }
         70% {
           opacity: 0.82;
-          color: var(--e9-indigo-light);
-          filter: drop-shadow(0 0 22px rgba(79, 70, 229, 0.6));
+          color: var(--e9-blue-300);
+          filter: drop-shadow(0 0 22px rgba(0, 91, 209, 0.6));
         }
       }
 
@@ -113,7 +113,7 @@ const WHATSAPP_MENSAGEM =
         .aura, .logo, .sparkle { animation: none; }
         .logo {
           opacity: 1;
-          filter: drop-shadow(0 0 26px rgba(79, 70, 229, 0.65));
+          filter: drop-shadow(0 0 26px rgba(0, 91, 209, 0.65));
         }
       }
     `,
