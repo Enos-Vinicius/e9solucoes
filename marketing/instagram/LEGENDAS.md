@@ -1,6 +1,15 @@
 # E9 Soluções — série de lançamento no Instagram
 
-9 posts, 1080×1350 (4:5), na identidade do site (Carbon / Índigo / Cobalto · Geist).
+9 posts, 1080×1350 (4:5), no eixo azul da marca (Carbon / #003A85 · Geist).
+
+**Paleta.** Matiz travado em **214°**, ancorado na cor de marca `#003A85`
+(= `--e9-blue-800`). Papéis: **800** é estrutural (fill, base de halo, botão) e
+rende só 1,85:1 sobre carbon, então nunca serve de texto; **600** `#005BD1` é a
+primária interativa; **400** `#4795FA` faz accent e glint; **300** `#81B5F8` faz
+traço e texto sobre carbon (9,43:1). A família indigo/cobalto saiu inteira — era
+234–244°, ou seja violeta. Único desvio de matiz que permanece: `--e9-sky-edge`
+`#38BDF8` (198°), deliberado, para os gradientes terem para onde viajar.
+
 Publicados na ordem, os 9 fecham exatamente uma grade 3×3 no perfil — e o "9" da
 marca vira o conceito da estreia.
 
@@ -203,7 +212,7 @@ Fonte editável: `posts.html` — reexporte com `node marketing/instagram/export
 > já não dá conta — fala com a gente. Direto com quem projeta, sem intermediário e
 > sem termo vago.
 >
-> 📩 contato@e9solucoes.com.br
+> 📩 e9solucoestecnologicas@gmail.com
 > 🔗 e9solucoes.com.br
 > ⏱️ resposta em até 24h úteis
 >

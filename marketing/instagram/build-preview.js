@@ -193,7 +193,7 @@ Chegamos ao fim da apresentação. Agora é com você.
 
 Se tem um processo que trava, uma ideia que não sai do papel ou um sistema que já não dá conta — fala com a gente. Direto com quem projeta, sem intermediário e sem termo vago.
 
-📩 contato@e9solucoes.com.br
+📩 e9solucoestecnologicas@gmail.com
 🔗 e9solucoes.com.br
 ⏱️ resposta em até 24h úteis
 
@@ -203,21 +203,21 @@ Se tem um processo que trava, uma ideia que não sai do papel ou um sistema que 
 
 const AVATARS = [
   {
-    slug: 'indigo-carbon',
-    nome: 'Índigo sobre Carbon',
-    nota: 'A mais fiel ao site: mesmo fundo, mesmo índigo, mesmo halo. Some no feed claro de quem usa tema claro, mas é a que diz “E9” sem esforço.',
+    slug: 'marca-carbon',
+    nome: 'Marca sobre Carbon',
+    nota: 'A mais fiel ao site: mesmo fundo, mesmo halo azul, mesmo traço. Some no feed de quem usa tema claro, mas é a que diz “E9” sem esforço.',
     rec: false,
   },
   {
-    slug: 'platina-indigo',
-    nome: 'Platina sobre Índigo',
-    nota: 'Maior contraste dos três — é a que continua legível a 32 px e num feed de qualquer cor. Para foto de perfil, contraste ganha de fidelidade.',
+    slug: 'platina-marca',
+    nome: 'Platina sobre a Marca',
+    nota: 'Fundo construído na escada da marca (600 → 800 → 950) com o traço em platina. Maior contraste dos três e o único que carrega a cor de marca cheia — é também o teste mais honesto do matiz, porque não há carbon para disfarçar.',
     rec: true,
   },
   {
     slug: 'gradiente',
     nome: 'Gradiente da marca',
-    nota: 'A marca preenchida com o gradiente índigo → platina → cobalto. A mais elegante no grande; perde definição nos tamanhos pequenos.',
+    nota: 'A marca preenchida com o gradiente azul 400 → platina → azul 300. A mais elegante no grande; perde definição nos tamanhos pequenos.',
     rec: false,
   },
 ];

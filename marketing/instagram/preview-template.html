@@ -7,8 +7,9 @@
    ========================================================= */
 :root{
   --carbon:#06080F; --midnight:#0A0E1A; --graphite:#11162A;
-  --platinum:#E5E9F2; --indigo:#4F46E5; --indigo-light:#818CF8;
-  --cobalt:#2563EB; --cobalt-light:#60A5FA; --amber:#FCD34D;
+  /* eixo azul da marca · 214° — mesmos degraus das artes */
+  --platinum:#E5E9F2; --indigo:#005BD1; --indigo-light:#81B5F8;
+  --cobalt:#0049A8; --cobalt-light:#4795FA; --amber:#FCD34D;
   --hair:rgba(229,233,242,.08);
   --hair-strong:rgba(229,233,242,.14);
   --ink:#E5E9F2;
@@ -24,9 +25,9 @@ body{
   font-family:var(--sans);font-size:var(--step);line-height:1.6;
   -webkit-font-smoothing:antialiased;
   background-image:
-    radial-gradient(900px 600px at 50% -10%,rgba(55,48,163,.28),transparent 70%),
-    linear-gradient(rgba(129,140,248,.028) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(129,140,248,.028) 1px,transparent 1px);
+    radial-gradient(900px 600px at 50% -10%,rgba(0,58,133,.36),transparent 70%),
+    linear-gradient(rgba(129,181,248,.028) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(129,181,248,.028) 1px,transparent 1px);
   background-size:auto,64px 64px,64px 64px;
   background-repeat:no-repeat,repeat,repeat;
 }
@@ -40,7 +41,7 @@ body{
 /* ---------- cabeçalho ---------- */
 header{padding:88px 0 56px;display:flex;flex-direction:column;gap:26px}
 .mark{width:66px;height:66px;color:var(--indigo-light);
-  filter:drop-shadow(0 0 26px rgba(79,70,229,.55))}
+  filter:drop-shadow(0 0 26px rgba(0,91,209,.6))}
 .mark svg{display:block;width:100%;height:100%;fill:currentColor}
 h1{margin:0;font-size:clamp(2.1rem,1.5rem + 2.6vw,3.4rem);line-height:1.06;
   letter-spacing:-.03em;font-weight:600;text-wrap:balance;max-width:22ch}
@@ -89,8 +90,8 @@ section{padding-top:72px}
 .av .file{font-family:var(--mono);font-size:.625rem;letter-spacing:.12em;
   color:var(--ink-faint);word-break:break-all}
 .av .rec{font-family:var(--mono);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--indigo-light);border:1px solid rgba(129,140,248,.4);border-radius:999px;
-  padding:4px 10px;background:rgba(79,70,229,.12)}
+  color:var(--indigo-light);border:1px solid rgba(129,181,248,.4);border-radius:999px;
+  padding:4px 10px;background:rgba(0,91,209,.16)}
 .scalenote{margin:16px 0 0;color:var(--ink-faint);font-size:.875rem;max-width:56ch}
 
 /* ---------- posts ---------- */
@@ -114,7 +115,7 @@ figcaption{font-family:var(--mono);font-size:.625rem;letter-spacing:.16em;
 .cap{border:1px solid var(--hair-strong);border-radius:6px;background:var(--carbon);
   overflow:hidden;margin-top:2px}
 .cap-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:10px 14px;border-bottom:1px solid var(--hair);background:rgba(79,70,229,.06)}
+  padding:10px 14px;border-bottom:1px solid var(--hair);background:rgba(0,91,209,.09)}
 .cap-bar span{font-family:var(--mono);font-size:.625rem;letter-spacing:.2em;
   text-transform:uppercase;color:var(--indigo-light)}
 .cap pre{margin:0;padding:16px;font-family:var(--mono);font-size:.8125rem;line-height:1.7;
@@ -122,7 +123,7 @@ figcaption{font-family:var(--mono);font-size:.625rem;letter-spacing:.16em;
 button.copy{font-family:var(--mono);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase;
   color:var(--ink);background:rgba(229,233,242,.05);border:1px solid var(--hair-strong);
   border-radius:4px;padding:6px 12px;cursor:pointer;transition:background .2s,border-color .2s}
-button.copy:hover{background:rgba(79,70,229,.18);border-color:rgba(129,140,248,.45)}
+button.copy:hover{background:rgba(0,91,209,.24);border-color:rgba(129,181,248,.45)}
 button.copy:focus-visible{outline:2px solid var(--cobalt-light);outline-offset:2px}
 button.copy[data-done="1"]{color:#86efac;border-color:rgba(134,239,172,.4)}
 
@@ -133,7 +134,7 @@ button.copy[data-done="1"]{color:#86efac;border-color:rgba(134,239,172,.4)}
 .note h3{margin:0 0 10px;font-size:1.0625rem;font-weight:600;letter-spacing:-.01em}
 .note p{margin:0;color:var(--ink-soft);font-size:.9375rem;line-height:1.6}
 .note code{font-family:var(--mono);font-size:.8125rem;color:var(--cobalt-light);
-  background:rgba(37,99,235,.1);padding:1px 6px;border-radius:3px}
+  background:rgba(0,111,255,.1);padding:1px 6px;border-radius:3px}
 
 footer{margin-top:72px;padding-top:26px;border-top:1px solid var(--hair);
   display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
@@ -162,15 +163,15 @@ footer{margin-top:72px;padding-top:26px;border-top:1px solid var(--hair);
   <h1>Nove posts que <span class="hl">apresentam a casa</span> e fecham a grade.</h1>
   <p class="dek">
     Publicados de 01 a 09, os nove ocupam exatamente uma grade 3×3 no perfil — o
-    “9” da marca vira o formato da estreia. Toda arte usa os mesmos tokens do site:
-    Carbon como fundo, índigo e cobalto como frequência, malha de blueprint e a
-    tipografia Geist.
+    “9” da marca vira o formato da estreia. Toda arte roda no eixo azul da marca:
+    Carbon como fundo e a escada de <strong>#003A85</strong> como frequência —
+    matiz travado em 214°, malha de blueprint e tipografia Geist.
   </p>
 
   <dl class="spec">
     <div><dt>Formato</dt><dd>1080 × 1350 px · 4:5</dd></div>
     <div><dt>Peças</dt><dd>9 posts</dd></div>
-    <div><dt>Paleta</dt><dd>Carbon · Índigo · Cobalto</dd></div>
+    <div><dt>Marca</dt><dd>#003A85 · 214°</dd></div>
     <div><dt>Fonte da arte</dt><dd>posts.html</dd></div>
   </dl>
 </header>

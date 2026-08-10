@@ -8,7 +8,7 @@ const { chromium } = require('playwright');
 
 const DIR = __dirname;
 const OUT = path.join(DIR, 'png');
-const NOMES = { a: 'indigo-carbon', b: 'platina-indigo', c: 'gradiente' };
+const NOMES = { a: 'marca-carbon', b: 'platina-marca', c: 'gradiente' };
 
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });

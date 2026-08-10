@@ -3,24 +3,49 @@
 @tailwind utilities;
 
 /* =========================================================
-   E9 Soluções — Design System tokens (Indigo edition)
+   E9 Soluções — Design System tokens (eixo azul da marca)
    ========================================================= */
 :root {
   --font-sans: 'Geist', 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'Geist Mono', 'SF Mono', monospace;
 
-  /* E9 Palette — Carbon / Platinum / Indigo · Cobalt (camadas ascendentes) */
+  /* Camadas neutras ascendentes */
   --e9-carbon: #06080F;
   --e9-midnight: #0A0E1A;
   --e9-graphite: #11162A;
   --e9-stone: #1A2238;
   --e9-platinum: #E5E9F2;
-  --e9-indigo: #4F46E5;          /* Indigo-600 · primary */
-  --e9-indigo-deep: #3730A3;     /* Indigo-800 · midnight */
-  --e9-indigo-light: #818CF8;    /* Indigo-400 · highlight */
-  --e9-cobalt: #2563EB;          /* Blue-600 · electric */
-  --e9-cobalt-light: #60A5FA;    /* Blue-400 */
-  --e9-sky-edge: #38BDF8;        /* edge highlight */
+
+  /* ---------------------------------------------------------------
+     PALETA DA MARCA · eixo azul travado em 214°
+     Marca: --e9-blue-800 #003A85. A escada mantém o matiz constante
+     e recua a saturação nos tons claros para não virar neon.
+
+     Papéis, e por que eles existem:
+       800  ESTRUTURAL — fill, base de halo, botão. 1,85:1 sobre
+            carbon, então NUNCA serve de texto.
+       600  primária interativa e núcleo de halo.
+       400  accent, glint, gradiente frio.
+       300  traço e texto sobre carbon (9,43:1).
+       200/100  texto de destaque bem claro.
+     Toda a família indigo/cobalto saiu: era matiz 234–244°, ou seja
+     violeta. A marca é 214°.
+     --------------------------------------------------------------- */
+  --e9-blue-950: #001838;
+  --e9-blue-900: #002657;
+  --e9-blue-800: #003A85;
+  --e9-blue-700: #0049A8;
+  --e9-blue-600: #005BD1;
+  --e9-blue-500: #006FFF;
+  --e9-blue-400: #4795FA;
+  --e9-blue-300: #81B5F8;
+  --e9-blue-200: #B3D2F9;
+  --e9-blue-100: #D5E6FB;
+  --e9-blue-50:  #EDF4FD;
+
+  /* 198° · único desvio de matiz, deliberado, para os gradientes
+     terem para onde viajar. */
+  --e9-sky-edge: #38BDF8;
 }
 
 html {
@@ -37,14 +62,14 @@ body {
 }
 
 ::selection {
-  background: rgba(79, 70, 229, 0.30);
-  color: rgb(199, 210, 254);
+  background: rgba(0, 91, 209, 0.34);
+  color: rgb(213, 230, 251);
 }
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--e9-carbon); }
-::-webkit-scrollbar-thumb { background: #1d2440; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--e9-indigo-deep); }
+::-webkit-scrollbar-thumb { background: #1D2C40; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--e9-blue-800); }
 
 /* =========================================================
    Reused architecture · animations & reveal
@@ -97,7 +122,7 @@ body {
    Glass surfaces
    ========================================================= */
 .glass-panel {
-  background: rgba(79, 70, 229, 0.03);
+  background: rgba(0, 91, 209, 0.04);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(229, 233, 242, 0.06);
@@ -106,17 +131,17 @@ body {
   background: rgba(6, 8, 15, 0.65);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(129, 140, 248, 0.08);
+  border-bottom: 1px solid rgba(129, 181, 248, 0.08);
 }
 
 /* =========================================================
-   Typing cursor — indigo
+   Typing cursor — accent azul
    ========================================================= */
 .typing-cursor {
   display: inline-block;
   width: 2px;
   height: 1.2em;
-  background-color: var(--e9-cobalt-light);
+  background-color: var(--e9-blue-400);
   margin-left: 2px;
   vertical-align: middle;
   animation: blink 1s step-end infinite;
@@ -133,8 +158,8 @@ body {
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
-.text-gradient-indigo {
-  background: linear-gradient(to right, #818CF8, #ffffff, #60A5FA);
+.text-gradient-marca {
+  background: linear-gradient(to right, #81B5F8, #ffffff, #4795FA);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -142,13 +167,13 @@ body {
 }
 
 /* =========================================================
-   Glow point — indigo
+   Glow point — núcleo de halo (blue-600)
    ========================================================= */
 .glow-point {
   position: absolute;
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.22) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(0, 91, 209, 0.24) 0%, rgba(0,0,0,0) 70%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
@@ -168,15 +193,15 @@ body {
 @keyframes core-pulse {
   0%, 100% {
     box-shadow:
-      0 0 0 1px rgba(129, 140, 248, 0.5),
-      0 0 30px -8px rgba(79, 70, 229, 0.6),
-      inset 0 0 18px -6px rgba(96, 165, 250, 0.35);
+      0 0 0 1px rgba(129, 181, 248, 0.5),          /* blue-300 */
+      0 0 30px -8px rgba(0, 91, 209, 0.6),         /* blue-600 */
+      inset 0 0 18px -6px rgba(71, 149, 250, 0.35); /* blue-400 */
   }
   50% {
     box-shadow:
-      0 0 0 1px rgba(129, 140, 248, 0.95),
-      0 0 56px -6px rgba(37, 99, 235, 0.95),
-      inset 0 0 26px -4px rgba(96, 165, 250, 0.6);
+      0 0 0 1px rgba(129, 181, 248, 0.95),
+      0 0 56px -6px rgba(0, 111, 255, 0.95),       /* blue-500 */
+      inset 0 0 26px -4px rgba(71, 149, 250, 0.6);
   }
 }
 @keyframes data-render {
@@ -190,11 +215,11 @@ body {
    ========================================================= */
 .triad-center {
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(79, 70, 229, 0.14), transparent 60%),
+    radial-gradient(120% 80% at 50% 0%, rgba(0, 91, 209, 0.18), transparent 60%),
     rgba(17, 22, 42, 0.7);
-  border-color: rgba(129, 140, 248, 0.28);
+  border-color: rgba(129, 181, 248, 0.28);
   box-shadow:
-    0 0 60px -20px rgba(37, 99, 235, 0.5),
+    0 0 60px -20px rgba(0, 111, 255, 0.5),
     inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
@@ -214,7 +239,7 @@ body {
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  color: rgba(129, 140, 248, 0.6);
+  color: rgba(129, 181, 248, 0.6);
 }
 .spec-row .spec-meta {
   font-family: var(--font-mono);
@@ -232,39 +257,41 @@ body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.22em;
-  color: var(--e9-indigo-light);
+  color: var(--e9-blue-300);
 }
 
 /* =========================================================
-   Buttons — E9 Indigo
+   Buttons — E9 · escada da marca
+   Repouso 600 → 800 (o 800 é a cor de marca, papel estrutural);
+   hover sobe um degrau, 500 → 600.
    ========================================================= */
-.btn-indigo {
+.btn-marca {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 13px; font-weight: 500;
-  background: linear-gradient(180deg, #4F46E5 0%, #3730A3 100%);
+  background: linear-gradient(180deg, #005BD1 0%, #003A85 100%);
   color: #ffffff;
-  border: 1px solid rgba(129, 140, 248, 0.45);
+  border: 1px solid rgba(129, 181, 248, 0.45);
   box-shadow:
     0 1px 0 rgba(255,255,255,0.15) inset,
     0 0 0 1px rgba(0,0,0,0.2),
-    0 8px 24px -8px rgba(79, 70, 229, 0.6);
+    0 8px 24px -8px rgba(0, 91, 209, 0.6);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
 }
-.btn-indigo:hover {
-  background: linear-gradient(180deg, #6366F1 0%, #2563EB 100%);
+.btn-marca:hover {
+  background: linear-gradient(180deg, #006FFF 0%, #005BD1 100%);
   box-shadow:
     0 1px 0 rgba(255,255,255,0.22) inset,
     0 0 0 1px rgba(0,0,0,0.2),
-    0 14px 42px -10px rgba(37, 99, 235, 0.95),
-    0 0 32px -6px rgba(129, 140, 248, 0.6);
+    0 14px 42px -10px rgba(0, 111, 255, 0.95),
+    0 0 32px -6px rgba(129, 181, 248, 0.6);
   transform: translateY(-1px);
 }
-.btn-indigo:active { transform: translateY(0); filter: brightness(0.95); }
-.btn-indigo:focus-visible { outline: 2px solid var(--e9-cobalt-light); outline-offset: 2px; }
-.btn-indigo:disabled { opacity: 0.35; cursor: not-allowed; filter: grayscale(50%); }
+.btn-marca:active { transform: translateY(0); filter: brightness(0.95); }
+.btn-marca:focus-visible { outline: 2px solid var(--e9-blue-400); outline-offset: 2px; }
+.btn-marca:disabled { opacity: 0.35; cursor: not-allowed; filter: grayscale(50%); }
 
 .btn-outline {
   display: inline-flex; align-items: center; gap: 8px;
@@ -278,13 +305,13 @@ body {
   cursor: pointer;
 }
 .btn-outline:hover {
-  background: rgba(79, 70, 229, 0.10);
-  border-color: rgba(129, 140, 248, 0.45);
+  background: rgba(0, 91, 209, 0.13);
+  border-color: rgba(129, 181, 248, 0.45);
   color: #ffffff;
-  box-shadow: 0 0 26px -6px rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 26px -6px rgba(0, 111, 255, 0.45);
 }
 .btn-outline:active { transform: translateY(1px); }
-.btn-outline:focus-visible { outline: 2px solid var(--e9-cobalt-light); outline-offset: 2px; }
+.btn-outline:focus-visible { outline: 2px solid var(--e9-blue-400); outline-offset: 2px; }
 
 .btn-ghost {
   display: inline-flex; align-items: center; gap: 6px;
@@ -297,7 +324,7 @@ body {
   transition: all 0.2s ease;
   cursor: pointer;
 }
-.btn-ghost:hover { color: var(--e9-cobalt-light); background: rgba(79, 70, 229, 0.08); }
+.btn-ghost:hover { color: var(--e9-blue-400); background: rgba(0, 91, 209, 0.10); }
 
 /* =========================================================
    Inputs
@@ -317,9 +344,9 @@ body {
 .e9-input::placeholder { color: rgba(229, 233, 242, 0.3); }
 .e9-input:hover { border-color: rgba(229, 233, 242, 0.22); }
 .e9-input:focus {
-  border-color: var(--e9-indigo);
-  background: rgba(79, 70, 229, 0.05);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+  border-color: var(--e9-blue-600);
+  background: rgba(0, 91, 209, 0.07);
+  box-shadow: 0 0 0 4px rgba(0, 91, 209, 0.20);
 }
 .e9-input.error {
   border-color: rgba(239, 68, 68, 0.6);
@@ -332,7 +359,7 @@ body {
 .blueprint-card {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(79, 70, 229, 0.05), transparent 60%),
+    linear-gradient(180deg, rgba(0, 91, 209, 0.07), transparent 60%),
     rgba(10, 14, 26, 0.85);
   border: 1px solid rgba(229, 233, 242, 0.08);
   border-radius: 4px;
@@ -345,25 +372,25 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(129, 140, 248, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(129, 140, 248, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(129, 181, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 181, 248, 0.05) 1px, transparent 1px);
   background-size: 24px 24px;
   pointer-events: none;
   opacity: 0.55;
 }
 .blueprint-card:hover {
-  border-color: rgba(129, 140, 248, 0.4);
+  border-color: rgba(129, 181, 248, 0.4);
   box-shadow:
-    0 0 0 1px rgba(129, 140, 248, 0.18),
-    0 24px 64px -20px rgba(37, 99, 235, 0.5);
+    0 0 0 1px rgba(129, 181, 248, 0.18),
+    0 24px 64px -20px rgba(0, 111, 255, 0.5);
 }
 .blueprint-card .corner {
   position: absolute;
   width: 10px; height: 10px;
-  border-color: rgba(129, 140, 248, 0.5);
+  border-color: rgba(129, 181, 248, 0.5);
   transition: border-color 0.3s ease;
 }
-.blueprint-card:hover .corner { border-color: var(--e9-cobalt-light); }
+.blueprint-card:hover .corner { border-color: var(--e9-blue-400); }
 .blueprint-card .corner.tl { top: 0; left: 0; border-top: 1px solid; border-left: 1px solid; }
 .blueprint-card .corner.tr { top: 0; right: 0; border-top: 1px solid; border-right: 1px solid; }
 .blueprint-card .corner.bl { bottom: 0; left: 0; border-bottom: 1px solid; border-left: 1px solid; }
@@ -391,10 +418,10 @@ body {
   color: rgba(229, 233, 242, 0.9);
 }
 .matrix-cell.core {
-  border-color: rgba(129, 140, 248, 0.6);
-  color: var(--e9-cobalt-light);
+  border-color: rgba(129, 181, 248, 0.6);
+  color: var(--e9-blue-400);
   background:
-    radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.22), transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(0, 91, 209, 0.28), transparent 70%),
     rgba(10, 14, 26, 0.7);
   animation: core-pulse 3.2s ease-in-out infinite;
 }
@@ -405,22 +432,22 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-mono);
   font-size: 22px; font-weight: 500;
-  color: var(--e9-cobalt-light);
-  text-shadow: 0 0 22px rgba(96, 165, 250, 0.7);
+  color: var(--e9-blue-400);
+  text-shadow: 0 0 22px rgba(71, 149, 250, 0.7);
 }
 .matrix-cell.core .label { display: none; }
 
 /* Passo ativo do percurso 01 → 10: mesmo destaque do core, porém exibindo
    o número da própria etapa (via data-etapa) em vez do "9" fixo. */
 .matrix-cell.ativa {
-  border-color: rgba(129, 140, 248, 0.6);
-  color: var(--e9-cobalt-light);
+  border-color: rgba(129, 181, 248, 0.6);
+  color: var(--e9-blue-400);
   background:
-    radial-gradient(circle at 50% 50%, rgba(79, 70, 229, 0.22), transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(0, 91, 209, 0.28), transparent 70%),
     rgba(10, 14, 26, 0.7);
   box-shadow:
-    0 0 0 1px rgba(129, 140, 248, 0.5),
-    0 0 34px -8px rgba(79, 70, 229, 0.7);
+    0 0 0 1px rgba(129, 181, 248, 0.5),
+    0 0 34px -8px rgba(0, 91, 209, 0.7);
 }
 .matrix-cell.ativa::after {
   content: attr(data-etapa);
@@ -429,8 +456,8 @@ body {
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-mono);
   font-size: 22px; font-weight: 500;
-  color: var(--e9-cobalt-light);
-  text-shadow: 0 0 22px rgba(96, 165, 250, 0.7);
+  color: var(--e9-blue-400);
+  text-shadow: 0 0 22px rgba(71, 149, 250, 0.7);
 }
 .matrix-cell.ativa .label { display: none; }
 
@@ -443,16 +470,16 @@ body {
   pointer-events: none;
   opacity: 0.07;
   background-image:
-    radial-gradient(circle at 50% 6%,  #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 24% 22%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 76% 22%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 24% 42%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 50% 42%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 76% 42%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 24% 64%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 76% 64%, #818CF8 1.5px, transparent 2px),
-    radial-gradient(circle at 50% 80%, #60A5FA 2.5px, transparent 3px),
-    radial-gradient(circle at 50% 96%, #818CF8 1.5px, transparent 2px);
+    radial-gradient(circle at 50% 6%,  #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 24% 22%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 22%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 24% 42%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 42%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 42%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 24% 64%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 76% 64%, #81B5F8 1.5px, transparent 2px),
+    radial-gradient(circle at 50% 80%, #4795FA 2.5px, transparent 3px),
+    radial-gradient(circle at 50% 96%, #81B5F8 1.5px, transparent 2px);
   background-repeat: no-repeat;
   background-size: cover;
 }

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 /**
  * Marca E9 (monograma) — renderiza `assets/img/logo.png` como máscara CSS e
  * pinta o recorte com `currentColor`, então o PNG (originalmente carbono)
- * assume a cor índigo herdada do contexto, igual ao lockup em SVG.
+ * assume a cor da marca herdada do contexto, igual ao lockup em SVG.
  * Dimensione no host via altura (ex.: `h-12`); o desenho é quadrado.
  */
 @Component({
@@ -17,7 +17,7 @@ import { Component } from '@angular/core';
         align-items: center;
         justify-content: center;
         line-height: 0;
-        color: var(--e9-indigo-light);
+        color: var(--e9-blue-300);
       }
 
       .mark {

@@ -12,8 +12,29 @@
    ========================================================= */
 :root{
   --e9-carbon:#06080F; --e9-midnight:#0A0E1A; --e9-graphite:#11162A; --e9-stone:#1A2238;
-  --e9-platinum:#E5E9F2; --e9-indigo:#4F46E5; --e9-indigo-deep:#3730A3; --e9-indigo-light:#818CF8;
-  --e9-cobalt:#2563EB; --e9-cobalt-light:#60A5FA; --e9-sky-edge:#38BDF8;
+  --e9-platinum:#E5E9F2;
+  --e9-sky-edge:#38BDF8;   /* 198° · único desvio de matiz, para o glint de borda */
+
+  /* ---------------------------------------------------------------
+     PALETA DA MARCA · eixo azul travado em 214°
+     Marca: --e9-blue-800 #003A85. A escada mantém o matiz constante
+     e recua a saturação nos tons claros para não virar neon.
+
+     Papéis, e por que eles existem:
+       800  ESTRUTURAL — fill, base de halo, botão. 1,85:1 sobre
+            carbon, então NUNCA serve de texto.
+       600  primária interativa e núcleo de halo.
+       400  accent, glint, gradiente frio.
+       300  traço e texto sobre carbon (9,43:1).
+       200/100  texto de destaque bem claro.
+     Toda a família indigo/cobalto saiu: era matiz 234–244°, ou seja
+     violeta. A marca é 214°.
+     --------------------------------------------------------------- */
+  --e9-blue-950:#001838; --e9-blue-900:#002657; --e9-blue-800:#003A85;
+  --e9-blue-700:#0049A8; --e9-blue-600:#005BD1; --e9-blue-500:#006FFF;
+  --e9-blue-400:#4795FA; --e9-blue-300:#81B5F8; --e9-blue-200:#B3D2F9;
+  --e9-blue-100:#D5E6FB; --e9-blue-50:#EDF4FD;
+
   --font-sans:'Geist','Inter',system-ui,-apple-system,sans-serif;
   --font-mono:'Geist Mono','SF Mono',monospace;
 }
@@ -39,8 +60,8 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 /* blueprint lattice + vinheta + halos (mesma receita do hero) */
 .bg{position:absolute;inset:0;pointer-events:none}
 .bg-grid{position:absolute;inset:0;
-  background-image:linear-gradient(rgba(129,140,248,.055) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(129,140,248,.055) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(129,181,248,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(129,181,248,.055) 1px,transparent 1px);
   background-size:60px 60px;
   -webkit-mask-image:radial-gradient(ellipse at center,#000 20%,transparent 82%);
           mask-image:radial-gradient(ellipse at center,#000 20%,transparent 82%);}
@@ -51,17 +72,17 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 /* halos redimensionados para os 1350px de altura — sem eles o carbon puro
    reaparecia nas faixas de 175px acima e abaixo do halo central */
 .glow.center{width:1150px;height:1150px;left:50%;top:50%;transform:translate(-50%,-50%);
-  background:radial-gradient(circle,rgba(79,70,229,.30) 0%,rgba(0,0,0,0) 68%)}
+  background:radial-gradient(circle,rgba(0,91,209,.28) 0%,rgba(0,0,0,0) 68%)}
 .glow.top{width:900px;height:700px;left:50%;top:-7%;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(55,48,163,.42) 0%,rgba(0,0,0,0) 70%);filter:blur(40px)}
+  background:radial-gradient(circle,rgba(0,58,133,.55) 0%,rgba(0,0,0,0) 70%);filter:blur(40px)}
 .glow.bottom{width:760px;height:540px;left:50%;bottom:-11%;transform:translateX(-50%);
-  background:radial-gradient(circle,rgba(37,99,235,.26) 0%,rgba(0,0,0,0) 70%);filter:blur(40px)}
+  background:radial-gradient(circle,rgba(0,73,168,.30) 0%,rgba(0,0,0,0) 70%);filter:blur(40px)}
 
 /* moldura + cantos técnicos */
 /* 52px na horizontal (> os 33,75px do recorte, então sobrevive na grade)
    e 66px na vertical, para a margem ficar proporcional no 4:5 */
 .frame{position:absolute;inset:66px 52px;border:1px solid rgba(229,233,242,.07);pointer-events:none}
-.corner{position:absolute;width:26px;height:26px;border-color:rgba(129,140,248,.55)}
+.corner{position:absolute;width:26px;height:26px;border-color:rgba(129,181,248,.55)}
 .corner.tl{top:-1px;left:-1px;border-top:1px solid;border-left:1px solid}
 .corner.tr{top:-1px;right:-1px;border-top:1px solid;border-right:1px solid}
 .corner.bl{bottom:-1px;left:-1px;border-bottom:1px solid;border-left:1px solid}
@@ -74,7 +95,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
 /* ---------- tipografia ---------- */
 .eyebrow{font-family:var(--font-mono);font-size:19px;text-transform:uppercase;
-  letter-spacing:.22em;color:var(--e9-indigo-light)}
+  letter-spacing:.22em;color:var(--e9-blue-300)}
 .eyebrow.dim{color:rgba(229,233,242,.34)}
 .h1{font-size:104px;line-height:1.02;letter-spacing:-.035em;font-weight:500;color:#fff}
 .h2{font-size:82px;line-height:1.04;letter-spacing:-.033em;font-weight:500;color:#fff}
@@ -84,17 +105,17 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 .mono{font-family:var(--font-mono);font-size:18px;color:rgba(229,233,242,.4);letter-spacing:.04em}
 .grad{background:linear-gradient(to bottom,#fff,#a1a8b8);-webkit-background-clip:text;background-clip:text;
   -webkit-text-fill-color:transparent;color:transparent}
-.grad-indigo{background:linear-gradient(100deg,#818CF8,#fff 52%,#60A5FA);
+.grad-marca{background:linear-gradient(100deg,#81B5F8,#fff 52%,#4795FA);
   -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
-  filter:drop-shadow(0 0 34px rgba(96,165,250,.42))}
+  filter:drop-shadow(0 0 34px rgba(71,149,250,.42))}
 
 /* pílula/badge */
 .pill{display:inline-flex;align-items:center;gap:12px;padding:10px 20px;border-radius:999px;
-  background:rgba(79,70,229,.12);border:1px solid rgba(129,140,248,.34);
+  background:rgba(0,91,209,.16);border:1px solid rgba(129,181,248,.34);
   font-family:var(--font-mono);font-size:17px;text-transform:uppercase;letter-spacing:.2em;
-  color:#c7d2fe}
-.dot{width:9px;height:9px;border-radius:50%;background:var(--e9-indigo);
-  box-shadow:0 0 0 5px rgba(79,70,229,.22)}
+  color:#D5E6FB}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--e9-blue-600);
+  box-shadow:0 0 0 5px rgba(0,91,209,.26)}
 
 /* rodapé de assinatura, igual em todos os slides */
 .sig{position:absolute;left:116px;right:116px;bottom:118px;display:flex;align-items:flex-end;
@@ -102,23 +123,23 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
   font-family:var(--font-mono);font-size:17px;letter-spacing:.16em;text-transform:uppercase;
   color:rgba(229,233,242,.3)}
 .sig .brandline{display:flex;align-items:center;gap:16px}
-.sig .mk{height:38px;color:rgba(129,140,248,.75)}
-.sig .idx{color:rgba(129,140,248,.55)}
+.sig .mk{height:38px;color:rgba(129,181,248,.75)}
+.sig .idx{color:rgba(129,181,248,.55)}
 
 /* card blueprint (mesma linguagem dos cards do site) */
-.card{position:relative;background:linear-gradient(180deg,rgba(79,70,229,.06),transparent 58%),rgba(10,14,26,.86);
+.card{position:relative;background:linear-gradient(180deg,rgba(0,91,209,.09),transparent 58%),rgba(10,14,26,.86);
   border:1px solid rgba(229,233,242,.09);border-radius:6px;overflow:hidden}
 .card::before{content:"";position:absolute;inset:0;opacity:.5;
-  background-image:linear-gradient(rgba(129,140,248,.06) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(129,140,248,.06) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(129,181,248,.06) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(129,181,248,.06) 1px,transparent 1px);
   background-size:32px 32px}
 .card>*{position:relative;z-index:1}
 
 /* caixa de ícone */
 .ico{width:96px;height:96px;border-radius:8px;display:flex;align-items:center;justify-content:center;
-  background:rgba(79,70,229,.14);border:1px solid rgba(129,140,248,.36);
-  box-shadow:0 0 34px -8px rgba(37,99,235,.6)}
-.ico svg{width:48px;height:48px;stroke:#a5b4fc;stroke-width:1.4;fill:none;
+  background:rgba(0,91,209,.18);border:1px solid rgba(129,181,248,.36);
+  box-shadow:0 0 34px -8px rgba(0,111,255,.6)}
+.ico svg{width:48px;height:48px;stroke:#B3D2F9;stroke-width:1.4;fill:none;
   stroke-linecap:round;stroke-linejoin:round}
 .ico.plain{background:rgba(229,233,242,.04);border-color:rgba(229,233,242,.12);box-shadow:none}
 .ico.plain svg{stroke:rgba(229,233,242,.7)}
@@ -127,8 +148,8 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 .checks{display:flex;flex-direction:column;gap:26px}
 .check{display:flex;gap:20px;align-items:flex-start}
 .check .box{margin-top:6px;width:30px;height:30px;flex:0 0 auto;border-radius:6px;
-  border:1px solid var(--e9-indigo);background:linear-gradient(180deg,#4F46E5,#2563EB);
-  box-shadow:0 0 18px -4px rgba(37,99,235,.7);display:flex;align-items:center;justify-content:center}
+  border:1px solid var(--e9-blue-600);background:linear-gradient(180deg,#005BD1,#0049A8);
+  box-shadow:0 0 18px -4px rgba(0,111,255,.7);display:flex;align-items:center;justify-content:center}
 .check .box svg{width:17px;height:17px;stroke:#fff;stroke-width:2.4;fill:none;
   stroke-linecap:round;stroke-linejoin:round}
 .check .t{font-size:27px;font-weight:500;color:#fff;line-height:1.3}
@@ -139,10 +160,10 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
 /* pilares do método (post 07) — colunas de altura e baseline iguais */
 .pil{flex:1;background:var(--e9-midnight);padding:28px 20px;min-height:236px}
-.pil.core{background:radial-gradient(120% 80% at 50% 0%,rgba(79,70,229,.2),transparent 62%),rgba(17,22,42,.9);
-  box-shadow:0 0 60px -22px rgba(37,99,235,.65)}
+.pil.core{background:radial-gradient(120% 80% at 50% 0%,rgba(0,91,209,.26),transparent 62%),rgba(17,22,42,.9);
+  box-shadow:0 0 60px -22px rgba(0,111,255,.65)}
 .pil-n{font-family:var(--font-mono);font-size:15px;letter-spacing:.2em;
-  color:rgba(129,140,248,.55);height:22px}
+  color:rgba(129,181,248,.55);height:22px}
 .pil-t{font-size:23px;font-weight:500;color:#fff;margin:14px 0 10px;min-height:60px;line-height:1.2}
 .pil-s{font-size:17px;font-weight:300;line-height:1.4;color:rgba(255,255,255,.45)}
 
@@ -157,7 +178,8 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
 /* logo */
 .logo svg{display:block;height:100%;width:auto;fill:currentColor}
-.hr{height:1px;background:linear-gradient(to right,rgba(129,140,248,.4),rgba(129,140,248,0))}
+.hr{height:1px;background:linear-gradient(to right,rgba(129,181,248,.4),rgba(129,181,248,0))}
+
 </style>
 </head>
 <body>
@@ -201,12 +223,12 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
   <div class="frame"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i></div>
 
   <div class="inner center" style="justify-content:center;gap:0">
-    <div class="logo" style="height:520px;color:var(--e9-indigo-light);
-      filter:drop-shadow(0 0 70px rgba(79,70,229,.55))">
+    <div class="logo" style="height:520px;color:var(--e9-blue-300);
+      filter:drop-shadow(0 0 70px rgba(0,58,133,.7))">
       <svg viewBox="4090.78 6734.7 12718.46 15822.34"><use href="#e9-lockup"/></svg>
     </div>
     <div class="hr" style="width:300px;margin:56px 0 34px;
-      background:linear-gradient(to right,transparent,rgba(129,140,248,.55),transparent)"></div>
+      background:linear-gradient(to right,transparent,rgba(71,149,250,.6),transparent)"></div>
     <div class="eyebrow" style="font-size:23px">arquitetura invisível</div>
   </div>
 
@@ -233,7 +255,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
     <h1 class="h1" style="max-width:900px">
       <span class="grad">Transformando<br>ideias abstratas</span><br>
-      em <span class="grad-indigo">soluções</span><br>
+      em <span class="grad-marca">soluções</span><br>
       <span class="grad">de alta performance.</span>
     </h1>
 
@@ -269,7 +291,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
     <div style="display:flex;align-items:center;gap:60px">
       <!-- numeral -->
       <div style="flex:0 0 auto">
-        <div class="grad-indigo" style="font-size:400px;line-height:.78;font-weight:600;
+        <div class="grad-marca" style="font-size:400px;line-height:.78;font-weight:600;
           letter-spacing:-.05em;font-variant-numeric:tabular-nums">9</div>
         <div class="h3" style="font-size:46px;margin-top:14px;color:rgba(255,255,255,.9)">frentes<br>de entrega.</div>
       </div>
@@ -277,46 +299,46 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
       <!-- lista das 9 áreas -->
       <div style="flex:1 1 auto;display:flex;flex-direction:column;gap:11px">
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px;border-radius:6px;
-          background:rgba(79,70,229,.12);border-top:1px solid rgba(129,140,248,.3);border-bottom:1px solid rgba(129,140,248,.3)">
-          <span class="mono" style="color:var(--e9-indigo-light);font-size:17px">01</span>
-          <span style="font-size:26px;font-weight:500;color:#c7d2fe;flex:1">Software House</span>
-          <span class="mono" style="color:var(--e9-indigo-light)">★</span>
+          background:rgba(0,91,209,.16);border-top:1px solid rgba(129,181,248,.3);border-bottom:1px solid rgba(129,181,248,.3)">
+          <span class="mono" style="color:var(--e9-blue-300);font-size:17px">01</span>
+          <span style="font-size:26px;font-weight:500;color:#D5E6FB;flex:1">Software House</span>
+          <span class="mono" style="color:var(--e9-blue-300)">★</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px;border-radius:6px;
-          background:rgba(79,70,229,.12);border-top:1px solid rgba(129,140,248,.3);border-bottom:1px solid rgba(129,140,248,.3)">
-          <span class="mono" style="color:var(--e9-indigo-light);font-size:17px">02</span>
-          <span style="font-size:26px;font-weight:500;color:#c7d2fe;flex:1">Impressão 3D</span>
-          <span class="mono" style="color:var(--e9-indigo-light)">★</span>
+          background:rgba(0,91,209,.16);border-top:1px solid rgba(129,181,248,.3);border-bottom:1px solid rgba(129,181,248,.3)">
+          <span class="mono" style="color:var(--e9-blue-300);font-size:17px">02</span>
+          <span style="font-size:26px;font-weight:500;color:#D5E6FB;flex:1">Impressão 3D</span>
+          <span class="mono" style="color:var(--e9-blue-300)">★</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px;border-radius:6px;
-          background:rgba(79,70,229,.12);border-top:1px solid rgba(129,140,248,.3);border-bottom:1px solid rgba(129,140,248,.3)">
-          <span class="mono" style="color:var(--e9-indigo-light);font-size:17px">03</span>
-          <span style="font-size:26px;font-weight:500;color:#c7d2fe;flex:1">Inteligência Artificial</span>
-          <span class="mono" style="color:var(--e9-indigo-light)">★</span>
+          background:rgba(0,91,209,.16);border-top:1px solid rgba(129,181,248,.3);border-bottom:1px solid rgba(129,181,248,.3)">
+          <span class="mono" style="color:var(--e9-blue-300);font-size:17px">03</span>
+          <span style="font-size:26px;font-weight:500;color:#D5E6FB;flex:1">Inteligência Artificial</span>
+          <span class="mono" style="color:var(--e9-blue-300)">★</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px">
-          <span class="mono" style="font-size:17px;color:rgba(129,140,248,.45)">04</span>
+          <span class="mono" style="font-size:17px;color:rgba(129,181,248,.45)">04</span>
           <span style="font-size:26px;font-weight:400;color:rgba(255,255,255,.62);flex:1">Suporte &amp; Treinamento</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px">
-          <span class="mono" style="font-size:17px;color:rgba(129,140,248,.45)">05</span>
+          <span class="mono" style="font-size:17px;color:rgba(129,181,248,.45)">05</span>
           <span style="font-size:26px;font-weight:400;color:rgba(255,255,255,.62);flex:1">Info Produto</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px">
-          <span class="mono" style="font-size:17px;color:rgba(129,140,248,.45)">06</span>
+          <span class="mono" style="font-size:17px;color:rgba(129,181,248,.45)">06</span>
           <span style="font-size:26px;font-weight:400;color:rgba(255,255,255,.62);flex:1">Branding &amp; Identidade</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px">
-          <span class="mono" style="font-size:17px;color:rgba(129,140,248,.45)">07</span>
+          <span class="mono" style="font-size:17px;color:rgba(129,181,248,.45)">07</span>
           <span style="font-size:26px;font-weight:400;color:rgba(255,255,255,.62);flex:1">Consultoria</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px">
-          <span class="mono" style="font-size:17px;color:rgba(129,140,248,.3)">08</span>
+          <span class="mono" style="font-size:17px;color:rgba(129,181,248,.3)">08</span>
           <span style="font-size:26px;font-weight:400;color:rgba(255,255,255,.4);flex:1">Automação Residencial</span>
           <span class="mono" style="font-size:14px;color:rgba(252,211,77,.7);text-transform:uppercase;letter-spacing:.14em">em breve</span>
         </div>
         <div style="display:flex;align-items:center;gap:20px;padding:13px 20px">
-          <span class="mono" style="font-size:17px;color:rgba(129,140,248,.3)">09</span>
+          <span class="mono" style="font-size:17px;color:rgba(129,181,248,.3)">09</span>
           <span style="font-size:26px;font-weight:400;color:rgba(255,255,255,.4);flex:1">Marketing &amp; Performance</span>
           <span class="mono" style="font-size:14px;color:rgba(252,211,77,.7);text-transform:uppercase;letter-spacing:.14em">em breve</span>
         </div>
@@ -349,7 +371,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
     </div>
     <div class="eyebrow" style="margin-bottom:20px">01 · vanguarda digital</div>
     <h2 class="h2" style="max-width:880px">
-      Seu app, sistema e site<br><span class="grad-indigo">prontos para vender.</span>
+      Seu app, sistema e site<br><span class="grad-marca">prontos para vender.</span>
     </h2>
     <p class="body" style="max-width:840px;margin:36px 0 52px">
       Criamos o software que o seu negócio precisa — aplicativo, sistema de gestão,
@@ -406,7 +428,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
     </div>
     <div class="eyebrow" style="margin-bottom:20px">02 · do código ao objeto</div>
     <h2 class="h2" style="max-width:900px">
-      Produtos para a loja.<br><span class="grad-indigo">Peças para a sua marca.</span>
+      Produtos para a loja.<br><span class="grad-marca">Peças para a sua marca.</span>
     </h2>
     <p class="body" style="max-width:860px;margin:36px 0 50px">
       Duas frentes complementares: catálogo próprio de produtos sazonais e serviço
@@ -415,14 +437,14 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
     <div style="display:flex;gap:24px">
       <div class="card" style="flex:1;padding:34px">
-        <div class="mono" style="color:#a5b4fc;text-transform:uppercase;letter-spacing:.2em;font-size:16px;margin-bottom:20px">loja</div>
+        <div class="mono" style="color:#B3D2F9;text-transform:uppercase;letter-spacing:.2em;font-size:16px;margin-bottom:20px">loja</div>
         <div style="font-size:30px;font-weight:500;color:#fff;margin-bottom:12px">Catálogo próprio</div>
         <div style="font-size:21px;font-weight:300;line-height:1.5;color:rgba(255,255,255,.55)">
           Coleções sazonais, edições limitadas e produtos pensados para revenda.
         </div>
       </div>
       <div class="card" style="flex:1;padding:34px">
-        <div class="mono" style="color:#93c5fd;text-transform:uppercase;letter-spacing:.2em;font-size:16px;margin-bottom:20px">marca</div>
+        <div class="mono" style="color:#81B5F8;text-transform:uppercase;letter-spacing:.2em;font-size:16px;margin-bottom:20px">marca</div>
         <div style="font-size:30px;font-weight:500;color:#fff;margin-bottom:12px">Sob demanda</div>
         <div style="font-size:21px;font-weight:300;line-height:1.5;color:rgba(255,255,255,.55)">
           Chaveiros, brindes, logos físicos, displays e material de divulgação.
@@ -457,7 +479,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
     </div>
     <div class="eyebrow" style="margin-bottom:20px">03 · cognição aplicada</div>
     <h2 class="h2" style="max-width:900px">
-      IA que <span class="grad-indigo">automatiza</span><br>o que realmente importa.
+      IA que <span class="grad-marca">automatiza</span><br>o que realmente importa.
     </h2>
     <p class="body" style="max-width:860px;margin:36px 0 52px">
       Soluções com inteligência artificial de ponta a ponta. Somos especialistas em
@@ -466,17 +488,17 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
     <div style="display:flex;gap:20px">
       <div class="card" style="flex:1;padding:30px 28px;text-align:center">
-        <div class="mono" style="font-size:16px;color:rgba(129,140,248,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px">01</div>
+        <div class="mono" style="font-size:16px;color:rgba(129,181,248,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px">01</div>
         <div style="font-size:28px;font-weight:500;color:#fff">Engenharia<br>de prompt</div>
       </div>
       <div class="card" style="flex:1;padding:30px 28px;text-align:center;
-        background:radial-gradient(120% 80% at 50% 0%,rgba(79,70,229,.2),transparent 62%),rgba(17,22,42,.75);
-        border-color:rgba(129,140,248,.32);box-shadow:0 0 70px -22px rgba(37,99,235,.6)">
-        <div class="mono" style="font-size:16px;color:#a5b4fc;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px">02 · núcleo</div>
+        background:radial-gradient(120% 80% at 50% 0%,rgba(0,91,209,.26),transparent 62%),rgba(17,22,42,.75);
+        border-color:rgba(129,181,248,.32);box-shadow:0 0 70px -22px rgba(0,111,255,.6)">
+        <div class="mono" style="font-size:16px;color:#B3D2F9;letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px">02 · núcleo</div>
         <div style="font-size:28px;font-weight:500;color:#fff">Agentes<br>autônomos</div>
       </div>
       <div class="card" style="flex:1;padding:30px 28px;text-align:center">
-        <div class="mono" style="font-size:16px;color:rgba(129,140,248,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px">03</div>
+        <div class="mono" style="font-size:16px;color:rgba(129,181,248,.6);letter-spacing:.2em;text-transform:uppercase;margin-bottom:14px">03</div>
         <div style="font-size:28px;font-weight:500;color:#fff">Integração<br>de modelos</div>
       </div>
     </div>
@@ -507,7 +529,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
     </div>
 
     <h2 class="h2" style="max-width:900px">
-      <span class="grad-indigo">Design Inteligente</span><sup style="font-family:var(--font-mono);font-size:26px;color:rgba(129,140,248,.6);margin-left:6px">™</sup><br>
+      <span class="grad-marca">Design Inteligente</span><sup style="font-family:var(--font-mono);font-size:26px;color:rgba(129,181,248,.6);margin-left:6px">™</sup><br>
       <span class="grad" style="font-size:64px;line-height:1.1;display:inline-block;margin-top:14px">
         o design system que torna sua marca moderna por dentro.
       </span>
@@ -530,7 +552,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
         <div class="pil-s">Grid, proporção e ritmo matemático.</div>
       </div>
       <div class="pil core">
-        <div class="pil-n" style="color:#a5b4fc">03 ★</div>
+        <div class="pil-n" style="color:#B3D2F9">03 ★</div>
         <div class="pil-t">Movimento</div>
         <div class="pil-s" style="color:rgba(255,255,255,.62)">Nada pisca; tudo interpola.</div>
       </div>
@@ -569,25 +591,25 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
   <div class="inner" style="justify-content:center;padding-bottom:150px">
     <div class="eyebrow" style="margin-bottom:24px">transparência radical</div>
     <h2 class="h2" style="max-width:860px;margin-bottom:70px">
-      O que você contrata<br><span class="grad-indigo">é seu.</span> Sem caixa-preta.
+      O que você contrata<br><span class="grad-marca">é seu.</span> Sem caixa-preta.
     </h2>
 
     <div style="display:flex;align-items:stretch">
       <div class="met">
         <div class="met-l">código<br>sob seu domínio</div>
-        <div class="met-n">100<em style="color:var(--e9-indigo-light)">%</em></div>
+        <div class="met-n">100<em style="color:var(--e9-blue-300)">%</em></div>
         <div class="met-s">Versionado, auditável e seu — sem caixa-preta.</div>
       </div>
       <div style="width:1px;background:rgba(229,233,242,.08)"></div>
       <div class="met">
-        <div class="met-l" style="color:#a5b4fc">vendor<br>lock-in</div>
-        <div class="met-n">0<em style="color:var(--e9-cobalt-light)">amarras</em></div>
+        <div class="met-l" style="color:#B3D2F9">vendor<br>lock-in</div>
+        <div class="met-n">0<em style="color:var(--e9-blue-400)">amarras</em></div>
         <div class="met-s" style="color:rgba(255,255,255,.62)">Você é dono do código, dos arquivos 3D e dos tokens.</div>
       </div>
       <div style="width:1px;background:rgba(229,233,242,.08)"></div>
       <div class="met">
         <div class="met-l">bit<br>&amp; átomo</div>
-        <div class="met-n">2<em style="color:var(--e9-indigo-light)">mundos</em></div>
+        <div class="met-n">2<em style="color:var(--e9-blue-300)">mundos</em></div>
         <div class="met-s">Digital e físico na mesma casa, sob um só padrão.</div>
       </div>
     </div>
@@ -608,7 +630,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 <section class="post" id="p09">
   <div class="bg">
     <div class="glow center" style="width:1200px;height:1200px;
-      background:radial-gradient(circle,rgba(79,70,229,.4) 0%,rgba(0,0,0,0) 66%)"></div>
+      background:radial-gradient(circle,rgba(0,91,209,.42) 0%,rgba(0,0,0,0) 66%)"></div>
     <div class="glow bottom"></div>
     <div class="bg-grid"></div><div class="bg-vignette"></div>
   </div>
@@ -618,7 +640,7 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
     <div class="pill" style="margin-bottom:52px"><span class="dot"></span>09 · manifestação</div>
 
     <h2 class="h2" style="max-width:830px;font-size:88px">
-      Pronto para <span class="grad-indigo">codificar<br>o futuro</span> da sua operação?
+      Pronto para <span class="grad-marca">codificar<br>o futuro</span> da sua operação?
     </h2>
 
     <p class="lead" style="max-width:760px;margin:44px 0 58px">
@@ -628,10 +650,10 @@ body{background:#15161c;font-family:var(--font-sans);-webkit-font-smoothing:anti
 
     <div style="display:flex;flex-direction:column;align-items:center;gap:22px">
       <div style="display:inline-flex;align-items:center;gap:14px;padding:22px 46px;border-radius:10px;
-        background:linear-gradient(180deg,#4F46E5 0%,#3730A3 100%);border:1px solid rgba(129,140,248,.5);
-        box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 54px -14px rgba(79,70,229,.85);
+        background:linear-gradient(180deg,#005BD1 0%,#003A85 100%);border:1px solid rgba(129,181,248,.5);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 54px -14px rgba(0,91,209,.85);
         font-size:27px;font-weight:500;color:#fff">
-        contato@e9solucoes.com.br
+        e9solucoestecnologicas@gmail.com
       </div>
       <div class="mono" style="font-size:19px;letter-spacing:.18em;text-transform:uppercase;color:rgba(229,233,242,.38)">
         e9solucoes.com.br
