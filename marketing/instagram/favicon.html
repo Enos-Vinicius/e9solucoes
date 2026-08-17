@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>E9 Soluções — favicon</title>
+<style>
+/* =========================================================
+   Favicon · marca E9 em disco, derivado da variante
+   "platina-marca" da foto de perfil (perfil.html #b).
+   Difere de propósito da arte do Instagram:
+   - recorte circular real (o favicon aparece em quadrado)
+   - marca maior (~62% do diâmetro) para ler a 16px
+   - sem lattice: a malha vira ruído nesse tamanho
+   Renderizado a 1024 e reamostrado pelo export-favicon.js.
+   ========================================================= */
+:root{
+  --e9-blue-950:#001838; --e9-blue-800:#003A85; --e9-blue-600:#005BD1;
+  --e9-platinum:#E5E9F2;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:transparent}
+
+.icon{position:relative;width:1024px;height:1024px;border-radius:50%;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;isolation:isolate;
+  background:radial-gradient(circle at 50% 34%,var(--e9-blue-600) 0%,var(--e9-blue-800) 52%,var(--e9-blue-950) 100%)}
+
+/* aro interno: separa o disco de abas claras sem virar borda desenhada */
+.icon::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  box-shadow:inset 0 0 0 8px rgba(255,255,255,.10)}
+
+.mark{position:relative;width:592px;height:592px;z-index:2;
+  filter:drop-shadow(0 8px 26px rgba(0,24,56,.45))}
+.mark svg{display:block;width:100%;height:100%}
+</style>
+</head>
+<body>
+
+<div class="icon" id="icon">
+  <div class="mark">
+    <svg viewBox="4100 6700 12720 12700" role="img" aria-label="E9 Soluções">
+      <path fill="#F2F4FA" d="M12945.71 6734.7c-539.49,0 -1042.8,94.96 -1509.96,287.83 -464.13,186.94 -874.02,453.99 -1232.68,798.19 -352.62,341.23 -623.86,741.82 -819.77,1201.74 -189.87,456.96 -286.32,952.49 -286.32,1486.59 0,724.02 168.78,1367.91 503.32,1934.66 337.55,560.81 795.67,1005.9 1371.32,1332.3 581.67,323.42 1238.71,486.62 1974.09,486.62 409.88,0 750.46,-44.5 1018.69,-130.55 274.26,-89.02 482.23,-178.04 620.87,-264.09 135.61,-89.01 204.94,-127.59 204.94,-118.69l0 943.59c0,498.5 -75.35,967.33 -229.06,1409.45 -147.68,436.19 -394.82,792.25 -741.41,1065.24 -340.58,272.99 -801.69,409.48 -1380.36,409.48l-6364.33 -5.38 548.09 1821.35 5743.91 -0.01c880.05,0 1651.6,-175.07 2314.66,-525.2 660.04,-353.1 1175.41,-848.64 1543.11,-1486.59 370.71,-640.94 554.55,-1394.62 554.55,-2261.06l0 -4611.12c0,-715.1 -168.78,-1356.03 -509.35,-1922.77 -334.54,-569.72 -792.65,-1020.74 -1371.31,-1350.11 -578.67,-335.3 -1229.67,-501.47 -1953,-501.47zm0 1940.59c349.62,0 663.06,80.11 940.34,243.32 277.27,157.26 497.28,373.88 657.01,646.86 165.77,272.99 247.15,581.58 247.15,925.78 0,249.26 -45.21,486.63 -135.63,712.14 -90.42,225.52 -220.01,424.33 -388.79,599.39 -165.76,172.1 -361.67,305.63 -587.71,400.59 -223.02,91.98 -467.15,139.46 -732.37,139.46 -253.17,0 -494.28,-47.48 -723.33,-139.46 -229.06,-94.96 -430.99,-228.49 -605.79,-400.59 -171.8,-175.06 -307.42,-373.87 -406.88,-599.39 -96.45,-225.51 -144.67,-462.88 -144.67,-712.14 0,-249.25 48.22,-483.66 144.67,-700.27 99.46,-219.57 235.08,-412.45 406.88,-578.62 174.8,-169.13 376.73,-299.69 605.79,-394.64 229.05,-94.95 470.16,-142.43 723.33,-142.43z"/>
+      <polygon fill="#F2F4FA" points="4121.06,19393.02 8086.42,19393.03 7548.82,17570.23 6131.32,17566.61 6131.32,13805.28 8045.13,13805.28 8605.71,11906.53 6131.32,11906.53 6131.32,8720.86 11965.04,8713.32 12945.7,6734.7 4121.06,6734.7"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>
