@@ -1,0 +1,633 @@
+<!-- Fundo: lattice + halos da marca, no mesmo registro do design-system -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,181,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(129,181,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_85%)]"></div>
+  <div class="absolute top-[6%] left-1/2 -translate-x-1/2 w-[820px] h-[600px] bg-e9-blue-800/18 blur-[140px] rounded-full"></div>
+  <div class="absolute bottom-[-12%] left-1/2 -translate-x-1/2 w-[620px] h-[420px] bg-e9-blue-700/14 blur-[140px] rounded-full"></div>
+</div>
+
+<!-- ===========================================================
+     NAV
+     =========================================================== -->
+<!-- Âncoras internas via routerLink + fragment, não href="#alvo": com
+     <base href="/"> um fragmento solto resolve contra a base e joga o
+     visitante na home. -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a class="flex items-center gap-3 group cursor-pointer" routerLink="/" aria-label="Voltar para a home">
+      <app-logo-e9 class="h-12 w-auto text-e9-blue-200 transition-colors group-hover:text-e9-blue-100"></app-logo-e9>
+      <span class="hidden sm:block text-[10px] font-mono uppercase tracking-widest text-white/40">· Inteligência Artificial</span>
+    </a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a class="btn-ghost" routerLink="/inteligencia-artificial" fragment="repeticao"><span class="font-mono text-[10px] text-e9-blue-300/60">01</span> O gargalo</a>
+      <a class="btn-ghost" routerLink="/inteligencia-artificial" fragment="entrega"><span class="font-mono text-[10px] text-e9-blue-300/60">02</span> Skills e agentes</a>
+      <a class="btn-ghost" routerLink="/inteligencia-artificial" fragment="como"><span class="font-mono text-[10px] text-e9-blue-300/60">03</span> Como funciona</a>
+      <a class="btn-ghost" routerLink="/inteligencia-artificial" fragment="recebe"><span class="font-mono text-[10px] text-e9-blue-300/60">04</span> Entregáveis</a>
+      <a class="btn-ghost" routerLink="/inteligencia-artificial" fragment="limites"><span class="font-mono text-[10px] text-e9-blue-300/60">05</span> Limites</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a class="btn-marca" style="padding: 8px 16px; font-size: 12px;" [href]="whatsappUrl" target="_blank" rel="noopener">
+        Falar com o time
+        <iconify-icon icon="solar:arrow-right-linear" width="14"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===========================================================
+     01 — HERO
+     =========================================================== -->
+<main id="hero" class="relative z-10 px-6 pt-32 pb-24 lg:pt-40 lg:pb-28 overflow-hidden">
+  <app-blueprint-grid></app-blueprint-grid>
+  <div class="glow-point top-[26%] left-[52%] -translate-x-1/2 !w-[720px] !h-[720px] opacity-100"></div>
+
+  <div class="max-w-7xl mx-auto relative">
+    <div class="fade-in-up flex items-center gap-3 mb-10">
+      <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-e9-blue-600/13 border border-e9-blue-300/30">
+        <span class="flex h-2 w-2 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-e9-blue-300 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-e9-blue-600"></span>
+        </span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-e9-blue-100">03 · Inteligência Artificial · frente principal</span>
+      </div>
+      <div class="hidden md:block h-px flex-1 bg-gradient-to-r from-e9-blue-600/45 to-transparent"></div>
+      <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.22em] text-white/30">skills · agentes</span>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- ESQUERDA · a proposta -->
+      <div class="lg:col-span-6">
+        <h1 class="fade-in-up delay-100 text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tighter leading-[1.03] text-white mb-8">
+          O trabalho que seu time repete toda semana
+          <span class="text-gradient-marca">não precisa de gente.</span>
+        </h1>
+
+        <p class="fade-in-up delay-200 text-lg text-white/55 font-light leading-relaxed mb-8 max-w-xl">
+          Nós não vendemos "IA". Olhamos a tarefa que volta toda segunda-feira, escrevemos a regra da sua casa como uma
+          <span class="text-e9-blue-200">skill</span> e colocamos um <span class="text-e9-blue-200">agente</span>
+          executando ela de ponta a ponta — no lugar onde seu time já trabalha, com registro de tudo e você aprovando
+          o que importa.
+        </p>
+
+        <div class="fade-in-up delay-300 flex flex-wrap items-center gap-3 mb-10">
+          <a class="btn-marca" [href]="whatsappUrl" target="_blank" rel="noopener">
+            <iconify-icon icon="mdi:whatsapp" width="18"></iconify-icon>
+            Mapear minha tarefa repetida
+          </a>
+          <a class="btn-outline" routerLink="/inteligencia-artificial" fragment="como">
+            <iconify-icon icon="solar:map-linear" width="14"></iconify-icon>
+            Ver como funciona
+          </a>
+        </div>
+
+        <div class="fade-in-up delay-400 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-mono text-white/35">
+          <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-e9-blue-300"></span> sem trocar o seu sistema</span>
+          <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-e9-blue-300"></span> aprovação humana onde importa</span>
+          <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-e9-blue-300"></span> a skill é sua, versionada</span>
+        </div>
+      </div>
+
+      <!-- DIREITA · uma execução de agente -->
+      <div class="lg:col-span-6 fade-in-up delay-300">
+        <div class="blueprint-card">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-5 pb-4 border-b border-white/5">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-red-500/40"></span>
+                <span class="w-2 h-2 rounded-full bg-amber-500/40"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500/40"></span>
+                <span class="ml-3 font-mono text-[11px] text-white/50">agente · triagem-de-orcamento</span>
+              </div>
+              <span class="text-[9px] font-mono uppercase tracking-widest text-white/30">exemplo</span>
+            </div>
+
+            <pre class="font-mono text-[12px] leading-7 text-white/55 mb-5 whitespace-pre-wrap"><span class="text-e9-blue-200">›</span> skill: orcamento-impressao-3d <span class="text-white/30">(v4)</span>
+<span class="text-white/35">[01]</span> leu 14 mensagens novas ··· <span class="text-emerald-300">ok</span>
+<span class="text-white/35">[02]</span> separou 9 pedidos de orçamento ··· <span class="text-emerald-300">ok</span>
+<span class="text-white/35">[03]</span> extraiu peça, prazo e quantidade ··· <span class="text-emerald-300">ok</span>
+<span class="text-white/35">[04]</span> aplicou a tabela da casa ··· <span class="text-emerald-300">ok</span>
+<span class="text-white/35">[05]</span> 2 fora da regra ··· <span class="text-amber-300">para você decidir</span>
+<span class="text-e9-blue-200">›</span> 7 respostas na fila, aguardando seu ok<span class="typing-cursor"></span></pre>
+
+            <div class="grid grid-cols-3 gap-px bg-white/5 rounded overflow-hidden">
+              <div class="bg-[#06080F] px-4 py-3 flex flex-col gap-0.5">
+                <span class="text-[9px] font-mono uppercase tracking-widest text-white/40">antes</span>
+                <span class="text-base font-medium text-white">2<span class="text-e9-blue-300 text-xs"> h/dia</span></span>
+              </div>
+              <div class="bg-[#06080F] px-4 py-3 flex flex-col gap-0.5 triad-center">
+                <span class="text-[9px] font-mono uppercase tracking-widest text-e9-blue-200">depois</span>
+                <span class="text-base font-medium text-white">10<span class="text-e9-blue-400 text-xs"> min</span></span>
+              </div>
+              <div class="bg-[#06080F] px-4 py-3 flex flex-col gap-0.5">
+                <span class="text-[9px] font-mono uppercase tracking-widest text-white/40">na sua mão</span>
+                <span class="text-base font-medium text-white">a<span class="text-e9-blue-300 text-xs"> decisão</span></span>
+              </div>
+            </div>
+
+            <p class="mt-4 text-[11px] font-mono text-white/30 leading-relaxed">
+              o agente não inventa preço: aplica a sua tabela e devolve para você o que sai da regra.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ===========================================================
+     02 — O GARGALO DA REPETIÇÃO
+     =========================================================== -->
+<section id="repeticao" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto relative" e9RevealOnScroll>
+    <div class="mb-14 max-w-3xl">
+      <span class="section-eyebrow block mb-3">01 · O gargalo invisível</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+        Ninguém reclama da tarefa repetida. <span class="text-gradient-marca">Todo mundo paga por ela.</span>
+      </h2>
+      <p class="text-lg text-white/55 font-light leading-relaxed">
+        Ela não aparece em relatório porque virou rotina: alguém do time gasta a manhã copiando dado de um lugar para
+        outro, respondendo a mesma dúvida, montando o mesmo orçamento, fechando o mesmo relatório. É trabalho que
+        consome as horas mais caras da empresa e não deixa nada atrás de si além do resultado daquele dia.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+            <iconify-icon class="text-white/70" icon="solar:refresh-circle-linear" width="24"></iconify-icon>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">sintoma 01</span>
+          <h3 class="text-xl font-medium text-white mb-3">"Isso a gente faz toda semana"</h3>
+          <p class="text-sm text-white/55 leading-relaxed">
+            O procedimento existe, mas mora na cabeça de uma pessoa. Quando ela sai de férias, a empresa desaprende.
+          </p>
+        </div>
+      </div>
+
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+            <iconify-icon class="text-white/70" icon="solar:copy-linear" width="24"></iconify-icon>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">sintoma 02</span>
+          <h3 class="text-xl font-medium text-white mb-3">Copia daqui, cola ali</h3>
+          <p class="text-sm text-white/55 leading-relaxed">
+            Mensagem vira planilha, planilha vira sistema, sistema vira e-mail. Cada passagem é uma chance de erro que
+            só aparece no fim do mês.
+          </p>
+        </div>
+      </div>
+
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center mb-5">
+            <iconify-icon class="text-white/70" icon="solar:hourglass-linear" width="24"></iconify-icon>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">sintoma 03</span>
+          <h3 class="text-xl font-medium text-white mb-3">A resposta demora um dia</h3>
+          <p class="text-sm text-white/55 leading-relaxed">
+            Não porque é difícil, mas porque entrou na fila. Quem pediu orçamento às 9h recebe amanhã — e às vezes
+            fecha com quem respondeu antes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     03 — SKILLS E AGENTES
+     =========================================================== -->
+<section id="entrega" class="relative z-10 py-24 px-6 border-t border-white/5 bg-[#0A0E1A]/55 overflow-hidden">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,181,248,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(129,181,248,0.05)_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto relative" e9RevealOnScroll>
+    <div class="mb-14 max-w-3xl">
+      <span class="section-eyebrow block mb-3">02 · Skills e agentes</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+        Duas peças, <span class="text-gradient-marca">uma engrenagem.</span>
+      </h2>
+      <p class="text-lg text-white/55 font-light leading-relaxed">
+        Skill é o procedimento da sua casa escrito de um jeito que a máquina executa igual todas as vezes. Agente é
+        quem pega esse procedimento e leva até o fim — sabendo onde buscar a informação, o que decidir e quando parar
+        para perguntar.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- SKILL -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-e9-blue-600/16 border border-e9-blue-300/30 flex items-center justify-center">
+              <iconify-icon class="text-e9-blue-200" icon="solar:document-add-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-e9-blue-100 px-1.5 py-0.5 rounded bg-e9-blue-600/16 border border-e9-blue-300/25 uppercase tracking-widest">A regra</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-e9-blue-200/60 block mb-2">peça 01</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Skill</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            O jeito certo de fazer aquela tarefa na sua empresa — passo a passo, com os limites, os textos e a tabela
+            que você já usa. Fica versionada: quando a regra muda, muda em um lugar só e vale para todo mundo.
+          </p>
+          <div class="pt-4 border-t border-white/5 font-mono text-[11px] text-white/40">
+            procedimento · versionado · seu
+          </div>
+        </div>
+      </div>
+
+      <!-- AGENTE -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-e9-blue-600/16 border border-e9-blue-300/30 flex items-center justify-center">
+              <iconify-icon class="text-e9-blue-200" icon="solar:cpu-bolt-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-e9-blue-100 px-1.5 py-0.5 rounded bg-e9-blue-600/16 border border-e9-blue-300/25 uppercase tracking-widest">O executor</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-e9-blue-200/60 block mb-2">peça 02</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Agente</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Executa a skill fim a fim: lê o que chegou, consulta onde precisa, faz o trabalho e entrega. Onde a decisão
+            é sua, ele para e pergunta em vez de adivinhar. Cada passo fica registrado.
+          </p>
+          <div class="pt-4 border-t border-white/5 font-mono text-[11px] text-white/40">
+            executa · registra · pergunta
+          </div>
+        </div>
+      </div>
+
+      <!-- ONDE RODA -->
+      <div class="blueprint-card">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-e9-blue-600/16 border border-e9-blue-300/30 flex items-center justify-center">
+              <iconify-icon class="text-e9-blue-200" icon="solar:link-circle-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-e9-blue-100 px-1.5 py-0.5 rounded bg-e9-blue-600/16 border border-e9-blue-300/25 uppercase tracking-widest">O lugar</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-e9-blue-200/60 block mb-2">peça 03</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Onde seu time já está</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            WhatsApp, e-mail, planilha, ERP, site, sistema interno. O agente entra no fluxo que existe hoje — ninguém
+            precisa aprender uma ferramenta nova nem migrar de plataforma para começar.
+          </p>
+          <div class="pt-4 border-t border-white/5 font-mono text-[11px] text-white/40">
+            whatsapp · e-mail · planilha · seu sistema
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- repetições que já viram skill -->
+    <div class="mt-16">
+      <div class="flex items-center gap-3 mb-8">
+        <span class="section-eyebrow">Repetições que viram skill</span>
+        <div class="h-px flex-1 bg-gradient-to-r from-e9-blue-600/45 to-transparent"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-white/5 rounded overflow-hidden">
+        <div class="bg-[#06080F] p-6">
+          <iconify-icon class="text-e9-blue-300 mb-3" icon="solar:chat-square-check-linear" width="22"></iconify-icon>
+          <div class="text-white text-sm font-medium mb-1.5">Triagem de mensagem</div>
+          <div class="text-xs text-white/50 leading-relaxed">Separa dúvida, orçamento e suporte, responde o que é padrão e encaminha o resto já com o contexto pronto.</div>
+        </div>
+        <div class="bg-[#06080F] p-6">
+          <iconify-icon class="text-e9-blue-300 mb-3" icon="solar:calculator-minimalistic-linear" width="22"></iconify-icon>
+          <div class="text-white text-sm font-medium mb-1.5">Orçamento pela sua tabela</div>
+          <div class="text-xs text-white/50 leading-relaxed">Lê o pedido, aplica a regra de preço da casa e devolve a proposta escrita — você só aprova ou ajusta.</div>
+        </div>
+        <div class="bg-[#06080F] p-6">
+          <iconify-icon class="text-e9-blue-300 mb-3" icon="solar:document-text-linear" width="22"></iconify-icon>
+          <div class="text-white text-sm font-medium mb-1.5">Relatório que ninguém quer fazer</div>
+          <div class="text-xs text-white/50 leading-relaxed">Junta os números dos lugares de sempre e monta o fechamento no formato que a diretoria já conhece.</div>
+        </div>
+        <div class="bg-[#06080F] p-6">
+          <iconify-icon class="text-e9-blue-300 mb-3" icon="solar:clipboard-add-linear" width="22"></iconify-icon>
+          <div class="text-white text-sm font-medium mb-1.5">Lançamento e cadastro</div>
+          <div class="text-xs text-white/50 leading-relaxed">Tira o dado do documento e coloca no sistema no formato certo, apontando o que ficou inconsistente.</div>
+        </div>
+        <div class="bg-[#06080F] p-6">
+          <iconify-icon class="text-e9-blue-300 mb-3" icon="solar:magic-stick-3-linear" width="22"></iconify-icon>
+          <div class="text-white text-sm font-medium mb-1.5">Conteúdo no seu tom</div>
+          <div class="text-xs text-white/50 leading-relaxed">Descrição de produto, post e resposta padrão escritos com a voz da marca, não com a voz do robô.</div>
+        </div>
+        <div class="bg-[#06080F] p-6">
+          <iconify-icon class="text-e9-blue-300 mb-3" icon="solar:checklist-minimalistic-linear" width="22"></iconify-icon>
+          <div class="text-white text-sm font-medium mb-1.5">Conferência de documento</div>
+          <div class="text-xs text-white/50 leading-relaxed">Compara contrato, nota e pedido contra a sua checklist e levanta a mão no item que não fecha.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     04 — COMO FUNCIONA
+     =========================================================== -->
+<section id="como" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-5xl mx-auto relative" e9RevealOnScroll>
+    <div class="mb-14 max-w-3xl">
+      <span class="section-eyebrow block mb-3">03 · Como funciona</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+        Começa observando, <span class="text-gradient-marca">não instalando.</span>
+      </h2>
+      <p class="text-lg text-white/55 font-light leading-relaxed">
+        Nenhuma automação nasce boa a partir de um chute. A primeira entrega é entender exatamente o que o seu time faz
+        hoje — inclusive as exceções, que é onde a maioria dos projetos de IA quebra.
+      </p>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">01 · Mapa da repetição</span>
+      <div>
+        <div class="text-white text-base font-medium mb-1.5">A gente senta com quem faz</div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          Uma conversa curta com a pessoa que executa a tarefa, o caminho real que ela percorre e a conta de quanto
+          isso custa por semana. Sai daqui uma lista honesta do que vale automatizar e do que não vale.
+        </p>
+      </div>
+      <span class="spec-meta">1 semana</span>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">02 · Skill escrita</span>
+      <div>
+        <div class="text-white text-base font-medium mb-1.5">A regra da casa vira procedimento</div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          Escrevemos o passo a passo, os textos, os limites e o que fazer em cada exceção. Você lê e valida antes de
+          qualquer coisa rodar — em português, não em código.
+        </p>
+      </div>
+      <span class="spec-meta">você aprova</span>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">03 · Agente no ar</span>
+      <div>
+        <div class="text-white text-base font-medium mb-1.5">Começa acompanhado, depois solta</div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          Na largada o agente propõe e um humano aprova cada saída. Conforme o acerto se confirma, você decide o que
+          ele passa a fazer sozinho e o que continua exigindo o seu ok.
+        </p>
+      </div>
+      <span class="spec-meta">2 a 4 semanas</span>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">04 · Medição e ajuste</span>
+      <div>
+        <div class="text-white text-base font-medium mb-1.5">O que não melhorou volta para a mão</div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          Comparamos o antes e o depois em tempo e em erro. O que ganhou, fica e cresce. O que não ganhou, a gente
+          desliga e diz por quê — automação que só existe para constar é custo.
+        </p>
+      </div>
+      <span class="spec-meta">contínuo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     05 — O QUE VOCÊ RECEBE
+     =========================================================== -->
+<section id="recebe" class="relative z-10 py-24 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto relative" e9RevealOnScroll>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-6">
+        <span class="section-eyebrow block mb-3">04 · Entregáveis</span>
+        <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+          Você fica com <span class="text-gradient-marca">a engrenagem</span>, não com a dependência.
+        </h2>
+        <p class="text-lg text-white/55 font-light leading-relaxed mb-8 max-w-xl">
+          Toda skill que escrevemos é documentação da sua operação. Se amanhã você quiser levar para outro time ou
+          outro fornecedor, ela vai com você — legível, versionada e sem amarra.
+        </p>
+
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">As skills, escritas e versionadas</div>
+              <div class="text-xs text-white/50 mt-0.5">O procedimento da sua casa em texto legível, com histórico de mudança. Seu, não nosso.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">O agente rodando no seu fluxo</div>
+              <div class="text-xs text-white/50 mt-0.5">Ligado ao canal e ao sistema que você já usa, com as permissões que você definir.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">Registro de cada execução</div>
+              <div class="text-xs text-white/50 mt-0.5">O que entrou, o que o agente fez e o que ele devolveu para decisão humana — auditável.</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+              <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+            </span>
+            <div>
+              <div class="text-white text-sm font-medium">Time treinado para operar</div>
+              <div class="text-xs text-white/50 mt-0.5">Quem usa aprende a ajustar a skill, ler o registro e saber quando chamar a gente.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- painel da automação -->
+      <div class="lg:col-span-6">
+        <div class="blueprint-card">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <div class="relative z-10">
+            <div class="flex items-center justify-between mb-6">
+              <span class="section-eyebrow">Painel da automação</span>
+              <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-[10px] uppercase font-semibold tracking-wider text-e9-blue-100 bg-e9-blue-600/16 border border-e9-blue-300/30">
+                <span class="w-1.5 h-1.5 rounded-full bg-e9-blue-300 animate-pulse"></span>
+                exemplo
+              </span>
+            </div>
+
+            <div class="space-y-3 mb-6">
+              <div class="flex items-center justify-between text-sm">
+                <span class="text-white/70">triagem-de-mensagem</span>
+                <span class="font-mono text-[11px] text-emerald-300">autônoma</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full w-[92%] rounded-full bg-gradient-to-r from-e9-blue-600 to-e9-blue-400"></div>
+              </div>
+
+              <div class="flex items-center justify-between text-sm pt-2">
+                <span class="text-white/70">orcamento-impressao-3d</span>
+                <span class="font-mono text-[11px] text-e9-blue-200">aprovação humana</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full w-[64%] rounded-full bg-gradient-to-r from-e9-blue-600 to-e9-blue-400"></div>
+              </div>
+
+              <div class="flex items-center justify-between text-sm pt-2">
+                <span class="text-white/70">fechamento-mensal</span>
+                <span class="font-mono text-[11px] text-amber-300">em calibragem</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                <div class="h-full w-[38%] rounded-full bg-gradient-to-r from-e9-blue-600 to-e9-blue-400"></div>
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-white/5 grid grid-cols-2 gap-4">
+              <div>
+                <div class="text-[9px] font-mono uppercase tracking-widest text-white/40 mb-1">horas devolvidas / mês</div>
+                <div class="text-2xl font-medium text-white">62<span class="text-e9-blue-300 text-sm"> h</span></div>
+              </div>
+              <div>
+                <div class="text-[9px] font-mono uppercase tracking-widest text-white/40 mb-1">exceções na sua mesa</div>
+                <div class="text-2xl font-medium text-white">8<span class="text-e9-blue-300 text-sm"> %</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     06 — LIMITES
+     =========================================================== -->
+<section id="limites" class="relative z-10 py-24 px-6 border-t border-white/5 bg-[#0A0E1A]/55">
+  <div class="max-w-5xl mx-auto relative" e9RevealOnScroll>
+    <div class="mb-14 max-w-3xl">
+      <span class="section-eyebrow block mb-3">05 · Limites</span>
+      <h2 class="text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05]">
+        O que a gente <span class="text-gradient-marca">não promete.</span>
+      </h2>
+      <p class="text-lg text-white/55 font-light leading-relaxed">
+        Metade do valor de um projeto de IA está em saber onde ele não deve entrar. Estas são as linhas que a gente não
+        cruza — e que você pode cobrar da gente.
+      </p>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">Não troca seu time</span>
+      <div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          O agente assume a repetição, não o julgamento. Quem conhece o cliente continua decidindo o caso difícil — e
+          passa a receber só o que realmente exige decisão.
+        </p>
+      </div>
+      <span class="spec-meta">humano decide</span>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">Não inventa dado</span>
+      <div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          Preço, prazo e política saem da sua tabela e dos seus documentos. Quando a informação não existe, o agente
+          diz que não sabe e devolve — em vez de preencher com algo plausível.
+        </p>
+      </div>
+      <span class="spec-meta">fonte sua</span>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">Não abre sua base</span>
+      <div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          O acesso é o mínimo necessário para a tarefa, com credencial sua e escopo combinado por escrito. Você revoga
+          quando quiser, sem depender da gente.
+        </p>
+      </div>
+      <span class="spec-meta">escopo mínimo</span>
+    </div>
+
+    <div class="spec-row">
+      <span class="spec-label">Não exige migração</span>
+      <div>
+        <p class="text-sm text-white/55 leading-relaxed">
+          Se o seu processo vive numa planilha, começamos na planilha. Trocar de sistema é decisão de negócio, não
+          pré-requisito de automação.
+        </p>
+      </div>
+      <span class="spec-meta">seu stack</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     07 — CTA FINAL
+     =========================================================== -->
+<section id="contato" class="relative z-10 py-32 px-6 border-t border-white/5 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="glow-point top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-[900px] !h-[900px] opacity-100"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto text-center" e9RevealOnScroll>
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-e9-blue-600/13 border border-e9-blue-300/30 mb-6">
+      <span class="flex h-2 w-2 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-e9-blue-300 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-e9-blue-600"></span>
+      </span>
+      <span class="text-[11px] font-mono tracking-widest uppercase text-e9-blue-100">primeiro passo</span>
+    </div>
+
+    <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tighter text-white mb-5 leading-[1.05]">
+      Qual tarefa seu time <span class="text-gradient-marca">vai repetir amanhã?</span>
+    </h2>
+    <p class="text-lg text-white/55 font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+      Conte em duas frases e a gente responde se dá para virar skill, quanto tempo isso devolve por semana e por onde
+      começar. Se não valer a pena, a gente também diz.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a class="btn-marca" [href]="whatsappUrl" target="_blank" rel="noopener">
+        <iconify-icon icon="mdi:whatsapp" width="18"></iconify-icon>
+        Chamar no WhatsApp
+      </a>
+      <a class="btn-outline" routerLink="/" fragment="contato">
+        <iconify-icon icon="solar:chat-round-line-linear" width="14"></iconify-icon>
+        Escrever pelo formulário
+      </a>
+    </div>
+
+    <div class="mt-6 font-mono text-[11px] uppercase tracking-widest text-white/30">
+      {{ contato }} · resposta em até 24h úteis
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     FOOTER
+     =========================================================== -->
+<footer class="relative z-10 py-12 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6" e9RevealOnScroll>
+    <div class="flex flex-col items-center gap-2">
+      <a routerLink="/" class="group inline-flex" aria-label="Voltar para a home">
+        <app-logo-e9 class="h-28 w-auto text-e9-blue-200 transition-colors group-hover:text-e9-blue-100"></app-logo-e9>
+      </a>
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/30">arquitetura invisível · 2026</span>
+    </div>
+    <div class="text-[11px] font-mono text-white/30 text-center md:text-right">
+      <div>Inteligência Artificial · skills · agentes · automação da repetição</div>
+      <a class="text-e9-blue-200/60 mt-1 inline-flex items-center gap-1.5 hover:text-e9-blue-200 transition-colors" routerLink="/">
+        <iconify-icon icon="solar:arrow-left-linear" width="12"></iconify-icon>
+        voltar para as 9 frentes
+      </a>
+    </div>
+  </div>
+</footer>

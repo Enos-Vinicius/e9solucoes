@@ -483,3 +483,92 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+/* =========================================================
+   Áreas de atuação — linhas navegáveis do painel do hero
+   Cada linha aponta para o card da frente correspondente
+   (#frente-*). O hover herda o idioma do .btn-ghost: fill
+   600 a /10 (o /8 portado pela regra de alpha) e o texto
+   subindo um degrau no eixo. O estado de repouso de cada
+   linha continua nas utilidades do template — aqui só moram
+   geometria, hover e foco.
+   ========================================================= */
+.frente-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 -12px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.frente-link:hover {
+  background: rgba(0, 91, 209, 0.1);
+  color: var(--e9-blue-100);
+}
+/* linha em destaque (a frente principal) — repouso a /13, hover a /18 */
+.frente-link.ativa {
+  background: rgba(0, 91, 209, 0.13);
+  border-top: 1px solid rgba(129, 181, 248, 0.25);
+  border-bottom: 1px solid rgba(129, 181, 248, 0.25);
+  color: var(--e9-blue-100);
+}
+.frente-link.ativa:hover { background: rgba(0, 91, 209, 0.18); }
+/* o número e o marcador (★ / → / em breve) sobem junto com a linha */
+.frente-link:hover .frente-num { color: var(--e9-blue-200); }
+.frente-link:hover .frente-tag { color: var(--e9-blue-200); }
+.frente-link .frente-tag {
+  transition:
+    color 0.2s ease,
+    translate 0.2s ease;
+}
+.frente-link:hover .frente-tag { translate: 2px 0; }
+.frente-link:focus-visible {
+  outline: 1px solid var(--e9-blue-400);
+  outline-offset: 2px;
+  background: rgba(0, 91, 209, 0.1);
+  color: var(--e9-blue-100);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frente-link:hover .frente-tag { translate: none; }
+}
+
+/* =========================================================
+   Card alvo de um fragmento (#frente-*)
+   Quem chega pelo painel de "Áreas de atuação" precisa saber
+   onde pousou. O realce é o do :hover do .blueprint-card, mas
+   persiste enquanto o alvo for esse.
+
+   O pulso mora no ::after e não no card: a diretiva de reveal
+   anima o próprio card, e um segundo `animation` no mesmo
+   elemento vence por ordem de cascata e deixa o alvo preso em
+   opacity 0 — invisível justamente quando é o assunto.
+   ========================================================= */
+.blueprint-card:target {
+  border-color: rgba(129, 181, 248, 0.4);
+  box-shadow:
+    0 0 0 1px rgba(129, 181, 248, 0.18),
+    0 24px 64px -20px rgba(0, 111, 255, 0.5);
+}
+.blueprint-card:target .corner { border-color: var(--e9-blue-400); }
+.blueprint-card:target::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  pointer-events: none;
+  animation: alvoPulso 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes alvoPulso {
+  0% { box-shadow: 0 0 0 2px rgba(129, 181, 248, 0.55), 0 0 32px 2px rgba(0, 111, 255, 0.35); }
+  100% { box-shadow: 0 0 0 0 rgba(129, 181, 248, 0), 0 0 0 0 rgba(0, 111, 255, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-card:target::after { animation: none; }
+}

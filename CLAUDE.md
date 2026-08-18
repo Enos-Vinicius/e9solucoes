@@ -167,6 +167,29 @@ lido, elas saem do bundle sem erro:
 grep -o 'bg-e9-blue-600[^{]*{[^}]*}' dist/e9-solucoes/browser/styles-*.css
 ```
 
+## Link de fragmento exige `anchorScrolling` no router
+
+`withInMemoryScrolling({ scrollPositionRestoration: 'top' })` sozinho **mata
+todo `href="#alvo"` do site** — o router trata a troca de hash como navegação,
+reposiciona no topo e engole o pulo nativo do browser. O hash muda na URL, o
+scroll fica em zero, nada de erro no console. Foi o que deixou a nav (`#triade`,
+`#software`…) sem efeito até ninguém notar. `anchorScrolling: 'enabled'` em
+`app.config.ts` resolve.
+
+O `ViewportScroller` do Angular posiciona com `window.scrollTo` a partir de
+`getBoundingClientRect`, então **ignora `scroll-margin`/`scroll-mt-*`** — o
+recuo da nav fixa vem de `setOffset([0, 112])` no `AppComponent`. As classes
+`scroll-mt-28` nos alvos ficam como paridade para o pulo nativo.
+
+## Dois `animation` no mesmo elemento: o último apaga o outro
+
+A diretiva `e9RevealOnScroll` escreve `.reveal` nos blocos e a visibilidade
+vem de `animation: revealUp … both`. Qualquer regra depois no `styles.scss`
+que declare `animation` no mesmo elemento (foi um `:target` de mesma
+especificidade) vence por ordem de cascata, cancela o `revealUp` e **prende o
+bloco em `opacity: 0`** — invisível, sem erro. Anime um pseudo-elemento
+(`::after`) em vez do bloco.
+
 ---
 
 # Sincronia com marketing/
