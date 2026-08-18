@@ -37,6 +37,7 @@
       <a class="btn-ghost" href="#triade">Manifesto</a>
       <a class="btn-ghost" href="#pilares">Soluções</a>
       <a class="btn-ghost" href="#software">Software</a>
+      <a class="btn-ghost" routerLink="/inteligencia-artificial">IA</a>
       <a class="btn-ghost" href="#manufatura">Manufatura</a>
       <a class="btn-ghost" href="#processo">Processo</a>
     </div>
@@ -115,20 +116,70 @@
             <span class="text-[10px] font-mono text-e9-blue-200/70">9 frentes</span>
           </div>
 
-          <ul class="space-y-2.5 text-sm relative z-10">
-            <li class="flex items-center justify-between text-e9-blue-100 -mx-3 px-3 py-1.5 rounded bg-e9-blue-600/13 border-y border-e9-blue-300/25">
-              <span class="font-mono text-[10px] text-e9-blue-200">01</span>
-              <span class="font-medium">Software House</span>
-              <span class="text-[10px] font-mono text-e9-blue-200">★</span>
+          <ul class="space-y-1 text-sm relative z-10">
+            <li>
+              <a class="frente-link ativa font-medium" href="#frente-software">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-200">01</span>
+                <span>Software House</span>
+                <span class="frente-tag text-[10px] font-mono text-e9-blue-200">★</span>
+              </a>
             </li>
-            <li class="flex items-center justify-between text-white/70"><span class="font-mono text-[10px] text-e9-blue-300/50">02</span><span>Impressão 3D</span><span class="text-[10px] font-mono text-e9-blue-200">★</span></li>
-            <li class="flex items-center justify-between text-white/70"><span class="font-mono text-[10px] text-e9-blue-300/50">03</span><span>Inteligência Artificial</span><span class="text-[10px] font-mono text-e9-blue-200">★</span></li>
-            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-e9-blue-300/40">04</span><span>Suporte &amp; Treinamento</span><span class="text-[10px] font-mono">→</span></li>
-            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-e9-blue-300/40">05</span><span>Info Produto</span><span class="text-[10px] font-mono">→</span></li>
-            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-e9-blue-300/40">06</span><span>Branding</span><span class="text-[10px] font-mono">→</span></li>
-            <li class="flex items-center justify-between text-white/40"><span class="font-mono text-[10px] text-e9-blue-300/40">07</span><span>Consultoria</span><span class="text-[10px] font-mono">→</span></li>
-            <li class="flex items-center justify-between text-white/30"><span class="font-mono text-[10px] text-e9-blue-300/30">08</span><span>Automação Residencial</span><span class="text-[9px] font-mono uppercase tracking-wider text-amber-300/70">em breve</span></li>
-            <li class="flex items-center justify-between text-white/30"><span class="font-mono text-[10px] text-e9-blue-300/30">09</span><span>Marketing</span><span class="text-[9px] font-mono uppercase tracking-wider text-amber-300/70">em breve</span></li>
+            <li>
+              <a class="frente-link text-white/70" href="#frente-impressao-3d">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/50">02</span>
+                <span>Impressão 3D</span>
+                <span class="frente-tag text-[10px] font-mono text-e9-blue-200">★</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/70" href="#frente-ia">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/50">03</span>
+                <span>Inteligência Artificial</span>
+                <span class="frente-tag text-[10px] font-mono text-e9-blue-200">★</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/70" href="#frente-suporte">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/50">04</span>
+                <span>Suporte &amp; Treinamento</span>
+                <span class="frente-tag text-[10px] font-mono">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/70" href="#frente-marketing">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/50">05</span>
+                <span>Marketing</span>
+                <span class="frente-tag text-[10px] font-mono">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/40" href="#frente-branding">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/40">06</span>
+                <span>Branding</span>
+                <span class="frente-tag text-[10px] font-mono">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/40" href="#frente-consultoria">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/40">07</span>
+                <span>Consultoria</span>
+                <span class="frente-tag text-[10px] font-mono">→</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/30" href="#frente-info-produto">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/30">08</span>
+                <span>Info Produto</span>
+                <span class="text-[9px] font-mono uppercase tracking-wider text-amber-300/70">em breve</span>
+              </a>
+            </li>
+            <li>
+              <a class="frente-link text-white/30" href="#frente-automacao">
+                <span class="frente-num font-mono text-[10px] text-e9-blue-300/30">09</span>
+                <span>Automação Residencial</span>
+                <span class="text-[9px] font-mono uppercase tracking-wider text-amber-300/70">em breve</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -251,7 +302,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- 01 Software House · PRINCIPAL -->
-      <div class="blueprint-card">
+      <div id="frente-software" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -276,7 +327,7 @@
       </div>
 
       <!-- 02 Impressão 3D · PRINCIPAL -->
-      <div class="blueprint-card">
+      <div id="frente-impressao-3d" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -301,7 +352,7 @@
       </div>
 
       <!-- 03 Inteligência Artificial · PRINCIPAL -->
-      <div class="blueprint-card">
+      <div id="frente-ia" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -317,13 +368,16 @@
           </p>
           <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
             <span class="font-mono text-white/40">prompt · agentes · modelos</span>
-            <iconify-icon class="text-e9-blue-300" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+            <a routerLink="/inteligencia-artificial" class="inline-flex items-center gap-1 text-e9-blue-200 hover:text-e9-blue-200 transition-colors">
+              <span>Saiba Mais</span>
+              <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+            </a>
           </div>
         </div>
       </div>
 
       <!-- 04 Suporte & Treinamento -->
-      <div class="blueprint-card">
+      <div id="frente-suporte" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -339,35 +393,32 @@
           </p>
           <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
             <span class="font-mono text-white/40">manutenção · capacitação</span>
-            <iconify-icon class="text-e9-blue-300" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
           </div>
         </div>
       </div>
 
-      <!-- 05 Info Produto -->
-      <div class="blueprint-card">
+      <!-- 05 Marketing & Performance -->
+      <div id="frente-marketing" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
             <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
-              <iconify-icon class="text-white/70" icon="solar:cart-large-minimalistic-linear" width="24"></iconify-icon>
+              <iconify-icon class="text-white/70" icon="solar:rocket-2-linear" width="24"></iconify-icon>
             </div>
             <span class="text-[10px] font-mono text-white/60 px-1.5 py-0.5 rounded bg-white/5 border border-white/10 uppercase tracking-widest">Complemento</span>
           </div>
-          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">05 · Venda digital</span>
-          <h3 class="text-2xl font-medium text-white mb-3">Info Produto</h3>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">05 · Aquisição</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Marketing & Performance</h3>
           <p class="text-sm text-white/55 leading-relaxed mb-5">
-            Criação de sites de venda de produtos online e apoio na configuração de plataformas como Hotmart, Kiwify e outras — do checkout à entrega digital.
+            Tráfego pago, funis de conversão e gestão de anúncios para atrair e converter clientes. Fecha o ciclo: criamos a marca, o produto e trazemos o público.
           </p>
           <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="font-mono text-white/40">landing · checkout · plataformas</span>
-            <iconify-icon class="text-e9-blue-300" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+            <span class="font-mono text-white/40">tráfego · funis · conversão</span>
           </div>
         </div>
       </div>
-
       <!-- 06 Branding -->
-      <div class="blueprint-card">
+      <div id="frente-branding" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -383,13 +434,12 @@
           </p>
           <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
             <span class="font-mono text-white/40">visual · voz · posicionamento</span>
-            <iconify-icon class="text-e9-blue-300" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
           </div>
         </div>
       </div>
 
       <!-- 07 Consultoria · Transformação Digital -->
-      <div class="blueprint-card">
+      <div id="frente-consultoria" class="blueprint-card scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -405,13 +455,33 @@
           </p>
           <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
             <span class="font-mono text-white/40">diagnóstico · processos · gestão</span>
-            <iconify-icon class="text-e9-blue-300" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
           </div>
         </div>
       </div>
 
-      <!-- 08 Automação Residencial · EM BREVE -->
-      <div class="blueprint-card opacity-75">
+      <!-- 08 Info Produto · EM BREVE -->
+      <div id="frente-info-produto" class="blueprint-card opacity-75 scroll-mt-28">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="relative z-10">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
+              <iconify-icon class="text-white/70" icon="solar:cart-large-minimalistic-linear" width="24"></iconify-icon>
+            </div>
+            <span class="text-[10px] font-mono text-amber-300 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-400/25 uppercase tracking-widest">Em breve</span>
+          </div>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">08 · Venda digital</span>
+          <h3 class="text-2xl font-medium text-white mb-3">Info Produto</h3>
+          <p class="text-sm text-white/55 leading-relaxed mb-5">
+            Criação de sites de venda de produtos online e apoio na configuração de plataformas como Hotmart, Kiwify e outras — do checkout à entrega digital.
+          </p>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
+            <span class="font-mono text-white/40">landing · checkout · plataformas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 09 Automação Residencial · EM BREVE -->
+      <div id="frente-automacao" class="blueprint-card opacity-75 scroll-mt-28">
         <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
         <div class="relative z-10">
           <div class="flex items-center justify-between mb-5">
@@ -420,39 +490,17 @@
             </div>
             <span class="text-[10px] font-mono text-amber-300 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-400/25 uppercase tracking-widest">Em breve</span>
           </div>
-          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">08 · Casa conectada</span>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">09 · Casa conectada</span>
           <h3 class="text-2xl font-medium text-white mb-3">Automação Residencial</h3>
           <p class="text-sm text-white/55 leading-relaxed mb-5">
             Configuração e instalação de processos residenciais — iluminação, segurança e rotinas inteligentes para mais comodidade e controle da sua casa.
           </p>
           <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
             <span class="font-mono text-white/40">segurança · comodidade</span>
-            <span class="font-mono text-amber-300/70">em breve</span>
           </div>
         </div>
       </div>
 
-      <!-- 09 Marketing & Performance · EM BREVE -->
-      <div class="blueprint-card opacity-75">
-        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-        <div class="relative z-10">
-          <div class="flex items-center justify-between mb-5">
-            <div class="w-12 h-12 rounded bg-white/[0.04] border border-white/10 flex items-center justify-center">
-              <iconify-icon class="text-white/70" icon="solar:rocket-2-linear" width="24"></iconify-icon>
-            </div>
-            <span class="text-[10px] font-mono text-amber-300 px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-400/25 uppercase tracking-widest">Em breve</span>
-          </div>
-          <span class="font-mono text-[10px] uppercase tracking-widest text-white/40 block mb-2">09 · Aquisição</span>
-          <h3 class="text-2xl font-medium text-white mb-3">Marketing & Performance</h3>
-          <p class="text-sm text-white/55 leading-relaxed mb-5">
-            Tráfego pago, funis de conversão e gestão de anúncios para atrair e converter clientes. Fecha o ciclo: criamos a marca, o produto e trazemos o público.
-          </p>
-          <div class="pt-4 border-t border-white/5 flex items-center justify-between text-[11px]">
-            <span class="font-mono text-white/40">tráfego · funis · conversão</span>
-            <span class="font-mono text-amber-300/70">em breve</span>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1177,7 +1225,7 @@
       <span class="text-[10px] font-mono uppercase tracking-widest text-white/30">arquitetura invisível · 2026</span>
     </div>
     <div class="text-[11px] font-mono text-white/30 text-center md:text-right">
-      <div>Software · Impressão 3D · IA · Suporte · Info Produto · Branding · Consultoria · Automação · Marketing</div>
+      <div>Software · Impressão 3D · IA · Suporte · Marketing · Branding · Consultoria · Info Produto · Automação</div>
       <div class="text-e9-blue-200/60 mt-1">★ a 9ª posição é a fundação ★</div>
     </div>
   </div>
