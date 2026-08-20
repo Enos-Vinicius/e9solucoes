@@ -35,6 +35,17 @@
               },
               {
                 "glob": "**/*",
+                "input": "marketing/instagram",
+                "output": "marketing",
+                "ignore": [
+                  "*.js",
+                  "*.md",
+                  "png/*-indigo*.png",
+                  "preview/*-indigo*.jpg"
+                ]
+              },
+              {
+                "glob": "**/*",
                 "input": "src/app/assets",
                 "output": "assets"
               }

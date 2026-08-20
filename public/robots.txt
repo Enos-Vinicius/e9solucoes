@@ -1,0 +1,5 @@
+# As artes de Instagram ficam publicadas em /marketing para consulta pelo
+# time, mas não são conteúdo de busca — só o site institucional é.
+User-agent: *
+Disallow: /marketing/
+Allow: /

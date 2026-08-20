@@ -29,5 +29,11 @@ export const routes: Routes = [
       import('./pages/catalogo/catalogo.component').then((m) => m.CatalogoComponent),
     title: 'E9 Soluções · Catálogo',
   },
+  {
+    path: 'marketing',
+    loadComponent: () =>
+      import('./pages/marketing/marketing.component').then((m) => m.MarketingComponent),
+    title: 'E9 Soluções · Marketing',
+  },
   { path: '**', redirectTo: '' },
 ];

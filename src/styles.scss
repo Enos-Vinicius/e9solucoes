@@ -249,6 +249,21 @@ body {
   white-space: nowrap;
 }
 
+/* A grade fixa (180 + 1fr + 160 + 48 de gap) precisa de ~544px: abaixo disso
+   o `spec-meta` saía da tela e era engolido pelo overflow-x do body. */
+@media (max-width: 720px) {
+  .spec-row {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 10px;
+    padding: 20px 0;
+  }
+  .spec-row .spec-meta {
+    text-align: left;
+    white-space: normal;
+  }
+}
+
 /* =========================================================
    Eyebrow
    ========================================================= */
@@ -571,4 +586,33 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .blueprint-card:target::after { animation: none; }
+}
+
+/* =========================================================
+   CTA pulsante — usado no link do board de entrega
+   Um ciclo a cada 2s (bem abaixo do limite de 3 flashes/s) e
+   só no halo: o pulso mora no box-shadow de um elemento que
+   não é animado por mais ninguém, para não repetir a colisão
+   de `animation` com o `.reveal` da diretiva de scroll.
+   ========================================================= */
+.cta-pulsante {
+  animation: ctaPulso 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+@keyframes ctaPulso {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0 rgba(0, 111, 255, 0.5),
+      0 0 16px -6px rgba(0, 111, 255, 0.45);
+    border-color: rgba(129, 181, 248, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 0 0 7px rgba(0, 111, 255, 0),
+      0 0 28px -4px rgba(0, 111, 255, 0.8);
+    border-color: rgba(129, 181, 248, 0.75);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-pulsante { animation: none; }
 }
