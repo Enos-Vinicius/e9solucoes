@@ -1,0 +1,117 @@
+/* =========================================================
+   Remanescente de supernova — posição e movimento
+
+   O TS gera a textura uma vez; daqui para frente é só
+   compositor: cada camada gira, respira e pulsa em período
+   próprio, o que dá vida sem custar frame de JavaScript.
+   Períodos longos e primos entre si (não batem no mesmo
+   ponto) para o laço nunca ficar óbvio.
+   ========================================================= */
+
+:host {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 80vh;
+  aspect-ratio: 1;
+  z-index: 0; /* a página inteira flutua por cima (seções são z-10) */
+  display: block;
+  pointer-events: none;
+  /* Só apara os cantos do quadrado: 'closest-side' faz a porcentagem
+     valer sobre o raio, e não sobre a diagonal — com o padrão
+     (farthest-corner) a borda da máscara caía sobre o anel de choque
+     e apagava exatamente o que dá a forma de remanescente. */
+  -webkit-mask-image: radial-gradient(circle closest-side at 50% 50%, #000 86%, transparent 100%);
+  mask-image: radial-gradient(circle closest-side at 50% 50%, #000 86%, transparent 100%);
+  opacity: 0.72;
+  contain: strict;
+}
+
+.camada,
+.nucleo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  will-change: transform, opacity;
+}
+
+.camada {
+  /* as camadas se somam: cruzamento de filamento satura para o branco */
+  mix-blend-mode: screen;
+  opacity: 0;
+  transition: opacity 1.2s ease-out;
+}
+.camada.pronta {
+  opacity: 1;
+}
+
+/* corpo difuso — a maré lenta */
+.camada-1 {
+  animation: novaGira 260s linear infinite;
+}
+
+/* choque externo — gira ao contrário e respira */
+.camada-2 {
+  animation:
+    novaGiraReverso 190s linear infinite,
+    novaRespira 26s ease-in-out infinite;
+}
+
+/* miolo mosqueado — o mais rápido, e cintila */
+.camada-3 {
+  animation:
+    novaGira 118s linear infinite,
+    novaCintila 14s ease-in-out infinite;
+}
+
+/* brasa central: o que sobrou da estrela */
+.nucleo {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(0, 111, 255, 0.2) 0%, rgba(0, 91, 209, 0.1) 32%, rgba(0, 24, 56, 0) 58%);
+  filter: blur(14px);
+  animation: nucleoPulsa 11s ease-in-out infinite;
+}
+
+@keyframes novaGira {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes novaGiraReverso {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+/* respiro: a onda de choque ainda está se expandindo */
+@keyframes novaRespira {
+  0%, 100% { scale: 1; }
+  50% { scale: 1.045; }
+}
+@keyframes novaCintila {
+  0%, 100% { opacity: 0.78; }
+  50% { opacity: 1; }
+}
+@keyframes nucleoPulsa {
+  0%, 100% { opacity: 0.72; scale: 0.94; }
+  50% { opacity: 1; scale: 1.04; }
+}
+
+/* Telas estreitas: a nova cobriria o texto inteiro. Encolhe e recua. */
+@media (max-width: 768px) {
+  :host {
+    height: 52vh;
+    opacity: 0.42;
+  }
+}
+
+/* Quem pede menos movimento fica com a nebulosa parada — ela não é
+   informação, mas também não precisa desaparecer. */
+@media (prefers-reduced-motion: reduce) {
+  .camada-1,
+  .camada-2,
+  .camada-3,
+  .nucleo {
+    animation: none;
+  }
+}

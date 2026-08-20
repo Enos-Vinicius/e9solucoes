@@ -1,0 +1,292 @@
+<!-- Fundo: lattice + halos da marca -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(129,181,248,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(129,181,248,0.03)_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_85%)]"></div>
+  <div class="absolute top-[6%] left-1/2 -translate-x-1/2 w-[820px] h-[520px] bg-e9-blue-800/18 blur-[140px] rounded-full"></div>
+</div>
+
+<!-- ===========================================================
+     NAV — âncoras via routerLink + fragment (href="#alvo" resolve
+     contra o <base href="/"> e sairia da página).
+     =========================================================== -->
+<nav class="fixed top-0 w-full z-50 glass-nav">
+  <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a class="flex items-center gap-3 group cursor-pointer" routerLink="/" aria-label="Voltar para a home">
+      <app-logo-e9 class="h-12 w-auto text-e9-blue-200 transition-colors group-hover:text-e9-blue-100"></app-logo-e9>
+      <span class="hidden sm:block text-[10px] font-mono uppercase tracking-widest text-white/40">· Marketing</span>
+    </a>
+    <div class="hidden lg:flex items-center gap-1">
+      <a class="btn-ghost" routerLink="/marketing" fragment="destaques">Destaques</a>
+      <a class="btn-ghost" routerLink="/marketing" fragment="posts">Posts</a>
+      <a class="btn-ghost" routerLink="/marketing" fragment="perfil">Perfil</a>
+      <a class="btn-ghost" routerLink="/marketing" fragment="entrega">Entrega</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a class="btn-outline" style="padding: 8px 16px; font-size: 12px;" routerLink="/">
+        <iconify-icon icon="solar:arrow-left-linear" width="14"></iconify-icon>
+        Site
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===========================================================
+     CABEÇALHO — o que a frente de Marketing entrega.
+     O perfil da E9 aqui é amostra: o Design System é aplicado à
+     identidade de cada cliente, não à nossa.
+     =========================================================== -->
+<main class="relative z-10 px-6 pt-32 pb-16 lg:pt-36">
+  <div class="max-w-7xl mx-auto">
+    <div class="fade-in-up flex items-center gap-3 mb-8">
+      <div class="flex items-center gap-2 px-3 py-1 rounded-full bg-e9-blue-600/13 border border-e9-blue-300/30">
+        <span class="w-1.5 h-1.5 rounded-full bg-e9-blue-300 animate-pulse"></span>
+        <span class="text-[11px] font-mono tracking-widest uppercase text-e9-blue-100">05 · Marketing · uma das 9 frentes</span>
+      </div>
+      <div class="hidden md:block h-px flex-1 bg-gradient-to-r from-e9-blue-600/45 to-transparent"></div>
+      <span class="hidden md:block text-[10px] font-mono uppercase tracking-[0.22em] text-white/30">amostra · o perfil da própria E9</span>
+    </div>
+
+    <h1 class="fade-in-up delay-100 text-4xl md:text-5xl font-medium tracking-tighter text-white mb-6 leading-[1.05] max-w-4xl">
+      Redes sociais padronizadas, <span class="text-gradient-marca">com a identidade que já é sua.</span>
+    </h1>
+
+    <p class="fade-in-up delay-200 text-lg text-white/55 font-light leading-relaxed max-w-3xl mb-4">
+      Marketing, aqui, não é postar no seu lugar. É montar o sistema que faz a sua marca aparecer igual em todo
+      lugar: pegamos a sua identidade visual — cor, tipografia, logo — e transformamos num
+      <span class="text-e9-blue-200">Design System</span>, um conjunto de regras que já entrega cada arte no padrão.
+      Post, foto de perfil, capa de destaque: tudo saindo da mesma fonte, sem aquela impressão de que cada
+      publicação foi feita por uma pessoa diferente.
+    </p>
+    <p class="fade-in-up delay-300 text-lg text-white/55 font-light leading-relaxed max-w-3xl mb-4">
+      E junto vem o planejamento, que é onde a maioria dos perfis para: o que publicar, em que ordem, com que
+      legenda e em que ritmo. Você recebe a divulgação decidida, não um monte de imagem bonita sem destino.
+    </p>
+    <p class="fade-in-up delay-300 text-base text-white/40 font-light leading-relaxed max-w-3xl mb-8">
+      As artes desta página são o nosso próprio perfil, feitas com esse mesmo sistema — é a amostra do método.
+      O seu sai com a sua cara, não com a nossa.
+    </p>
+
+    <div class="fade-in-up delay-400 flex flex-wrap gap-x-6 gap-y-2 text-[11px] font-mono text-white/35">
+      <span class="text-white/25 uppercase tracking-widest">nesta amostra</span>
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-e9-blue-300"></span> {{ destaques.length }} capas de destaque · 1080x1920</span>
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-e9-blue-300"></span> {{ posts.length }} posts · 1080x1350</span>
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-e9-blue-300"></span> {{ perfil.length }} avatares · 1080x1080</span>
+    </div>
+  </div>
+</main>
+
+<!-- ===========================================================
+     CAPAS DE DESTAQUE
+     =========================================================== -->
+<section id="destaques" class="relative z-10 py-16 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto" e9RevealOnScroll>
+    <div class="flex items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="section-eyebrow block mb-3">01 · Capas de destaque</span>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tighter text-white leading-[1.05]">
+          Highlights
+        </h2>
+      </div>
+      <span class="hidden sm:block text-[10px] font-mono uppercase tracking-widest text-white/30 text-right">
+        recorte circular<br>no centro
+      </span>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+      @for (arte of destaques; track arte.arquivo) {
+        <a class="group flex flex-col items-center gap-3" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <span class="relative block w-full aspect-square rounded-full overflow-hidden border border-e9-blue-300/25 transition-all duration-300 group-hover:border-e9-blue-300/60 group-hover:shadow-[0_0_28px_-6px_rgba(0,111,255,0.55)]">
+            <!-- o preview é 9:16; a altura maior + centralização reproduz o recorte do app -->
+            <img
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-full"
+              [src]="base + '/preview/' + arte.preview + '.jpg'"
+              [alt]="'Capa de destaque · ' + arte.titulo"
+              loading="lazy"
+            />
+          </span>
+          <span class="text-[11px] font-mono text-white/45 text-center leading-snug transition-colors group-hover:text-e9-blue-200">{{ arte.titulo }}</span>
+        </a>
+      }
+    </div>
+
+    <p class="mt-8 text-[11px] font-mono text-white/30">
+      no Instagram: editar destaque › editar capa › escolher da galeria — a arte já está centralizada.
+    </p>
+  </div>
+</section>
+
+<!-- ===========================================================
+     POSTS
+     =========================================================== -->
+<section id="posts" class="relative z-10 py-16 px-6 border-t border-white/5 bg-[#0A0E1A]/55">
+  <div class="max-w-7xl mx-auto" e9RevealOnScroll>
+    <div class="flex items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="section-eyebrow block mb-3">02 · Série de lançamento</span>
+        <h2 class="text-3xl md:text-4xl font-medium tracking-tighter text-white leading-[1.05]">
+          Posts
+        </h2>
+      </div>
+      <a class="btn-ghost shrink-0" [href]="base + '/preview.html'" target="_blank" rel="noopener">
+        <iconify-icon icon="solar:widget-4-linear" width="14"></iconify-icon>
+        Ver na grade 3x3
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+      @for (arte of posts; track arte.arquivo) {
+        <a class="blueprint-card !p-0 overflow-hidden group" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          <img
+            class="relative z-10 block w-full"
+            [src]="base + '/preview/' + arte.preview + '.jpg'"
+            [alt]="'Post ' + arte.titulo"
+            loading="lazy"
+          />
+          <span class="relative z-10 flex items-center justify-between gap-3 px-4 py-3 border-t border-white/5">
+            <span class="text-[11px] font-mono text-white/45 transition-colors group-hover:text-e9-blue-200">{{ arte.titulo }}</span>
+            <iconify-icon class="text-e9-blue-300 shrink-0" icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     FOTO DE PERFIL
+     =========================================================== -->
+<section id="perfil" class="relative z-10 py-16 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto" e9RevealOnScroll>
+    <span class="section-eyebrow block mb-3">03 · Avatar</span>
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tighter text-white leading-[1.05] mb-10">
+      Foto de perfil
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
+      @for (arte of perfil; track arte.arquivo) {
+        <a class="group flex flex-col items-center gap-3" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <img
+            class="block w-full rounded-full border border-e9-blue-300/25 transition-all duration-300 group-hover:border-e9-blue-300/60 group-hover:shadow-[0_0_28px_-6px_rgba(0,111,255,0.55)]"
+            [src]="base + '/preview/' + arte.preview + '.jpg'"
+            [alt]="'Foto de perfil · ' + arte.titulo"
+            loading="lazy"
+          />
+          <span class="text-[11px] font-mono text-white/45 text-center transition-colors group-hover:text-e9-blue-200">{{ arte.titulo }}</span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     04 — O QUE O CLIENTE RECEBE
+     Mesma casca da seção 03: superfície limpa, eyebrow + h2.
+     O único link daqui é o board de revisão — é ele que vai
+     para o cliente.
+     =========================================================== -->
+<section id="entrega" class="relative z-10 py-16 px-6 border-t border-white/5 overflow-hidden">
+  <div class="glow-point top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 !w-[820px] !h-[820px] opacity-100"></div>
+
+  <div class="max-w-3xl mx-auto relative" e9RevealOnScroll>
+    <span class="section-eyebrow block mb-3">04 · O que o cliente recebe</span>
+    <h2 class="text-3xl md:text-4xl font-medium tracking-tighter text-white leading-[1.05] mb-6">
+      Um link. <span class="text-gradient-marca">Sua marca pronta para postar.</span>
+    </h2>
+
+    <p class="text-lg text-white/55 font-light leading-relaxed mb-4">
+      Você não recebe uma pasta de arquivos soltos para adivinhar o que fazer com eles. Recebe um link como o de
+      baixo — abre no celular ou no computador, sem instalar nada, sem login — com a divulgação inteira montada:
+      as artes na ordem de publicação, a legenda de cada post pronta para copiar, a bio sugerida e a simulação de
+      como o seu perfil vai ficar quando tudo estiver no ar.
+    </p>
+    <p class="text-lg text-white/55 font-light leading-relaxed mb-10">
+      A gente presa por padrão: a mesma paleta, a mesma tipografia e a mesma lógica do primeiro ao último post.
+      O resultado é um perfil que brilha nos olhos de quem chega — e uma rotina em que você não gasta tempo
+      decidindo, só publicando.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 mb-12">
+      <div class="flex items-start gap-3">
+        <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+          <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+        </span>
+        <div>
+          <div class="text-white text-sm font-medium">Cronograma de publicação</div>
+          <div class="text-xs text-white/50 mt-0.5">O que postar, em que ordem e em que ritmo — do primeiro post ao último.</div>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+          <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+        </span>
+        <div>
+          <div class="text-white text-sm font-medium">Legenda pronta, é copiar e colar</div>
+          <div class="text-xs text-white/50 mt-0.5">Texto e hashtags de cada arte, escritos no tom da sua marca.</div>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+          <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+        </span>
+        <div>
+          <div class="text-white text-sm font-medium">Identidade já aplicada</div>
+          <div class="text-xs text-white/50 mt-0.5">Foto de perfil, capas de destaque e artes no mesmo padrão — nada de versão "quase certa".</div>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-3">
+        <span class="mt-0.5 w-5 h-5 rounded border flex items-center justify-center shrink-0" style="border-color: var(--e9-blue-600); background: linear-gradient(180deg, #005BD1, #0049A8); box-shadow: 0 0 14px -3px rgba(0, 111, 255, 0.6);">
+          <iconify-icon class="text-white" icon="solar:check-read-linear" width="12"></iconify-icon>
+        </span>
+        <div>
+          <div class="text-white text-sm font-medium">O feed antes de existir</div>
+          <div class="text-xs text-white/50 mt-0.5">A grade do perfil simulada, para você aprovar o conjunto antes de publicar o primeiro.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- o link — único item da seção -->
+    <a class="blueprint-card block group" [href]="base + '/preview.html'" target="_blank" rel="noopener">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+      <span class="relative z-10 flex flex-col sm:flex-row sm:items-center gap-5">
+        <span class="w-14 h-14 rounded bg-e9-blue-600/16 border border-e9-blue-300/30 flex items-center justify-center shrink-0">
+          <iconify-icon class="text-e9-blue-200" icon="solar:link-round-angle-linear" width="26"></iconify-icon>
+        </span>
+        <span class="flex-1">
+          <span class="block font-mono text-[10px] uppercase tracking-widest text-e9-blue-200/60 mb-1.5">Clique aqui e veja como você recebe o conteúdo!</span>
+          <span class="block text-2xl font-medium text-white mb-1">Board de entrega</span>
+          <span class="block text-sm text-white/55 leading-relaxed">
+            Cronograma, legendas, identidade e a simulação do feed — tudo numa página só.
+          </span>
+        </span>
+        <span class="cta-pulsante inline-flex items-center gap-2 shrink-0 px-4 py-2 rounded-full text-sm font-medium text-e9-blue-100 bg-e9-blue-600/16 border border-e9-blue-300/30 transition-transform duration-300 group-hover:translate-x-1">
+          Abrir
+          <iconify-icon icon="solar:arrow-right-up-linear" width="16"></iconify-icon>
+        </span>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- ===========================================================
+     FOOTER
+     =========================================================== -->
+<footer class="relative z-10 py-12 px-6 border-t border-white/5">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex flex-col items-center gap-2">
+      <a routerLink="/" class="group inline-flex" aria-label="Voltar para a home">
+        <app-logo-e9 class="h-20 w-auto text-e9-blue-200 transition-colors group-hover:text-e9-blue-100"></app-logo-e9>
+      </a>
+      <span class="text-[10px] font-mono uppercase tracking-widest text-white/30">board interno · não indexado</span>
+    </div>
+    <div class="text-[11px] font-mono text-white/30 text-center md:text-right">
+      <div>as artes vivem em marketing/instagram · publicadas em /marketing</div>
+      <a class="text-e9-blue-200/60 mt-1 inline-flex items-center gap-1.5 hover:text-e9-blue-200 transition-colors" routerLink="/">
+        <iconify-icon icon="solar:arrow-left-linear" width="12"></iconify-icon>
+        voltar para o site
+      </a>
+    </div>
+  </div>
+</footer>

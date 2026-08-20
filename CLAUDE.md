@@ -20,6 +20,7 @@ node marketing/instagram/export-perfil.js   # perfil.html   → png/e9-perfil-*.
 node marketing/instagram/export-preview.js  # preview.html  → preview/*.jpg
 node marketing/instagram/build-preview.js   # gera preview.html do template
 node marketing/instagram/export-favicon.js   # favicon.html   -> public/favicon-e9*.png|.ico
+node marketing/instagram/export-destaques.js  # destaques.html -> png/e9-destaque-*.png
 ```
 
 Os scripts usam `chromium.launch({ channel: 'chrome' })` — de propósito. Os
@@ -192,6 +193,20 @@ bloco em `opacity: 0`** — invisível, sem erro. Anime um pseudo-elemento
 
 ---
 
+# marketing/ é publicado em /marketing
+
+`angular.json` copia `marketing/instagram/` para `dist/.../marketing` (ignorando
+`*.js`, `*.md` e as artes `*-indigo*` da paleta velha). Não existe cópia dos
+arquivos em `public/`: a arte servida é a que o último export gerou.
+
+A rota `/marketing` é o board interno que lista tudo — capas de destaque, posts,
+avatares e as páginas-fonte. Ela não é linkada da nav do site e leva `noindex`,
+igual aos HTML das artes; `public/robots.txt` também barra `/marketing/`. Isso
+esconde de busca, **não** protege: quem tem a URL vê. Nada sigiloso ali.
+
+As listas de artes na `MarketingComponent` espelham as dos scripts de export —
+arte nova pede uma linha nova nas duas pontas.
+
 # Sincronia com marketing/
 
 `marketing/instagram/` (`posts.html`, `perfil.html`, `preview-template.html`)
@@ -200,7 +215,12 @@ Mudança de paleta precisa ir aos dois lados, ou a arte do Instagram descola do
 site.
 
 As variantes de foto de perfil são `marca-carbon`, `platina-marca` e `gradiente`
-(a recomendada é `platina-marca`). Após editar os HTML, reexporte com os scripts
+(a recomendada é `platina-marca`). As capas de destaque (`destaques.html`) saem
+da mesma receita da `platina-marca` — gradiente da marca + traço platina — em
+1080x1920 e **radialmente simétricas**, porque o Instagram recorta a capa num
+círculo no centro. Os ícones são desenhados à mão no grid de 24 (traço 1,65,
+sem preenchimento), como os de `posts.html`: não há biblioteca de ícone aqui,
+o export roda offline. Após editar os HTML, reexporte com os scripts
 acima — os PNG/JPG são versionados.
 
 E-mail de contato vigente: **e9solucoestecnologicas@gmail.com** (o antigo
