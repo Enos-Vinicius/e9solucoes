@@ -207,6 +207,64 @@ esconde de busca, **não** protege: quem tem a URL vê. Nada sigiloso ali.
 As listas de artes na `MarketingComponent` espelham as dos scripts de export —
 arte nova pede uma linha nova nas duas pontas.
 
+A seção **05 · Portfólio**, antes do rodapé, lista os clientes com o produto no
+ar. A lista é o array `CLIENTES` na `MarketingComponent`: cliente novo é uma
+entrada ali, não uma seção nova. As miniaturas saem do `preview/` do próprio
+cliente (same-origin, já publicado como asset) — não existe cópia de arte na
+pasta da E9.
+
+# Cliente: marketing/novacasa → /marketing-nova-casa
+
+Primeiro cliente da frente de Marketing (móveis planejados). **O sistema visual
+dele não é o da E9** e não pode virar o da E9: paleta medida da logo do cliente,
+serif no display, superfície clara. Os tokens vivem no `:host` de
+`marketing-nova-casa.component.scss`; nada entra em `src/styles.scss` nem no
+`tailwind.config.js`. Cliente novo = pasta nova + componente novo, e o DS da
+casa fica intocado. As regras da marca estão em `marketing/novacasa/MARCA.md`.
+
+Duas séries de post: `posts.html` (9, série de estreia — explicam o serviço) e
+`frases.html` (12, frase única e tipo grande — provocam e chamam para o
+orçamento, para intercalar). Regra da segunda: se precisou de parágrafo, é post
+da primeira.
+
+```bash
+node marketing/novacasa/export.js            # tudo
+node marketing/novacasa/export.js frases     # só uma fonte
+```
+
+O `board.html` segue o padrão de apresentação do site: **a arte abre em nova
+aba** (`target="_blank"`, o visitante salva de lá) e **copiar a legenda é um
+ícone no canto do card**, não uma barra de botões. Não há `<a download>` em
+lugar nenhum — foi tentado e descartado por fugir do padrão.
+
+O `<script>` de ~60 linhas faz só o copiar. A legenda não é duplicada em
+atributo: ele clona o card, remove o rótulo, o próprio botão e o `<strong>` do
+título, e recompõe com as hashtags no fim. `navigator.clipboard` só existe em
+contexto seguro, então há fallback por `textarea` + `execCommand` — sem ele o
+board aberto por link http não copiaria nada. O indicador `↗` da arte fica
+visível sem hover, porque no celular não existe hover.
+
+Ao editar esse script, valide a sintaxe antes de publicar:
+
+```bash
+node -e "const m=require('fs').readFileSync('marketing/novacasa/board.html','utf8').match(/<script>([sS]*?)</script>/);new Function(m[1]);console.log('ok')"
+```
+
+```bash
+node -e "const m=require('fs').readFileSync('marketing/novacasa/board.html','utf8').match(/<script>([sS]*?)</script>/);new Function(m[1]);console.log('ok')"
+```
+
+`angular.json` publica `marketing/novacasa/` em `/marketing-nova-casa`
+(ignorando `*.js` e `*.md`); `board.html` é o link que vai para o cliente e
+referencia `preview/` por caminho relativo. `robots.txt` barra a pasta.
+
+A logo do cliente veio em JPG 150×150 e **monocromática** — daí o acento de
+madeira ser proposta, não medição. Nas superfícies escuras ela entra com
+`filter: invert(1)` + `mix-blend-mode: lighten`; nas claras, `multiply`.
+Isso só funciona se o ancestral não criar contexto de empilhamento: um
+`z-index` no wrapper isola o blend do fundo e o branco do JPG reaparece como
+um bloco. O container do post leva `isolation: isolate` justamente por isso.
+
 # Sincronia com marketing/
 
 `marketing/instagram/` (`posts.html`, `perfil.html`, `preview-template.html`)

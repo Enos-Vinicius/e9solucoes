@@ -35,5 +35,13 @@ export const routes: Routes = [
       import('./pages/marketing/marketing.component').then((m) => m.MarketingComponent),
     title: 'E9 Soluções · Marketing',
   },
+  {
+    path: 'marketing-nova-casa',
+    loadComponent: () =>
+      import('./pages/marketing-nova-casa/marketing-nova-casa.component').then(
+        (m) => m.MarketingNovaCasaComponent,
+      ),
+    title: 'Nova Casa · plano de divulgação',
+  },
   { path: '**', redirectTo: '' },
 ];

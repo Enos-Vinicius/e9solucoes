@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Nova Casa — foto de perfil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Nova Casa · foto de perfil — 1080x1080
+   O Instagram recorta em círculo, então a marca fica contida
+   no quadrado inscrito (~76% do lado) e nada encosta na borda.
+   Três superfícies do sistema: linho, tinta e areia.
+   ========================================================= */
+:root{
+  --nc-tinta:#191819; --nc-linha:#E2DCD4; --nc-linho:#F6F2ED; --nc-papel:#FFFFFF;
+  --nc-nogueira:#7A4E32; --nc-carvalho:#B98A5E; --nc-areia:#E9DECB;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b8681;display:flex;flex-wrap:wrap;gap:40px;padding:40px;font-family:var(--sans)}
+
+.avatar{position:relative;width:1080px;height:1080px;overflow:hidden;flex:0 0 auto;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;isolation:isolate}
+
+/* malha de planta, discreta — só dá matéria no tamanho grande */
+.planta{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(25,24,25,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(25,24,25,.05) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:radial-gradient(circle at center,#000 20%,transparent 68%);
+          mask-image:radial-gradient(circle at center,#000 20%,transparent 68%)}
+
+/* aro fino: a moldura do desenho técnico */
+.aro{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:830px;height:830px;border-radius:50%;border:2px solid;pointer-events:none;opacity:.4}
+
+.marca{width:560px;height:560px;display:block;position:relative}
+.nome{position:relative;z-index:2;margin-top:26px;font-size:30px;font-weight:500;
+  letter-spacing:.34em;text-transform:uppercase}
+.sub{position:relative;z-index:2;margin-top:12px;font-size:19px;letter-spacing:.28em;
+  text-transform:uppercase}
+
+/* ---------- A · linho (recomendada) ---------- */
+#a{background:radial-gradient(circle at 50% 42%,var(--nc-papel) 0%,var(--nc-linho) 58%,#EFE9E1 100%)}
+#a .marca{mix-blend-mode:multiply}
+#a .aro{border-color:var(--nc-nogueira)}
+#a .nome{color:var(--nc-tinta)}
+#a .sub{color:#8E8A87}
+
+/* ---------- B · tinta ---------- */
+#b{background:radial-gradient(circle at 50% 40%,#242223 0%,var(--nc-tinta) 62%,#0E0D0E 100%)}
+#b .planta{background-image:linear-gradient(rgba(246,242,237,.06) 1px,transparent 1px),
+                            linear-gradient(90deg,rgba(246,242,237,.06) 1px,transparent 1px)}
+#b .marca{filter:invert(1);mix-blend-mode:screen}
+#b .aro{border-color:var(--nc-carvalho)}
+#b .nome{color:var(--nc-linho)}
+#b .sub{color:rgba(246,242,237,.5)}
+
+/* ---------- C · areia ---------- */
+#c{background:radial-gradient(circle at 50% 42%,#F2E9DA 0%,var(--nc-areia) 60%,#DFD1B9 100%)}
+#c .marca{mix-blend-mode:multiply}
+#c .aro{border-color:var(--nc-tinta);opacity:.28}
+#c .nome{color:var(--nc-tinta)}
+#c .sub{color:#7C736B}
+</style>
+</head>
+<body>
+
+<!-- A · linho — a recomendada para o perfil -->
+<div class="avatar" id="a">
+  <span class="planta"></span><span class="aro"></span>
+  <img class="marca" src="novacasa_logo.jpg" alt="Nova Casa">
+</div>
+
+<!-- B · tinta — para quando o feed estiver claro demais -->
+<div class="avatar" id="b">
+  <span class="planta"></span><span class="aro"></span>
+  <img class="marca" src="novacasa_logo.jpg" alt="Nova Casa">
+</div>
+
+<!-- C · areia — variante morna -->
+<div class="avatar" id="c">
+  <span class="planta"></span><span class="aro"></span>
+  <img class="marca" src="novacasa_logo.jpg" alt="Nova Casa">
+</div>
+
+</body>
+</html>

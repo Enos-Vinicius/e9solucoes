@@ -59,6 +59,38 @@ const DESTAQUES: readonly Arte[] = [
   { arquivo: 'e9-destaque-catalogo', titulo: 'Catálogo', preview: 'destaque-catalogo' },
 ];
 
+/**
+ * Clientes com o produto no ar. Cada um é uma pasta própria em `marketing/`
+ * publicada numa rota própria — a lista aqui só aponta para eles.
+ *
+ * As amostras saem do `preview/` do próprio cliente (same-origin, publicado
+ * como asset): não existe cópia de arte nesta pasta.
+ */
+interface Cliente {
+  readonly nome: string;
+  readonly nicho: string;
+  /** Rota da página do cliente, dentro do site. */
+  readonly rota: string;
+  /** Raiz dos assets dele — de onde saem as miniaturas. */
+  readonly assets: string;
+  /** Três artes que representam o trabalho, em ordem de impacto. */
+  readonly amostras: readonly string[];
+  readonly entregue: string;
+  readonly desde: string;
+}
+
+const CLIENTES: readonly Cliente[] = [
+  {
+    nome: 'Nova Casa',
+    nicho: 'Móveis planejados',
+    rota: '/marketing-nova-casa',
+    assets: '/marketing-nova-casa',
+    amostras: ['nc-post-01', 'nc-frase-07', 'nc-post-04'],
+    entregue: '9 posts · 12 frases · 8 capas · 3 avatares',
+    desde: '2026',
+  },
+];
+
 @Component({
   selector: 'app-marketing',
   standalone: true,
@@ -71,6 +103,7 @@ export class MarketingComponent {
   readonly posts = POSTS;
   readonly perfil = PERFIL;
   readonly destaques = DESTAQUES;
+  readonly clientes = CLIENTES;
 
   /** Raiz dos assets publicados a partir de marketing/instagram. */
   readonly base = '/marketing';

@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Nova Casa — frases de efeito</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Nova Casa · frases de efeito — 12 posts 1080x1350 (4:5)
+
+   Série de intercalar. A de estreia (posts.html) explica; esta
+   aqui provoca e convida para o orçamento. Regra: uma frase por
+   arte, tipo grande, no máximo uma linha de apoio. Se precisar
+   de parágrafo, é post da outra série.
+
+   Mesmo sistema de MARCA.md — o que muda é a escala do tipo.
+   ========================================================= */
+:root{
+  --nc-tinta:#191819; --nc-grafite:#3B3939; --nc-cinza:#6F6C6B; --nc-pedra:#8E8A87;
+  --nc-linha:#E2DCD4; --nc-linho:#F6F2ED; --nc-papel:#FFFFFF;
+  --nc-nogueira:#7A4E32; --nc-carvalho:#B98A5E; --nc-areia:#E9DECB;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b8681;display:flex;flex-wrap:wrap;gap:40px;padding:40px;
+  font-family:var(--sans);-webkit-font-smoothing:antialiased}
+
+.post{position:relative;width:1080px;height:1350px;overflow:hidden;flex:0 0 auto;
+  background:var(--nc-linho);color:var(--nc-tinta);display:flex;flex-direction:column;
+  padding:96px 86px 78px;isolation:isolate}
+.post.papel{background:var(--nc-papel)}
+.post.areia{background:var(--nc-areia)}
+.post.tinta{background:var(--nc-tinta);color:var(--nc-linho)}
+
+.planta{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(25,24,25,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(25,24,25,.045) 1px,transparent 1px);
+  background-size:54px 54px}
+.post.tinta .planta{background-image:linear-gradient(rgba(246,242,237,.06) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(246,242,237,.06) 1px,transparent 1px)}
+
+.esq{position:absolute;width:26px;height:26px;border-color:var(--nc-nogueira);opacity:.55}
+.post.tinta .esq{border-color:var(--nc-carvalho);opacity:.7}
+.esq.tl{top:48px;left:48px;border-top:2px solid;border-left:2px solid}
+.esq.tr{top:48px;right:48px;border-top:2px solid;border-right:2px solid}
+.esq.bl{bottom:48px;left:48px;border-bottom:2px solid;border-left:2px solid}
+.esq.br{bottom:48px;right:48px;border-bottom:2px solid;border-right:2px solid}
+
+.corpo{position:relative;display:flex;flex-direction:column;height:100%}
+
+/* ---------- a frase ---------- */
+.frase{font-family:var(--serif);font-weight:500;font-size:118px;line-height:1.0;
+  letter-spacing:-.03em;max-width:11ch}
+.frase.longa{font-size:96px;max-width:13ch;line-height:1.04}
+.frase.curta{font-size:140px;max-width:9ch;letter-spacing:-.035em}
+.frase em{font-style:normal;color:var(--nc-nogueira)}
+.post.tinta .frase em{color:var(--nc-carvalho)}
+
+.apoio{font-size:28px;font-weight:300;line-height:1.45;color:var(--nc-cinza);
+  max-width:26ch;margin-top:32px}
+.post.tinta .apoio{color:rgba(246,242,237,.6)}
+.post.areia .apoio{color:#5C5450}
+
+.rotulo{font-size:19px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--nc-nogueira)}
+.post.tinta .rotulo{color:var(--nc-carvalho)}
+.filete{height:1px;width:96px;background:var(--nc-nogueira);opacity:.5;margin:30px 0}
+.post.tinta .filete{background:var(--nc-carvalho)}
+
+/* ---------- convite ---------- */
+.convite{display:inline-flex;align-items:center;gap:16px;align-self:flex-start;
+  margin-top:44px;padding:22px 34px;border-radius:999px;
+  background:var(--nc-tinta);color:var(--nc-linho);
+  font-size:25px;font-weight:500;letter-spacing:.01em}
+.post.tinta .convite{background:var(--nc-linho);color:var(--nc-tinta)}
+.post.areia .convite{background:var(--nc-nogueira);color:var(--nc-linho)}
+.convite .seta{font-size:22px;opacity:.7}
+
+/* ---------- cota gigante ---------- */
+.numero{font-family:var(--serif);font-size:300px;line-height:.82;letter-spacing:-.05em;
+  color:var(--nc-nogueira)}
+.post.tinta .numero{color:var(--nc-carvalho)}
+.numero small{font-size:64px;letter-spacing:0}
+
+/* ---------- rodapé ---------- */
+.rodape{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
+.assin{display:flex;align-items:center;gap:16px}
+.assin img{width:80px;height:80px;display:block;mix-blend-mode:multiply}
+.post.tinta .assin img{filter:invert(1);mix-blend-mode:lighten}
+.assin .nome{font-size:19px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.assin .sub{font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--nc-pedra);margin-top:4px}
+.post.tinta .assin .sub{color:rgba(246,242,237,.42)}
+.contato{font-size:18px;letter-spacing:.14em;text-transform:uppercase;color:var(--nc-pedra);text-align:right}
+.post.tinta .contato{color:rgba(246,242,237,.45)}
+
+/* layouts */
+.centro{align-items:center;justify-content:center;text-align:center}
+.centro .frase{max-width:12ch}
+.centro .apoio{max-width:28ch}
+.centro .convite{align-self:center}
+/* O rodapé tem margin-top:auto e engole a folga antes do
+   justify-content agir — então quem empurra o bloco para baixo é o
+   primeiro elemento do grupo, não o container. */
+.baixo > .rotulo{margin-top:auto}
+.baixo > .numero{margin-top:auto}
+/* dois margin-top:auto no mesmo flex dividem a folga meio a meio, e o
+   bloco ficava no meio: o rodapé abre mão do dele aqui. */
+.baixo > .rodape{margin-top:72px}
+</style>
+</head>
+<body>
+
+<!-- ============ F01 · o armário e a casa ============ -->
+<div class="post tinta" id="f01">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">Nova Casa</span>
+    <div class="filete"></div>
+    <h2 class="frase longa">Seu armário devia caber na sua casa. <em>Não o contrário.</em></h2>
+    <div class="rodape">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">orçamento no direct</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F02 · medida ============ -->
+<div class="post centro" id="f02">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo centro">
+    <span class="rotulo">Sob medida</span>
+    <div class="filete" style="margin:30px auto"></div>
+    <h2 class="frase">Medida certa <em>não se compra pronta.</em></h2>
+    <p class="apoio">A gente vai até a sua casa com a trena antes de desenhar qualquer coisa.</p>
+  </div>
+  <div class="rodape" style="position:absolute;left:86px;right:86px;bottom:78px">
+    <div class="assin">
+      <img src="novacasa_logo.jpg" alt="">
+      <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+    </div>
+    <span class="contato">(00) 00000-0000</span>
+  </div>
+</div>
+
+<!-- ============ F03 · bagunça ============ -->
+<div class="post tinta" id="f03">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">A real</span>
+    <div class="filete"></div>
+    <h2 class="frase longa">Bagunça quase nunca é falta de espaço. <em>É falta de projeto.</em></h2>
+    <div class="rodape">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">chame no whatsapp</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F04 · canto morto ============ -->
+<div class="post areia" id="f04">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">Aproveitamento</span>
+    <div class="filete"></div>
+    <h2 class="frase">Aquele canto morto vira <em>o seu melhor armário.</em></h2>
+    <div class="rodape">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">manda a foto do canto</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F05 · projeto 3D ============ -->
+<div class="post papel centro" id="f05">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo centro">
+    <span class="rotulo">Antes de decidir</span>
+    <div class="filete" style="margin:30px auto"></div>
+    <h2 class="frase">Você vê o móvel <em>em 3D antes de existir.</em></h2>
+    <span class="convite">Quero ver o meu <span class="seta">↗</span></span>
+  </div>
+  <div class="rodape" style="position:absolute;left:86px;right:86px;bottom:78px">
+    <div class="assin">
+      <img src="novacasa_logo.jpg" alt="">
+      <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+    </div>
+    <span class="contato">projeto sem compromisso</span>
+  </div>
+</div>
+
+<!-- ============ F06 · loja x planejado ============ -->
+<div class="post" id="f06">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">A diferença</span>
+    <div class="filete"></div>
+    <h2 class="frase longa">A loja vende o que tem. A gente faz <em>o que falta.</em></h2>
+    <div class="rodape">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">orçamento no direct</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F07 · a medição é grátis ============ -->
+<div class="post tinta centro" id="f07">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo centro">
+    <span class="rotulo">Primeiro passo</span>
+    <div class="filete" style="margin:30px auto"></div>
+    <h2 class="frase curta">A medição é <em>por nossa conta.</em></h2>
+    <span class="convite">Agendar visita <span class="seta">↗</span></span>
+  </div>
+  <div class="rodape" style="position:absolute;left:86px;right:86px;bottom:78px">
+    <div class="assin">
+      <img src="novacasa_logo.jpg" alt="">
+      <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+    </div>
+    <span class="contato">(00) 00000-0000</span>
+  </div>
+</div>
+
+<!-- ============ F08 · cada centímetro ============ -->
+<div class="post areia" id="f08">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">Aproveitamento</span>
+    <div class="numero">100<small>%</small></div>
+    <h2 class="frase longa" style="margin-top:26px">do seu vão vira armário. <em>Inclusive o pé-direito.</em></h2>
+    <div class="rodape" style="margin-top:48px">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">peça um orçamento</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F09 · o que você compra ============ -->
+<div class="post papel" id="f09">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">Ponto de vista</span>
+    <div class="filete"></div>
+    <h2 class="frase">Você não compra móvel. <em>Você resolve a casa.</em></h2>
+    <div class="rodape">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">fale com a gente</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F10 · quanto custa ============ -->
+<div class="post tinta" id="f10">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">A pergunta de sempre</span>
+    <div class="filete"></div>
+    <h2 class="frase longa">"Quanto custa?" Depende do seu vão. <em>Manda a medida.</em></h2>
+    <span class="convite">Enviar minha medida <span class="seta">↗</span></span>
+    <div class="rodape" style="margin-top:52px">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">(00) 00000-0000</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F11 · a gaveta ============ -->
+<div class="post" id="f11">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo baixo">
+    <span class="rotulo">Detalhe que fica</span>
+    <div class="filete"></div>
+    <h2 class="frase">A gaveta que fecha sozinha <em>muda o seu dia.</em></h2>
+    <p class="apoio">Ferragem com amortecedor em todo projeto — não é opcional aqui.</p>
+    <div class="rodape">
+      <div class="assin">
+        <img src="novacasa_logo.jpg" alt="">
+        <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+      </div>
+      <span class="contato">orçamento no direct</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ F12 · convite final ============ -->
+<div class="post areia centro" id="f12">
+  <span class="planta"></span>
+  <span class="esq tl"></span><span class="esq tr"></span><span class="esq bl"></span><span class="esq br"></span>
+  <div class="corpo centro">
+    <span class="rotulo">Sua vez</span>
+    <div class="filete" style="margin:30px auto"></div>
+    <h2 class="frase">Sua casa já tem o espaço. <em>Falta o projeto.</em></h2>
+    <span class="convite">Pedir orçamento <span class="seta">↗</span></span>
+  </div>
+  <div class="rodape" style="position:absolute;left:86px;right:86px;bottom:78px">
+    <div class="assin">
+      <img src="novacasa_logo.jpg" alt="">
+      <div><div class="nome">Nova Casa</div><div class="sub">móveis planejados</div></div>
+    </div>
+    <span class="contato">&#64;novacasa</span>
+  </div>
+</div>
+
+</body>
+</html>

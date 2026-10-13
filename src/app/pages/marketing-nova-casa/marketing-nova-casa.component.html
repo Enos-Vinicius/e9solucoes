@@ -1,0 +1,249 @@
+<div class="nc-fundo" aria-hidden="true"></div>
+
+<!-- ===========================================================
+     NAV — âncoras por routerLink + fragment: com <base href="/">
+     um href="#alvo" resolveria contra a base e sairia da página.
+     =========================================================== -->
+<nav class="nc-nav">
+  <div class="nc-nav-corpo">
+    <a class="nc-marca" [href]="base + '/board.html'" target="_blank" rel="noopener">
+      <img [src]="base + '/novacasa_logo.jpg'" alt="Nova Casa">
+      <span>
+        <span class="nome">Nova Casa</span>
+        <span class="sub">móveis planejados</span>
+      </span>
+    </a>
+    <div class="nc-links">
+      <a class="nc-link" routerLink="/marketing-nova-casa" fragment="destaques">Destaques</a>
+      <a class="nc-link" routerLink="/marketing-nova-casa" fragment="posts">Posts</a>
+      <a class="nc-link" routerLink="/marketing-nova-casa" fragment="frases">Frases</a>
+      <a class="nc-link" routerLink="/marketing-nova-casa" fragment="perfil">Perfil</a>
+      <a class="nc-link" routerLink="/marketing-nova-casa" fragment="entrega">Entrega</a>
+    </div>
+    <a class="nc-link" routerLink="/marketing">↩ E9</a>
+  </div>
+</nav>
+
+<!-- ===========================================================
+     CABEÇALHO
+     =========================================================== -->
+<main class="nc-corpo" style="padding-top: 140px; padding-bottom: 64px">
+  <span class="nc-rotulo">Nova Casa · plano de divulgação</span>
+
+  <h1 class="nc-h1">
+    Uma marca de planejados <em>com cara de projeto,</em> não de anúncio.
+  </h1>
+
+  <p class="nc-dek">
+    Este é o sistema visual da Nova Casa aplicado ao Instagram: a mesma logo, a mesma lógica de desenho técnico
+    e um acabamento igual do primeiro ao nono post. Nada aqui é template genérico — a paleta saiu da própria
+    marca e o assunto de cada arte é marcenaria planejada.
+  </p>
+
+  <div class="nc-filete" style="margin: 40px 0 26px"></div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 26px; font-size: 13px; color: var(--nc-cinza)">
+    <span><strong style="color: var(--nc-tinta); font-weight: 500">{{ posts.length }}</strong> posts · 1080×1350</span>
+    <span><strong style="color: var(--nc-tinta); font-weight: 500">{{ destaques.length }}</strong> capas de destaque · 1080×1920</span>
+    <span><strong style="color: var(--nc-tinta); font-weight: 500">{{ perfil.length }}</strong> fotos de perfil · 1080×1080</span>
+    <span><strong style="color: var(--nc-tinta); font-weight: 500">{{ frases.length }}</strong> frases de efeito · 1080×1350</span>
+    <span>legendas prontas para copiar</span>
+  </div>
+</main>
+
+<!-- ===========================================================
+     01 — CAPAS DE DESTAQUE
+     =========================================================== -->
+<section class="nc-secao" id="destaques">
+  <div class="nc-corpo" e9RevealOnScroll>
+    <span class="nc-rotulo">01 · Capas de destaque</span>
+    <h2 class="nc-h2" style="margin: 10px 0 30px">Os oito ambientes, prontos para o perfil</h2>
+
+    <div class="nc-grade-capas">
+      @for (arte of destaques; track arte.arquivo) {
+        <a class="nc-capa" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <span class="moldura">
+            <!-- o preview é 9:16; centralizar reproduz o recorte circular do app -->
+            <img [src]="base + '/preview/' + arte.arquivo + '.jpg'" [alt]="'Capa · ' + arte.titulo" loading="lazy">
+          </span>
+          <span class="rot">{{ arte.titulo }}</span>
+        </a>
+      }
+    </div>
+
+    <p style="margin-top: 26px; font-size: 13px; color: var(--nc-pedra)">
+      No app: editar destaque › editar capa › escolher da galeria. A arte já está centralizada.
+    </p>
+  </div>
+</section>
+
+<!-- ===========================================================
+     02 — POSTS
+     =========================================================== -->
+<section class="nc-secao creme" id="posts">
+  <div class="nc-corpo" e9RevealOnScroll>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 30px">
+      <div>
+        <span class="nc-rotulo">02 · Série de estreia</span>
+        <h2 class="nc-h2" style="margin-top: 10px">Nove posts que fecham a grade</h2>
+      </div>
+      <a class="nc-link" [href]="base + '/board.html'" target="_blank" rel="noopener"
+         style="border: 1px solid var(--nc-linha)">Ver com as legendas ↗</a>
+    </div>
+
+    <div class="nc-grade-posts">
+      @for (arte of posts; track arte.arquivo) {
+        <a class="nc-post" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <img [src]="base + '/preview/' + arte.arquivo + '.jpg'" [alt]="'Post ' + arte.titulo" loading="lazy">
+          <span class="legenda">
+            <span class="t">{{ arte.titulo }}</span>
+            <span class="n">{{ arte.nota }}</span>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     03 — FRASES DE EFEITO
+     Série de intercalar: uma frase por arte, sem parágrafo.
+     =========================================================== -->
+<section class="nc-secao" id="frases">
+  <div class="nc-corpo" e9RevealOnScroll>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; justify-content: space-between; margin-bottom: 12px">
+      <div>
+        <span class="nc-rotulo">03 · Frases de efeito</span>
+        <h2 class="nc-h2" style="margin-top: 10px">Doze convites ao orçamento</h2>
+      </div>
+      <span style="font-size: 13px; color: var(--nc-pedra)">para intercalar com a série</span>
+    </div>
+
+    <p class="nc-dek" style="margin-bottom: 30px">
+      Uma frase por arte, tipo grande e um convite curto. Publique entre os posts da série de estreia — eles
+      explicam o serviço, estas provocam e chamam para o orçamento.
+    </p>
+
+    <div class="nc-grade-posts">
+      @for (arte of frases; track arte.arquivo) {
+        <a class="nc-post" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <img [src]="base + '/preview/' + arte.arquivo + '.jpg'" [alt]="'Frase · ' + arte.titulo" loading="lazy">
+          <span class="legenda">
+            <span class="t">{{ arte.titulo }}</span>
+            <span class="n">{{ arte.nota }}</span>
+          </span>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     04 — FOTO DE PERFIL
+     =========================================================== -->
+<section class="nc-secao" id="perfil">
+  <div class="nc-corpo" e9RevealOnScroll>
+    <span class="nc-rotulo">04 · Avatar</span>
+    <h2 class="nc-h2" style="margin: 10px 0 30px">Foto de perfil</h2>
+
+    <div class="nc-avatares">
+      @for (arte of perfil; track arte.arquivo) {
+        <a class="nc-avatar" [href]="base + '/png/' + arte.arquivo + '.png'" target="_blank" rel="noopener">
+          <img [src]="base + '/preview/' + arte.arquivo + '.jpg'" [alt]="'Perfil · ' + arte.titulo" loading="lazy">
+          <span>{{ arte.titulo }}</span>
+        </a>
+      }
+    </div>
+
+    <p style="margin-top: 22px; font-size: 13px; color: var(--nc-pedra); max-width: 60ch">
+      A recomendada é a linho — mantém a marca preta sobre claro, como ela foi desenhada.
+    </p>
+  </div>
+</section>
+
+<!-- ===========================================================
+     05 — O QUE A NOVA CASA RECEBE
+     =========================================================== -->
+<section class="nc-secao creme" id="entrega">
+  <div class="nc-corpo" e9RevealOnScroll style="max-width: 860px">
+    <span class="nc-rotulo">05 · O que você recebe</span>
+    <h2 class="nc-h2" style="margin: 12px 0 20px">
+      Um link. <em>Sua marca pronta para postar.</em>
+    </h2>
+
+    <p class="nc-dek">
+      Você não recebe uma pasta de arquivos soltos para adivinhar o que fazer com eles. Recebe um link como o de
+      baixo — abre no celular ou no computador, sem instalar nada, sem login — com a divulgação inteira montada:
+      as artes na ordem de publicação, a legenda de cada post pronta para copiar e a simulação de como o seu
+      perfil vai ficar quando tudo estiver no ar.
+    </p>
+
+    <div class="nc-checks">
+      <div class="nc-check">
+        <span class="marca-check">✓</span>
+        <span>
+          <span class="t">Cronograma de publicação</span>
+          <span class="d">O que postar, em que ordem e em que ritmo — do primeiro ao nono.</span>
+        </span>
+      </div>
+      <div class="nc-check">
+        <span class="marca-check">✓</span>
+        <span>
+          <span class="t">Legenda pronta, é copiar e colar</span>
+          <span class="d">Texto e hashtags de cada arte, escritos no assunto de planejados.</span>
+        </span>
+      </div>
+      <div class="nc-check">
+        <span class="marca-check">✓</span>
+        <span>
+          <span class="t">Identidade já aplicada</span>
+          <span class="d">Foto de perfil, capas de destaque e artes no mesmo acabamento.</span>
+        </span>
+      </div>
+      <div class="nc-check">
+        <span class="marca-check">✓</span>
+        <span>
+          <span class="t">O feed antes de existir</span>
+          <span class="d">A grade 3×3 simulada, para aprovar o conjunto antes do primeiro post.</span>
+        </span>
+      </div>
+    </div>
+
+    <a class="nc-entrega" [href]="base + '/board.html'" target="_blank" rel="noopener">
+      <span class="simbolo">
+        <!-- casa + armário: o símbolo da marca, redesenhado (ver MARCA.md) -->
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.2 10.9 12 3.4l8.8 7.5V20.6H3.2Z"/>
+          <path d="M7.6 11.9h8.8v7.1H7.6z"/>
+          <path d="M12 11.9v7.1"/>
+          <path d="M11.1 14.6v1.6M12.9 14.6v1.6"/>
+        </svg>
+      </span>
+      <span class="texto">
+        <span class="nc-rotulo">é este o link que vai para o cliente</span>
+        <span class="titulo">Board de entrega</span>
+        <span class="desc">Cronograma, legendas, identidade e a simulação do feed — tudo numa página só.</span>
+      </span>
+      <span class="nc-abrir">Abrir ↗</span>
+    </a>
+
+    <div class="nc-aviso">
+      <strong>Pendências antes de publicar:</strong> telefone, &#64; do perfil, cidade de atendimento e prazo de
+      garantia estão nas artes como marcador — o post 09 traz <em>(00) 00000-0000</em>. E a logo em vetor:
+      o arquivo atual tem 150 px e fica macio nas peças grandes.
+    </div>
+  </div>
+</section>
+
+<!-- ===========================================================
+     RODAPÉ
+     =========================================================== -->
+<div class="nc-corpo">
+  <footer class="nc-rodape">
+    <span>Nova Casa · móveis planejados</span>
+    <span>
+      plano de divulgação por
+      <a routerLink="/marketing">E9 Soluções</a>
+    </span>
+  </footer>
+</div>

@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova Casa — plano de estreia no Instagram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Board de entrega — a página que vai para o cliente.
+   Tudo que ele precisa para publicar sozinho: a ordem, a arte,
+   a legenda pronta para copiar e as notas de publicação.
+   Sistema visual da Nova Casa (ver MARCA.md).
+   ========================================================= */
+:root{
+  --nc-tinta:#191819; --nc-grafite:#3B3939; --nc-cinza:#6F6C6B; --nc-pedra:#8E8A87;
+  --nc-linha:#E2DCD4; --nc-linho:#F6F2ED; --nc-papel:#FFFFFF;
+  --nc-nogueira:#7A4E32; --nc-carvalho:#B98A5E; --nc-areia:#E9DECB;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--nc-linho);color:var(--nc-tinta);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding:64px 28px 96px}
+
+.rotulo{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--nc-nogueira)}
+.filete{height:1px;background:var(--nc-linha);margin:20px 0 40px}
+
+header{text-align:center;padding-bottom:16px}
+header img{width:132px;height:132px;mix-blend-mode:multiply;margin:0 auto 8px;display:block}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,54px);line-height:1.08;
+  letter-spacing:-.02em;margin:14px 0 16px}
+h1 em{font-style:normal;color:var(--nc-nogueira)}
+.dek{font-size:17px;font-weight:300;color:var(--nc-cinza);max-width:56ch;margin:0 auto}
+
+h2{font-family:var(--serif);font-weight:500;font-size:32px;letter-spacing:-.015em;margin-bottom:6px}
+section{margin-top:72px}
+
+/* grade simulada do perfil */
+.grade{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:var(--nc-linha);
+  border:1px solid var(--nc-linha)}
+.grade img{width:100%;display:block}
+.nota{font-size:13px;color:var(--nc-pedra);margin-top:14px}
+
+/* avatares e capas */
+.fila{display:flex;flex-wrap:wrap;gap:22px;margin-top:8px}
+.redondo{text-align:center;font-size:12px;color:var(--nc-cinza)}
+.redondo img{width:110px;height:110px;border-radius:50%;display:block;border:1px solid var(--nc-linha);object-fit:cover}
+.redondo span{display:block;margin-top:8px;letter-spacing:.06em}
+.capa-mini{width:96px;height:96px;border-radius:50%;overflow:hidden;position:relative;border:1px solid var(--nc-linha)}
+.capa-mini img{position:absolute;width:96px;left:0;top:50%;transform:translateY(-50%)}
+
+/* post a post */
+.post{display:grid;grid-template-columns:300px 1fr;gap:34px;padding:38px 0;
+  border-bottom:1px solid var(--nc-linha);align-items:start}
+.post img{width:100%;display:block;border:1px solid var(--nc-linha)}
+.post h3{font-family:var(--serif);font-weight:500;font-size:26px;margin:6px 0 10px}
+.papel-copiar{position:relative;background:var(--nc-papel);border:1px solid var(--nc-linha);
+  border-radius:6px;padding:20px 60px 20px 22px;margin-top:16px;white-space:pre-wrap;
+  font-size:14.5px;color:var(--nc-grafite)}
+.papel-copiar.mini{padding:14px 44px 14px 16px;margin-top:10px;font-size:12.5px;line-height:1.45}
+.papel-copiar .tags{display:block;margin-top:14px;color:var(--nc-nogueira);font-size:13px}
+.papel-rotulo{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--nc-pedra);
+  display:block;margin-bottom:10px}
+
+/* Padrão do site: a arte abre em nova aba (o visitante salva de lá) e o
+   copiar é um ícone no canto do card da legenda — nada de barra de botões. */
+.arte{position:relative;display:block;line-height:0}
+.arte .abrir{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;
+  background:rgba(246,242,237,.92);color:var(--nc-tinta);border:1px solid var(--nc-linha);
+  /* visível sempre: no celular não existe hover, e sem o indicador ninguém
+     descobre que a arte abre em tamanho real ao toque */
+  opacity:.62;transition:opacity .2s ease,color .2s ease,border-color .2s ease}
+.arte:hover .abrir{opacity:1;color:var(--nc-nogueira);border-color:var(--nc-nogueira)}
+
+.copiar{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:8px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid var(--nc-linha);background:var(--nc-linho);color:var(--nc-grafite);
+  font-family:var(--sans);font-size:15px;line-height:1;cursor:pointer;
+  transition:border-color .2s ease,background-color .2s ease,color .2s ease}
+.copiar:hover{border-color:var(--nc-nogueira);color:var(--nc-nogueira)}
+.copiar.feito{background:var(--nc-nogueira);border-color:var(--nc-nogueira);color:var(--nc-linho)}
+.copiar.mini{width:28px;height:28px;top:8px;right:8px;font-size:13px;border-radius:6px}
+
+/* capas de destaque: o círculo inteiro abre a arte */
+.capa-item{width:96px;text-align:center}
+.capa-item .capa-nome{display:block;margin-top:8px;font-size:11px;color:var(--nc-cinza);letter-spacing:.04em}
+.capa-item .capa-mini{display:block;transition:border-color .2s ease}
+.capa-item:hover .capa-mini{border-color:var(--nc-nogueira)}
+
+/* frases de efeito: grade menor, legenda de uma linha */
+.frases{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.frase-item img{width:100%;display:block;border:1px solid var(--nc-linha)}
+.frase-item .papel-copiar{color:var(--nc-cinza)}
+.frase-item strong{display:block;color:var(--nc-tinta);font-weight:500;font-size:12px;
+  letter-spacing:.04em;margin-bottom:2px}
+
+/* notas de publicação */
+.notas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2px;
+  background:var(--nc-linha);border:1px solid var(--nc-linha)}
+.nota-card{background:var(--nc-linho);padding:26px 24px}
+.nota-card h4{font-family:var(--serif);font-weight:500;font-size:20px;margin-bottom:8px}
+.nota-card p{font-size:14.5px;color:var(--nc-cinza)}
+
+.aviso{background:var(--nc-areia);border-left:3px solid var(--nc-nogueira);padding:22px 24px;
+  font-size:14.5px;color:#5C5450;margin-top:36px}
+.aviso strong{color:var(--nc-tinta);font-weight:500}
+
+footer{margin-top:88px;padding-top:28px;border-top:1px solid var(--nc-linha);
+  display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;
+  font-size:12px;color:var(--nc-pedra);letter-spacing:.06em}
+
+@media (max-width:720px){
+  .post{grid-template-columns:1fr}
+  .post img{max-width:300px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <img src="novacasa_logo.jpg" alt="Nova Casa">
+  <span class="rotulo">Plano de estreia no Instagram</span>
+  <h1>Nove publicações prontas, <em>na ordem de postar.</em></h1>
+  <p class="dek">
+    Cada arte abaixo já está no tamanho certo do Instagram. Toque na arte para abri-la em tamanho real e salvar,
+    e no ícone <strong>⧉</strong> no canto da legenda para copiar o texto e colar direto no app. Siga a ordem de
+    01 a 09 e o seu perfil fecha a grade de nove com a mesma cara.
+  </p>
+</header>
+
+<section>
+  <span class="rotulo">Como o perfil vai ficar</span>
+  <div class="filete"></div>
+  <div class="grade">
+    <img src="preview/nc-post-01.jpg" alt="Post 01"><img src="preview/nc-post-02.jpg" alt="Post 02"><img src="preview/nc-post-03.jpg" alt="Post 03">
+    <img src="preview/nc-post-04.jpg" alt="Post 04"><img src="preview/nc-post-05.jpg" alt="Post 05"><img src="preview/nc-post-06.jpg" alt="Post 06">
+    <img src="preview/nc-post-07.jpg" alt="Post 07"><img src="preview/nc-post-08.jpg" alt="Post 08"><img src="preview/nc-post-09.jpg" alt="Post 09">
+  </div>
+  <p class="nota">
+    O Instagram corta a miniatura do perfil em quadrado, então nada importante encosta nas bordas das artes.
+    A alternância entre fundo claro, cru e escuro é o que dá ritmo à grade.
+  </p>
+</section>
+
+<section>
+  <span class="rotulo">Foto de perfil · 3 variantes</span>
+  <div class="filete"></div>
+  <div class="fila">
+    <div class="redondo">
+      <a class="arte" href="png/nc-perfil-linho.png" target="_blank" rel="noopener" title="Abrir em tamanho real"><img src="preview/nc-perfil-linho.jpg" alt="Variante linho"></a>
+      <span>linho · recomendada</span>
+    </div>
+    <div class="redondo">
+      <a class="arte" href="png/nc-perfil-tinta.png" target="_blank" rel="noopener" title="Abrir em tamanho real"><img src="preview/nc-perfil-tinta.jpg" alt="Variante tinta"></a>
+      <span>tinta</span>
+    </div>
+    <div class="redondo">
+      <a class="arte" href="png/nc-perfil-areia.png" target="_blank" rel="noopener" title="Abrir em tamanho real"><img src="preview/nc-perfil-areia.jpg" alt="Variante areia"></a>
+      <span>areia</span>
+    </div>
+  </div>
+  <p class="nota">A recomendada é a <strong>linho</strong>: mantém a marca preta sobre claro, como ela foi desenhada.</p>
+</section>
+
+<section>
+  <span class="rotulo">Capas de destaque</span>
+  <div class="filete"></div>
+  <div class="fila">
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-cozinha.png" target="_blank" rel="noopener" title="Abrir a capa Cozinha"><img src="preview/nc-destaque-cozinha.jpg" alt="Cozinha"></a>
+      <span class="capa-nome">Cozinha</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-dormitorio.png" target="_blank" rel="noopener" title="Abrir a capa Dormitório"><img src="preview/nc-destaque-dormitorio.jpg" alt="Dormitório"></a>
+      <span class="capa-nome">Dormitório</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-closet.png" target="_blank" rel="noopener" title="Abrir a capa Closet"><img src="preview/nc-destaque-closet.jpg" alt="Closet"></a>
+      <span class="capa-nome">Closet</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-home-office.png" target="_blank" rel="noopener" title="Abrir a capa Home office"><img src="preview/nc-destaque-home-office.jpg" alt="Home office"></a>
+      <span class="capa-nome">Home office</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-living.png" target="_blank" rel="noopener" title="Abrir a capa Living"><img src="preview/nc-destaque-living.jpg" alt="Living"></a>
+      <span class="capa-nome">Living</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-banheiro.png" target="_blank" rel="noopener" title="Abrir a capa Banheiro"><img src="preview/nc-destaque-banheiro.jpg" alt="Banheiro"></a>
+      <span class="capa-nome">Banheiro</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-projeto-3d.png" target="_blank" rel="noopener" title="Abrir a capa Projeto 3D"><img src="preview/nc-destaque-projeto-3d.jpg" alt="Projeto 3D"></a>
+      <span class="capa-nome">Projeto 3D</span>
+    </div>
+    <div class="capa-item">
+      <a class="capa-mini" href="png/nc-destaque-orcamento.png" target="_blank" rel="noopener" title="Abrir a capa Orçamento"><img src="preview/nc-destaque-orcamento.jpg" alt="Orçamento"></a>
+      <span class="capa-nome">Orçamento</span>
+    </div>
+  </div>
+  <p class="nota">
+    No app: editar destaque › editar capa › escolher da galeria. A arte já está centralizada, não precisa ajustar.
+    Nomeie os destaques exatamente assim: Cozinha · Dormitório · Closet · Home Office · Living · Banheiro ·
+    Projeto 3D · Orçamento.
+  </p>
+</section>
+
+<section>
+  <span class="rotulo">Post a post · arte e legenda</span>
+  <div class="filete"></div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-01.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-01.jpg" alt="Post 01"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">01 · capa</span>
+      <h3>A marca se apresenta</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Abre a série. Nenhuma promessa, nenhum preço: só a marca e a ideia de projeto sob medida.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Cada casa pede um projeto que só ela usa.
+
+Móvel de loja obriga a casa a se ajustar. O planejado faz o contrário: começa na trena, na medida real do seu vão, e termina na dobradiça que fecha em silêncio.
+
+Somos a Nova Casa. Nos próximos posts a gente abre o processo inteiro — do primeiro desenho à montagem.<span class="tags">#MoveisPlanejados #NovaCasa #Marcenaria #SobMedida #DesignDeInteriores #Planejados</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-02.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-02.jpg" alt="Post 02"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">02 · manifesto</span>
+      <h3>Por que planejado</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Explica a diferença para quem ainda compara com móvel de loja.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Planejado não é catálogo. É medida.
+
+Um centímetro a mais na bancada muda o jeito de cozinhar. Uma gaveta na altura certa poupa a sua coluna todo dia. É esse detalhe que a gente vai procurar na sua casa.
+
+Antes de desenhar qualquer coisa, a gente mede e escuta a rotina de quem mora ali.<span class="tags">#MoveisPlanejados #Marcenaria #ProjetoSobMedida #NovaCasa #Arquitetura</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-03.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-03.jpg" alt="Post 03"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">03 · ambientes</span>
+      <h3>O que projetamos</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Post de referência. Vale fixar no topo do perfil junto com o 01.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Seis ambientes, um só padrão de acabamento.
+
+01 Cozinha · 02 Dormitório · 03 Closet · 04 Home office · 05 Living e painéis · 06 Banheiro
+
+O mesmo cuidado de projeto vale para o armário inteiro e para a gaveta de talher. Qual desses ambientes está te incomodando hoje? Comenta aqui embaixo.<span class="tags">#Planejados #Cozinha #Closet #HomeOffice #MoveisSobMedida #NovaCasa</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-04.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-04.jpg" alt="Post 04"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">04 · cozinha</span>
+      <h3>A cozinha pela rotina</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Primeiro ambiente detalhado — costuma ser o que mais gera mensagem.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>A cozinha que cabe na sua rotina.
+
+Torre quente na altura dos olhos, gavetão que aguenta panela cheia, canto que não vira buraco sem uso. A bancada em 92 cm poupa a coluna de quem cozinha todo dia.
+
+Projetamos a partir de como você cozinha — não de como a foto fica bonita.<span class="tags">#CozinhaPlanejada #Cozinha #MoveisPlanejados #Marcenaria #NovaCasa</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-05.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-05.jpg" alt="Post 05"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">05 · dormitório e closet</span>
+      <h3>Guardar sem ver</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Bom candidato a carrossel, com fotos de projetos entregues.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Guardar tudo sem ver a bagunça.
+
+Cabeceira, criado-mudo e guarda-roupa desenhados na mesma prancha. O closet sobe até o teto para não desperdiçar pé-direito, e a porta de correr resolve o quarto onde não sobra espaço para abrir.
+
+Gaveta interna com divisória e luz que acende ao abrir: o que parece detalhe é o que você usa todo dia.<span class="tags">#Closet #GuardaRoupaPlanejado #Dormitorio #MoveisPlanejados #NovaCasa</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-06.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-06.jpg" alt="Post 06"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">06 · home office</span>
+      <h3>Trabalho que fecha a porta</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Fala com quem trabalha em casa — público grande e com verba.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Trabalhar em casa sem levar o escritório para a sala.
+
+Bancada na altura certa, fio passando por dentro e um nicho que fecha no fim do expediente. O trabalho acaba quando a porta encosta.
+
+Dá para fazer isso em 1,20 m de parede. Manda a medida do seu canto que a gente estuda.<span class="tags">#HomeOffice #MoveisPlanejados #EscritorioEmCasa #Marcenaria #NovaCasa</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-07.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-07.jpg" alt="Post 07"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">07 · processo</span>
+      <h3>Como funciona</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Tira o medo de quem nunca contratou planejado.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Da trena ao móvel montado.
+
+01 Visita e medição, na sua casa
+02 Projeto em 3D, você vê antes de decidir
+03 Ajuste e contrato, com preço fechado
+04 Fabricação, no prazo do contrato
+05 Montagem e conferência, item por item
+
+As duas primeiras etapas não custam nada. Você só decide depois de ver o seu ambiente desenhado.<span class="tags">#MoveisPlanejados #ProjetoDeInteriores #Marcenaria #NovaCasa #Reforma</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-08.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-08.jpg" alt="Post 08"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">08 · o que vai dentro</span>
+      <h3>Material e garantia</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Post de confiança. É o que responde a objeção de preço.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>O acabamento aparece. O que segura ele, não.
+
+Chapa com procedência, fita de borda que não descola no calor e ferragem com amortecedor. São os três detalhes que separam um armário que dura de um que começa a incomodar em seis meses.
+
+Quando comparar orçamentos, pergunte por esses três. A diferença de preço quase sempre está aí.<span class="tags">#MoveisPlanejados #Qualidade #Marcenaria #MDF #NovaCasa</span></div>
+    </div>
+  </div>
+
+  <div class="post">
+    <a class="arte" href="png/nc-post-09.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-post-09.jpg" alt="Post 09"><span class="abrir">↗</span></a>
+    <div>
+      <span class="rotulo">09 · chamada final</span>
+      <h3>O convite</h3>
+      <p style="font-size:15px;color:var(--nc-cinza)">Fecha a grade e converte quem acompanhou a série inteira.</p>
+      <div class="papel-copiar"><button class="copiar" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><span class="papel-rotulo">legenda</span>Sua visita técnica começa com uma mensagem.
+
+Medição e projeto 3D por nossa conta. Você decide depois de ver o desenho do seu ambiente, com o preço fechado na sua frente.
+
+Chama no direct ou no WhatsApp e conta qual ambiente você quer resolver primeiro.<span class="tags">#MoveisPlanejados #OrcamentoSemCompromisso #NovaCasa #Marcenaria #SobMedida</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="rotulo">Frases de efeito · para intercalar</span>
+  <div class="filete"></div>
+  <p class="nota" style="margin:-18px 0 26px">
+    Estas doze não fazem parte da sequência de estreia — elas entram <em>entre</em> os posts, quando você quiser
+    aparecer sem explicar nada. Uma frase, um convite. Publique uma a cada dois ou três posts da série.
+  </p>
+  <div class="frases">
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-01.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-01.jpg" alt="Frase 01"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>01 · Seu armário devia caber na sua casa</strong>Móvel de loja obriga a casa a se ajustar. O planejado começa pela medida do seu vão. Manda uma foto do ambiente no direct que a gente te diz o que dá para fazer.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-02.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-02.jpg" alt="Frase 02"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>02 · Medida certa não se compra pronta</strong>A trena vem antes do desenho. Agende a visita — medição e projeto são por nossa conta.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-03.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-03.jpg" alt="Frase 03"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>03 · Bagunça é falta de projeto</strong>Quase nunca é falta de espaço: é espaço sem planejamento. Vamos resolver o seu?</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-04.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-04.jpg" alt="Frase 04"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>04 · O canto morto vira armário</strong>Aquele canto que ninguém usa costuma virar o melhor módulo da casa. Manda a foto dele.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-05.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-05.jpg" alt="Frase 05"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>05 · Você vê em 3D antes de existir</strong>Você aprova o projeto na tela, com o preço fechado, antes de qualquer corte de chapa.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-06.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-06.jpg" alt="Frase 06"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>06 · A loja vende o que tem</strong>A gente faz o que falta. Se não existe pronto no tamanho da sua parede, é porque é planejado.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-07.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-07.jpg" alt="Frase 07"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>07 · A medição é por nossa conta</strong>Visita, medida e projeto em 3D sem custo. Você decide depois de ver.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-08.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-08.jpg" alt="Frase 08"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>08 · 100% do seu vão vira armário</strong>Inclusive o pé-direito, que quase sempre vira poeira. Peça um orçamento.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-09.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-09.jpg" alt="Frase 09"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>09 · Você não compra móvel</strong>Você resolve a casa. É outro tipo de decisão — e ela começa com uma conversa.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-10.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-10.jpg" alt="Frase 10"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>10 · "Quanto custa?"</strong>Depende do seu vão, do acabamento e da ferragem. Manda a medida que a gente faz a conta.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-11.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-11.jpg" alt="Frase 11"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>11 · A gaveta que fecha sozinha</strong>Ferragem com amortecedor em todo projeto. É o detalhe que você percebe todo dia.</div>
+    </div>
+    <div class="frase-item">
+      <a class="arte" href="png/nc-frase-12.png" target="_blank" rel="noopener" title="Abrir a arte em tamanho real"><img src="preview/nc-frase-12.jpg" alt="Frase 12"><span class="abrir">↗</span></a>
+      <div class="papel-copiar mini"><button class="copiar mini" type="button" title="Copiar legenda" aria-label="Copiar legenda">⧉</button><strong>12 · Falta o projeto</strong>Sua casa já tem o espaço. Chama no direct e a gente marca a visita.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="rotulo">Notas de publicação</span>
+  <div class="filete"></div>
+  <div class="notas">
+    <div class="nota-card">
+      <h4>Ordem e ritmo</h4>
+      <p>Publique de 01 a 09 na sequência, dois ou três posts por semana. Os nove fecham a grade 3×3 do perfil — postar fora de ordem quebra o desenho.</p>
+    </div>
+    <div class="nota-card">
+      <h4>O que fixar no topo</h4>
+      <p>Fixe o 01 e o 03. Juntos eles dão marca e serviço para quem chega pela primeira vez.</p>
+    </div>
+    <div class="nota-card">
+      <h4>Bio sugerida</h4>
+      <p>Móveis planejados sob medida · projeto 3D antes de decidir · [cidade/região] · orçamento no direct.</p>
+    </div>
+    <div class="nota-card">
+      <h4>Vira carrossel</h4>
+      <p>O 03, o 05 e o 07 funcionam bem como carrossel: use a arte como capa e fotos de projetos entregues nas telas seguintes.</p>
+    </div>
+    <div class="nota-card">
+      <h4>Stories</h4>
+      <p>Republique cada post no story no dia da publicação, com enquete simples: "qual ambiente você resolveria primeiro?".</p>
+    </div>
+    <div class="nota-card">
+      <h4>Foto e destaques</h4>
+      <p>Troque a foto de perfil pela variante linho antes do primeiro post, e crie os oito destaques com as capas desta página.</p>
+    </div>
+  </div>
+
+  <div class="aviso">
+    <strong>Antes de publicar, confirme com a gente:</strong> telefone, @ do perfil, cidade de atendimento e prazo
+    de garantia aparecem nas artes e nas legendas como marcador — o post 09 está com <em>(00) 00000-0000</em>.
+    Também vale enviar a logo em vetor: o arquivo atual tem 150 px e fica macio nas peças grandes.
+  </div>
+</section>
+
+<footer>
+  <span>Nova Casa · móveis planejados</span>
+  <span>plano de divulgação por E9 Soluções</span>
+</footer>
+
+</div>
+
+<script>
+/* =========================================================
+   Copiar a legenda — o ícone no canto do card.
+
+   O texto é lido do próprio card (nada duplicado em atributo):
+   clona, remove o rótulo, o botão e o título da frase, e o que
+   sobra é a legenda. As quebras de linha já estão no markup
+   por causa do white-space: pre-wrap.
+
+   navigator.clipboard só existe em contexto seguro (https ou
+   localhost). Em http simples cai no textarea + execCommand,
+   obsoleto mas ainda funcional em todo browser atual — sem ele
+   o board aberto por link http não copiaria nada.
+
+   A arte não tem botão de baixar: ela abre em nova aba e o
+   visitante salva de lá, igual ao resto do site.
+   ========================================================= */
+(function () {
+  var ICONE = '⧉';
+
+  function legendaDe(botao) {
+    var card = botao.closest('.papel-copiar');
+    if (!card) return '';
+    var copia = card.cloneNode(true);
+    ['.papel-rotulo', '.copiar', 'strong'].forEach(function (seletor) {
+      var achados = copia.querySelectorAll(seletor);
+      for (var i = 0; i < achados.length; i++) achados[i].remove();
+    });
+    var tags = copia.querySelector('.tags');
+    if (tags) {
+      tags.remove();
+      return copia.textContent.trim() + '\n\n' + tags.textContent.trim();
+    }
+    return copia.textContent.trim();
+  }
+
+  function aviso(botao, simbolo, feito) {
+    botao.textContent = simbolo;
+    if (feito) botao.classList.add('feito');
+    setTimeout(function () {
+      botao.textContent = ICONE;
+      botao.classList.remove('feito');
+    }, 1800);
+  }
+
+  function copiaAntiga(texto) {
+    var area = document.createElement('textarea');
+    area.value = texto;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.top = '-1000px';
+    document.body.appendChild(area);
+    area.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(area);
+    return ok;
+  }
+
+  function tentaAntiga(botao, texto) {
+    var ok = copiaAntiga(texto);
+    aviso(botao, ok ? '✓' : '!', ok);
+  }
+
+  document.addEventListener('click', function (evento) {
+    var botao = evento.target.closest('.copiar');
+    if (!botao) return;
+
+    var texto = legendaDe(botao);
+    if (!texto) return aviso(botao, '!', false);
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(texto).then(
+        function () { aviso(botao, '✓', true); },
+        function () { tentaAntiga(botao, texto); }
+      );
+    } else {
+      tentaAntiga(botao, texto);
+    }
+  });
+})();
+</script>
+</body>
+</html>
