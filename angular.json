@@ -46,6 +46,15 @@
               },
               {
                 "glob": "**/*",
+                "input": "marketing/novacasa",
+                "output": "marketing-nova-casa",
+                "ignore": [
+                  "*.js",
+                  "*.md"
+                ]
+              },
+              {
+                "glob": "**/*",
                 "input": "src/app/assets",
                 "output": "assets"
               }

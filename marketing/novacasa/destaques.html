@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>Nova Casa — capas de destaque</title>
+<style>
+/* =========================================================
+   Nova Casa · capas de destaque (highlights) — 1080x1920
+   O Instagram recorta em círculo no centro, então tudo aqui é
+   radialmente simétrico: gradiente, malha e ícone.
+
+   Ícones desenhados à mão no grid de 24, traço em tinta sobre
+   superfície linho/areia — o mesmo desenho técnico das artes.
+   Sem biblioteca de ícone: o export não depende de rede.
+   ========================================================= */
+:root{
+  --nc-tinta:#191819; --nc-linha:#E2DCD4; --nc-linho:#F6F2ED; --nc-papel:#FFFFFF;
+  --nc-nogueira:#7A4E32; --nc-areia:#E9DECB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#8b8681;display:flex;flex-wrap:wrap;gap:32px;padding:32px;align-items:flex-start}
+
+.capa{position:relative;width:1080px;height:1920px;overflow:hidden;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;isolation:isolate;
+  background:radial-gradient(circle 700px at 50% 47%,var(--nc-papel) 0%,var(--nc-linho) 46%,var(--nc-areia) 100%)}
+
+.planta{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(25,24,25,.055) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(25,24,25,.055) 1px,transparent 1px);
+  background-size:72px 72px;
+  -webkit-mask-image:radial-gradient(circle at 50% 47%,#000 16%,transparent 44%);
+          mask-image:radial-gradient(circle at 50% 47%,#000 16%,transparent 44%)}
+
+/* aro fino, na medida do recorte circular do app */
+.aro{position:absolute;left:50%;top:47%;transform:translate(-50%,-50%);
+  width:880px;height:880px;border-radius:50%;border:2px solid var(--nc-nogueira);
+  opacity:.32;pointer-events:none}
+
+.ico{position:relative;z-index:2;width:430px;height:430px;margin-bottom:56px}
+.ico svg{display:block;width:100%;height:100%;fill:none;stroke:var(--nc-tinta);
+  stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+</style>
+</head>
+<body>
+
+<!-- 01 · Cozinha — armário superior + bancada com gavetas -->
+<div class="capa" id="cozinha">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Cozinha">
+      <rect x="3.4" y="3.6" width="17.2" height="6.2" rx="1"/>
+      <path d="M12 3.6v6.2"/>
+      <path d="M10.8 6.2h-1.4M14.6 6.2h-1.4"/>
+      <rect x="3.4" y="12.8" width="17.2" height="7.6" rx="1"/>
+      <path d="M3.4 15.9h17.2"/>
+      <path d="M9.8 17.9h1.6M12.6 17.9h1.6"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 02 · Dormitório — cama com cabeceira -->
+<div class="capa" id="dormitorio">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Dormitório">
+      <path d="M3 19.4v-6a1.9 1.9 0 0 1 1.9-1.9h14.2a1.9 1.9 0 0 1 1.9 1.9v6"/>
+      <path d="M3 16.3h18"/>
+      <path d="M6.6 11.5V9.3a1.5 1.5 0 0 1 1.5-1.5h7.8a1.5 1.5 0 0 1 1.5 1.5v2.2"/>
+      <path d="M4.2 19.4v1.4M19.8 19.4v1.4"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 03 · Closet — armário de duas portas com cabideiro -->
+<div class="capa" id="closet">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Closet">
+      <rect x="3.6" y="3.4" width="16.8" height="17.2" rx="1.2"/>
+      <path d="M12 3.4v17.2"/>
+      <path d="M5.4 7.6h5.2M13.4 7.6h5.2"/>
+      <path d="M8 7.6v1.2l-1.7 2.4h3.4L8 8.8"/>
+      <path d="M16 7.6v1.2l-1.7 2.4h3.4L16 8.8"/>
+      <path d="M10.6 13.6v2.2M13.4 13.6v2.2"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 04 · Home office — bancada com monitor -->
+<div class="capa" id="home-office">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Home office">
+      <rect x="5.4" y="4.2" width="13.2" height="8.6" rx="1.2"/>
+      <path d="M12 12.8v2.2M8.6 15h6.8"/>
+      <path d="M3 18h18"/>
+      <path d="M5.2 18v2.6M18.8 18v2.6"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 05 · Living — sofá e painel -->
+<div class="capa" id="living">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Living">
+      <path d="M3.4 16.8v-3.4a1.8 1.8 0 0 1 1.8-1.8h13.6a1.8 1.8 0 0 1 1.8 1.8v3.4"/>
+      <path d="M6.4 11.6V8.8a1.6 1.6 0 0 1 1.6-1.6h8a1.6 1.6 0 0 1 1.6 1.6v2.8"/>
+      <rect x="3.4" y="16.8" width="17.2" height="2.6" rx="0.8"/>
+      <path d="M5.6 19.4v1.2M18.4 19.4v1.2"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 06 · Banheiro — espelheira e gabinete -->
+<div class="capa" id="banheiro">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Banheiro">
+      <rect x="7.6" y="3" width="8.8" height="6.4" rx="1"/>
+      <path d="M12 9.4v2.2"/>
+      <path d="M3.6 13.4h16.8"/>
+      <path d="M9 13.4a3 3 0 0 0 6 0"/>
+      <path d="M5.4 13.4v5.8a1.4 1.4 0 0 0 1.4 1.4h10.4a1.4 1.4 0 0 0 1.4-1.4v-5.8"/>
+      <path d="M12 16.6v4.6"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 07 · Projeto 3D — volume em perspectiva -->
+<div class="capa" id="projeto-3d">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Projeto 3D">
+      <path d="M12 2.9l8.3 4.6-8.3 4.6-8.3-4.6z"/>
+      <path d="M3.7 7.5v9.1l8.3 4.6 8.3-4.6V7.5"/>
+      <path d="M12 12.1v9.1"/>
+    </svg>
+  </div>
+</div>
+
+<!-- 08 · Orçamento — conversa -->
+<div class="capa" id="orcamento">
+  <span class="planta"></span><span class="aro"></span>
+  <div class="ico">
+    <svg viewBox="0 0 24 24" role="img" aria-label="Orçamento">
+      <path d="M3.4 6.6c0-1.1.9-2 2-2h13.2c1.1 0 2 .9 2 2v7.6c0 1.1-.9 2-2 2h-6.9L7.1 19.8v-3.6H5.4c-1.1 0-2-.9-2-2z"/>
+      <path d="M8.4 9.2h7.2M8.4 12.2h4.6"/>
+    </svg>
+  </div>
+</div>
+
+</body>
+</html>

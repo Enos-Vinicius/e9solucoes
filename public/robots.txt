@@ -2,4 +2,5 @@
 # time, mas não são conteúdo de busca — só o site institucional é.
 User-agent: *
 Disallow: /marketing/
+Disallow: /marketing-nova-casa/
 Allow: /
