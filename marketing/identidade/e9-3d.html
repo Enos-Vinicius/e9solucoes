@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>E9 Soluções 3D — estudo de lockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Estudo: marca E9 + "3D" com volume
+   Seis caminhos para escolher um. Todos no eixo azul da marca
+   (a referência era dourada; o metal aqui é platina + 214°).
+
+   Como o volume é feito, já que não há 3D de verdade:
+   - EXTRUSÃO: pilha de cópias deslocadas em passos de 1px,
+     escurecendo do 800 para o 950. É o que dá a lateral.
+   - FACE: gradiente com banda clara no meio, por cima da
+     extrusão. Precisa ser uma camada separada — com
+     background-clip:text a extrusão apareceria através do
+     glifo, que fica transparente.
+   - LUZ: um brilho 500 atrás, e um fio claro no topo do glifo.
+   ========================================================= */
+:root{
+  --e9-carbon:#06080F; --e9-midnight:#0A0E1A; --e9-platinum:#E5E9F2;
+  --e9-blue-950:#001838; --e9-blue-900:#002657; --e9-blue-800:#003A85;
+  --e9-blue-700:#0049A8; --e9-blue-600:#005BD1; --e9-blue-500:#006FFF;
+  --e9-blue-400:#4795FA; --e9-blue-300:#81B5F8; --e9-blue-200:#B3D2F9;
+  --e9-blue-100:#D5E6FB;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#16181f;font-family:'Geist',system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;display:flex;flex-wrap:wrap;gap:28px;padding:28px}
+
+.quadro{position:relative;width:1100px;height:620px;flex:0 0 auto;overflow:hidden;
+  background:var(--e9-carbon);display:flex;align-items:center;justify-content:center}
+.lattice{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(129,181,248,.045) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(129,181,248,.045) 1px,transparent 1px);
+  background-size:44px 44px}
+.halo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:800px;height:800px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(0,58,133,.34) 0%,rgba(6,8,15,0) 62%)}
+.etiqueta{position:absolute;left:26px;top:22px;font-family:'Geist Mono',monospace;
+  font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:rgba(129,181,248,.55)}
+
+/* ---------- peças comuns ---------- */
+.marca svg{display:block;width:100%;height:100%}
+.face-metal{
+  background:linear-gradient(162deg,
+    #FFFFFF 0%, var(--e9-platinum) 14%, var(--e9-blue-200) 32%,
+    var(--e9-blue-400) 48%, #FFFFFF 56%, var(--e9-blue-100) 66%,
+    var(--e9-platinum) 82%, var(--e9-blue-300) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* a pilha que vira lateral: 18 degraus de 1px na diagonal */
+.extrusao{
+  text-shadow:
+    1px 1px 0 #003A85, 2px 2px 0 #003A85, 3px 3px 0 #00357A, 4px 4px 0 #00357A,
+    5px 5px 0 #003070, 6px 6px 0 #003070, 7px 7px 0 #002B66, 8px 8px 0 #002B66,
+    9px 9px 0 #00265C, 10px 10px 0 #00265C, 11px 11px 0 #002152, 12px 12px 0 #002152,
+    13px 13px 0 #001C48, 14px 14px 0 #001C48, 15px 15px 0 #00183E, 16px 16px 0 #00183E,
+    17px 17px 0 #001434, 18px 18px 0 #001434,
+    20px 22px 34px rgba(0,0,0,.55)}
+.extrusao-curta{
+  text-shadow:
+    1px 1px 0 #003A85, 2px 2px 0 #00357A, 3px 3px 0 #003070, 4px 4px 0 #002B66,
+    5px 5px 0 #00265C, 6px 6px 0 #002152, 7px 7px 0 #001C48, 8px 8px 0 #001838,
+    10px 12px 20px rgba(0,0,0,.5)}
+
+/* o par de camadas: a de trás carrega a extrusão, a da frente a face */
+.palco{position:relative;display:inline-block;line-height:.86}
+.palco .atras{color:var(--e9-blue-900)}
+.palco .frente{position:absolute;left:0;top:0}
+
+.tipo3d{font-size:220px;font-weight:800;letter-spacing:-.05em}
+.tipo3d-medio{font-size:150px;font-weight:800;letter-spacing:-.05em}
+
+.assinatura{font-family:'Geist Mono',monospace;letter-spacing:.42em;
+  text-transform:uppercase;color:var(--e9-blue-200)}
+
+/* brilho especular que corre sobre a face */
+.glint{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;
+  background:linear-gradient(104deg,transparent 38%,rgba(255,255,255,.5) 47%,transparent 55%)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <g id="e9-mark">
+      <path d="M12945.71 6734.7c-539.49,0 -1042.8,94.96 -1509.96,287.83 -464.13,186.94 -874.02,453.99 -1232.68,798.19 -352.62,341.23 -623.86,741.82 -819.77,1201.74 -189.87,456.96 -286.32,952.49 -286.32,1486.59 0,724.02 168.78,1367.91 503.32,1934.66 337.55,560.81 795.67,1005.9 1371.32,1332.3 581.67,323.42 1238.71,486.62 1974.09,486.62 409.88,0 750.46,-44.5 1018.69,-130.55 274.26,-89.02 482.23,-178.04 620.87,-264.09 135.61,-89.01 204.94,-127.59 204.94,-118.69l0 943.59c0,498.5 -75.35,967.33 -229.06,1409.45 -147.68,436.19 -394.82,792.25 -741.41,1065.24 -340.58,272.99 -801.69,409.48 -1380.36,409.48l-6364.33 -5.38 548.09 1821.35 5743.91 -0.01c880.05,0 1651.6,-175.07 2314.66,-525.2 660.04,-353.1 1175.41,-848.64 1543.11,-1486.59 370.71,-640.94 554.55,-1394.62 554.55,-2261.06l0 -4611.12c0,-715.1 -168.78,-1356.03 -509.35,-1922.77 -334.54,-569.72 -792.65,-1020.74 -1371.31,-1350.11 -578.67,-335.3 -1229.67,-501.47 -1953,-501.47zm0 1940.59c349.62,0 663.06,80.11 940.34,243.32 277.27,157.26 497.28,373.88 657.01,646.86 165.77,272.99 247.15,581.58 247.15,925.78 0,249.26 -45.21,486.63 -135.63,712.14 -90.42,225.52 -220.01,424.33 -388.79,599.39 -165.76,172.1 -361.67,305.63 -587.71,400.59 -223.02,91.98 -467.15,139.46 -732.37,139.46 -253.17,0 -494.28,-47.48 -723.33,-139.46 -229.06,-94.96 -430.99,-228.49 -605.79,-400.59 -171.8,-175.06 -307.42,-373.87 -406.88,-599.39 -96.45,-225.51 -144.67,-462.88 -144.67,-712.14 0,-249.25 48.22,-483.66 144.67,-700.27 99.46,-219.57 235.08,-412.45 406.88,-578.62 174.8,-169.13 376.73,-299.69 605.79,-394.64 229.05,-94.95 470.16,-142.43 723.33,-142.43z"/>
+      <polygon points="4121.06,19393.02 8086.42,19393.03 7548.82,17570.23 6131.32,17566.61 6131.32,13805.28 8045.13,13805.28 8605.71,11906.53 6131.32,11906.53 6131.32,8720.86 11965.04,8713.32 12945.7,6734.7 4121.06,6734.7"/>
+    </g>
+
+    <!-- metal do texto: banda forte, para letra grande -->
+    <linearGradient id="metal" x1="0" y1="0" x2=".55" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".16" stop-color="#E5E9F2"/>
+      <stop offset=".34" stop-color="#B3D2F9"/>
+      <stop offset=".5" stop-color="#4795FA"/>
+      <stop offset=".58" stop-color="#FFFFFF"/>
+      <stop offset=".72" stop-color="#D5E6FB"/>
+      <stop offset="1" stop-color="#81B5F8"/>
+    </linearGradient>
+    <!-- metal da marca: sem a faixa clara do meio, que partia o monograma -->
+    <linearGradient id="metal-marca" x1="0" y1="0" x2=".3" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".3" stop-color="#E5E9F2"/>
+      <stop offset=".62" stop-color="#D5E6FB"/>
+      <stop offset="1" stop-color="#9DC2F8"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<!-- =============== A · extrusão clássica =============== -->
+<div class="quadro" id="a">
+  <span class="lattice"></span><span class="halo"></span>
+  <span class="etiqueta">A · extrusão clássica</span>
+  <div style="display:flex;align-items:center;gap:52px;position:relative">
+    <span class="marca" style="width:200px;height:200px">
+      <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+    </span>
+    <span style="width:2px;height:170px;background:linear-gradient(180deg,transparent,rgba(129,181,248,.5),transparent)"></span>
+    <span class="palco tipo3d">
+      <span class="atras extrusao">3D</span>
+      <span class="frente face-metal">3D</span>
+    </span>
+  </div>
+</div>
+
+<!-- =============== B · marca e tipo extrudados juntos =============== -->
+<div class="quadro" id="b">
+  <span class="lattice"></span><span class="halo"></span>
+  <span class="etiqueta">B · marca e tipo com o mesmo volume</span>
+  <div style="display:flex;align-items:center;gap:46px;position:relative">
+    <!-- a marca ganha lateral empilhando cópias deslocadas -->
+    <span style="position:relative;width:200px;height:200px;filter:drop-shadow(18px 20px 30px rgba(0,0,0,.55))">
+      <svg viewBox="4100 6700 12720 12700" style="position:absolute;inset:0;width:100%;height:100%">
+        <g transform="translate(130,130)"><use href="#e9-mark" fill="#001434"/></g>
+        <g transform="translate(260,260)"><use href="#e9-mark" fill="#001838"/></g>
+        <g transform="translate(390,390)"><use href="#e9-mark" fill="#001C48"/></g>
+        <g transform="translate(520,520)"><use href="#e9-mark" fill="#002152"/></g>
+        <g transform="translate(650,650)"><use href="#e9-mark" fill="#00265C"/></g>
+        <g transform="translate(780,780)"><use href="#e9-mark" fill="#002B66"/></g>
+        <g transform="translate(910,910)"><use href="#e9-mark" fill="#003070"/></g>
+        <g transform="translate(1040,1040)"><use href="#e9-mark" fill="#00357A"/></g>
+        <g transform="translate(1170,1170)"><use href="#e9-mark" fill="#003A85"/></g>
+        <use href="#e9-mark" fill="url(#metal-marca)"/>
+      </svg>
+    </span>
+    <span class="palco tipo3d">
+      <span class="atras extrusao">3D</span>
+      <span class="frente face-metal">3D</span>
+    </span>
+  </div>
+</div>
+
+<!-- =============== C · bloco empilhado =============== -->
+<div class="quadro" id="c">
+  <span class="lattice"></span><span class="halo"></span>
+  <span class="etiqueta">C · bloco empilhado</span>
+  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;position:relative">
+    <span class="marca" style="width:150px;height:150px">
+      <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+    </span>
+    <span class="assinatura" style="font-size:26px;margin:14px 0 2px">E9 Soluções</span>
+    <span class="palco tipo3d-medio">
+      <span class="atras extrusao">3D</span>
+      <span class="frente face-metal">3D</span>
+    </span>
+  </div>
+</div>
+
+<!-- =============== D · extrusão curta, mais sóbria =============== -->
+<div class="quadro" id="d">
+  <span class="lattice"></span><span class="halo"></span>
+  <span class="etiqueta">D · extrusão curta</span>
+  <div style="display:flex;align-items:center;gap:44px;position:relative">
+    <span class="marca" style="width:170px;height:170px">
+      <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+    </span>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span class="assinatura" style="font-size:22px">E9 Soluções</span>
+      <span class="palco tipo3d-medio">
+        <span class="atras extrusao-curta">3D</span>
+        <span class="frente face-metal">3D</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<!-- =============== E · em perspectiva =============== -->
+<div class="quadro" id="e">
+  <span class="lattice"></span><span class="halo"></span>
+  <span class="etiqueta">E · em perspectiva</span>
+  <div style="display:flex;align-items:center;gap:50px;position:relative;
+              perspective:1400px">
+    <span class="marca" style="width:190px;height:190px;transform:rotateY(16deg) rotateX(4deg)">
+      <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+    </span>
+    <span class="palco tipo3d" style="transform:rotateY(-18deg) rotateX(6deg)">
+      <span class="atras extrusao">3D</span>
+      <span class="frente face-metal">3D</span>
+      <span class="glint"></span>
+    </span>
+  </div>
+</div>
+
+<!-- =============== F · marca dentro do zero do 3D =============== -->
+<div class="quadro" id="f">
+  <span class="lattice"></span><span class="halo"></span>
+  <span class="etiqueta">F · assinatura compacta</span>
+  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:4px;position:relative">
+    <div style="display:flex;align-items:flex-end;gap:26px">
+      <span class="marca" style="width:132px;height:132px;margin-bottom:12px">
+        <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+      </span>
+      <span class="palco tipo3d">
+        <span class="atras extrusao">3D</span>
+        <span class="frente face-metal">3D</span>
+      </span>
+    </div>
+    <span class="assinatura" style="font-size:21px;margin-left:4px">E9 Soluções · impressão 3D</span>
+  </div>
+</div>
+
+<!-- =============== teste de redução =============== -->
+<div class="quadro" id="reducao" style="height:420px">
+  <span class="lattice"></span>
+  <span class="etiqueta">Teste de redução · como fica no papel</span>
+  <div style="display:flex;align-items:flex-end;gap:70px;position:relative">
+    <div style="text-align:center">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span class="marca" style="width:52px;height:52px">
+          <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+        </span>
+        <span class="palco" style="font-size:58px;font-weight:800;letter-spacing:-.05em">
+          <span class="atras" style="text-shadow:1px 1px 0 #003A85,2px 2px 0 #003070,3px 3px 0 #00265C,4px 4px 0 #001838">3D</span>
+          <span class="frente face-metal">3D</span>
+        </span>
+      </div>
+      <div class="assinatura" style="font-size:11px;margin-top:14px;color:rgba(229,233,242,.35)">40 mm · cartela</div>
+    </div>
+    <div style="text-align:center">
+      <div style="display:flex;align-items:center;gap:9px">
+        <span class="marca" style="width:33px;height:33px">
+          <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+        </span>
+        <span class="palco" style="font-size:37px;font-weight:800;letter-spacing:-.05em">
+          <span class="atras" style="text-shadow:1px 1px 0 #003A85,2px 2px 0 #002B66,3px 3px 0 #001838">3D</span>
+          <span class="frente face-metal">3D</span>
+        </span>
+      </div>
+      <div class="assinatura" style="font-size:11px;margin-top:14px;color:rgba(229,233,242,.35)">25 mm · etiqueta</div>
+    </div>
+    <div style="text-align:center">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span class="marca" style="width:22px;height:22px">
+          <svg viewBox="4100 6700 12720 12700"><use href="#e9-mark" fill="url(#metal-marca)"/></svg>
+        </span>
+        <span class="palco" style="font-size:25px;font-weight:800;letter-spacing:-.05em">
+          <span class="atras" style="text-shadow:1px 1px 0 #003A85,2px 2px 0 #001838">3D</span>
+          <span class="frente face-metal">3D</span>
+        </span>
+      </div>
+      <div class="assinatura" style="font-size:11px;margin-top:14px;color:rgba(229,233,242,.35)">15 mm · selo</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

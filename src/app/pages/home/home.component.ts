@@ -21,11 +21,17 @@ import { LogoE9MarkComponent } from '../../components/logo-e9/logo-e9-mark.compo
 import { RevealOnScrollDirective } from '../../directives/reveal-on-scroll.directive';
 
 /** Destino das mensagens do formulário de contato — trocar pelo e-mail oficial. */
-const CONTACT_EMAIL = 'contato@e9solucoes.com.br';
+const CONTACT_EMAIL = 'e9solucoestecnologicas@gmail.com';
 
-/** Total de frentes de atuação e o ritmo da contagem 1 → 9. */
-const FRENTES_TOTAL = 9;
-const FRENTES_STEP_MS = 110;
+/**
+ * Total de pilares e o ritmo da contagem 1 → 3.
+ *
+ * Era 1 → 9, de quando a casa se apresentava por nove frentes. O nove segue
+ * na marca e no design system (a 9ª posição é o Core), mas deixou de ser
+ * contagem de serviço: hoje são três pilares, com a impressão 3D à frente.
+ */
+const FRENTES_TOTAL = 3;
+const FRENTES_STEP_MS = 260;
 
 /** Tempo que cada etapa do processo fica destacada no percurso 01 → 10. */
 const ETAPA_STEP_MS = 1500;
@@ -39,6 +45,42 @@ interface EtapaProcesso {
   /** 09 · Fundamentação — mantém o rótulo destacado mesmo fora do foco. */
   readonly nucleo?: boolean;
 }
+
+/**
+ * Vitrine: peças que já saíram da impressora.
+ *
+ * As fotos são WebP convertidos dos PNG originais (1080x1350, o mesmo
+ * formato dos posts) — 1,6MB viraram 0,37MB. Os PNG seguem na pasta como
+ * fonte; o site serve só o WebP.
+ */
+interface Produto {
+  readonly slug: string;
+  readonly nome: string;
+  readonly tipo: string;
+  readonly descricao: string;
+  readonly detalhes: readonly string[];
+  readonly fotos: readonly string[];
+}
+
+const FOTOS_PAPAI_NOEL = Array.from({ length: 8 }, (_, i) =>
+  `assets/img/produtos/papai-noel-se-aquecendo/papai-noel-0${i + 1}.webp`,
+);
+
+const PRODUTOS: readonly Produto[] = [
+  {
+    slug: 'papai-noel-se-aquecendo',
+    nome: 'Papai Noel se aquecendo',
+    tipo: 'Luminária de mesa · edição de Natal',
+    descricao:
+      'Papai Noel e a rena ao redor da fogueira, com a chama acesa de verdade. Sai da impressora já colorido, peça por peça, sem pintura depois.',
+    detalhes: [
+      'Multicor numa impressão só — cada parte na sua cor, sem tinta',
+      'A chama é uma vela de LED: luz quente, zero calor na peça',
+      'Base que também funciona desligada, como enfeite de mesa',
+    ],
+    fotos: FOTOS_PAPAI_NOEL,
+  },
+];
 
 @Component({
   selector: 'app-home',
@@ -56,6 +98,14 @@ interface EtapaProcesso {
   preserveWhitespaces: true,
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+  readonly produtos = PRODUTOS;
+  /** Índice da foto grande da vitrine. */
+  readonly fotoAtiva = signal(0);
+
+  verFoto(indice: number): void {
+    this.fotoAtiva.set(indice);
+  }
+
   private readonly host = inject(ElementRef<HTMLElement>);
   private readonly zone = inject(NgZone);
   private readonly platformId = inject(PLATFORM_ID);

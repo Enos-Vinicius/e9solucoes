@@ -1,8 +1,28 @@
 # E9 Soluções — site institucional
 
 Angular 19 (standalone, sem NgModule) + Tailwind 3.4. Rotas lazy em
-`src/app/app.routes.ts`: `/` (home), `/design-system`, `/catalogo`, `**` → `/`.
+`src/app/app.routes.ts`: `/` (home), `/inteligencia-artificial`, `/design-system`,
+`/catalogo`, `/marketing`, `/marketing-nova-casa`, `**` → `/`.
 Tema escuro único — não há light mode, não presuma um.
+
+## Posicionamento: três pilares, 3D à frente
+
+A casa se apresentava por **nove frentes**. Desde novembro de 2026 são **três**:
+**Impressão 3D** (principal), **Software** e **Inteligência Artificial**. As
+outras seis foram aposentadas do site.
+
+O **nove continua na marca e no design system** — a 9ª posição é o Core, e a
+página `/design-system` ainda explica isso. O que acabou foi o nove como
+*contagem de serviço*: não existe mais "9 frentes" em lugar nenhum da home, e o
+contador do hero conta 1 → 3 (`FRENTES_TOTAL` em `home.component.ts`).
+
+A hierarquia é dita pelo **tamanho do card**, não por adjetivo: na seção 03 o
+card de 3D ocupa duas colunas e os outros dois dividem a terceira. A seção
+profunda de 3D (`#manufatura`) vem **antes** da de Software (`#software`).
+
+`/marketing` segue no ar mas **não é linkada de lugar nenhum** — é acessada só
+pela URL direta, por decisão de não poluir o site principal. O portfólio da
+Nova Casa continua lá dentro.
 
 Em `marketing/instagram/` moram as artes de Instagram (HTML → PNG via Playwright).
 **Compartilham a paleta com o site** — ver "Sincronia" abaixo.
@@ -264,6 +284,57 @@ madeira ser proposta, não medição. Nas superfícies escuras ela entra com
 Isso só funciona se o ancestral não criar contexto de empilhamento: um
 `z-index` no wrapper isola o blend do fundo e o branco do JPG reaparece como
 um bloco. O container do post leva `isolation: isolate` justamente por isso.
+
+# Impressos: marketing/cartoes
+
+**O material corrente é o cartão** (`marketing/cartoes`): A6, uma face só, sem
+dobra, um por produto — cabem quatro numa folha A4. Os conceitos anteriores
+ficaram como referência e podem ser aposentados: `marketing/cartelas` (cartela
+dobrável grampeada no saco) e `marketing/folders` (A5 dobrado, frente e verso).
+
+```bash
+node marketing/cartoes/export.js   # cartoes.html -> png/e9-cartao-*.png
+```
+
+**Tipografia do impresso:** mono é **Azeret Mono** (a da marca, via Google
+Fonts), sans segue Geist. O site ainda usa Geist Mono — se a Azeret for virar
+padrão lá também, é mudança de `--font-mono` em `src/styles.scss` e no
+`tailwind.config.js`.
+
+**Marca em 3D:** `marketing/identidade/png/log-final.png` (1774 × 887,
+transparente, prata com aresta azul). É a assinatura das capas. O estudo que
+antecedeu ela está em `marketing/identidade/e9-3d.html`.
+
+**QR do Instagram:** `marketing/identidade/png/qr-instagram.png`, gerado uma
+vez por serviço público e versionado — o export segue offline. Estrutura
+conferida (versão 3, três olhos), conteúdo não decodificado aqui.
+
+# Impressos: a mecânica (vale para folders e cartelas)
+
+Cartelas de embalagem dos produtos 3D (12 × 24 cm, dobradas ao meio e grampeadas
+no saco). Mesmo design system do site, só que em papel. Especificação completa
+em `marketing/cartelas/IMPRESSAO.md`.
+
+```bash
+node marketing/cartelas/export.js    # cartelas.html -> png/e9-cartela-*.png
+```
+
+Três coisas que diferenciam impresso de tela aqui:
+
+**O CSS é em mm** e o export usa `deviceScaleFactor: 300/96`, então 1mm no
+arquivo é 1mm no papel. O clipe do Playwright é truncado para pixel CSS inteiro
+e milímetro nunca cai redondo — por isso o script grava o chunk `pHYs` no PNG
+com a densidade que faz os pixels medirem exatamente 126 × 246 mm. Sem isso o
+editor da gráfica abre a 72 DPI.
+
+**O verso é desenhado girado 180°.** A folha dobra para trás; a metade de cima
+vira. Não é bug.
+
+**O export reprova** se algum conteúdo ficar a menos de 5mm da linha de corte.
+Um guard anterior comparava `scrollHeight` com `clientHeight` e não servia:
+os dois incluem o padding, então texto comendo a margem passava batido — e foi
+assim que a primeira versão perdeu o bloco de contato inteiro, cortado em
+silêncio pelo `overflow:hidden`.
 
 # Sincronia com marketing/
 

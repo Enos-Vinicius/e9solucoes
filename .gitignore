@@ -44,3 +44,9 @@ Thumbs.db
 # Artefatos locais de desenvolvimento
 /.screenshots
 .claude/settings.local.json
+
+# Projetos de fatiamento (Bambu/Orca). São centenas de MB de malha e, uma vez
+# commitados, ficam no histórico para sempre. Versione o modelo na nuvem do
+# slicer ou com git-lfs, não aqui.
+marketing/3d/*.3mf
+marketing/3d/*.stl
